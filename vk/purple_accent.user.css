@@ -51,8 +51,8 @@ body, html[dir], [dir] #page_wrap {
     --skeleton_shimmer_from: #1a1818;
     --modal_card_background: #1a1818;
     --content_tint_background: #202020;
-    --loader_background: #2d2d2d;
     --background_light: #202020;
+    --loader_background: #2d2d2d;
     --button_secondary_foreground_highlighted: #0000;
     --snippet_border: #0000;
     --separator_common: #0000;
