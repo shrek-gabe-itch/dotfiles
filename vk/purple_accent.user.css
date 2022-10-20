@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         VK Purple accent 
-@version      1.0.1
+@version      1.0.2
 @namespace    https://github.com/shrek-gabe-itch/css
 @updateURL    https://raw.githubusercontent.com/shrek-gabe-itch/css/main/vk/purple_accent.user.css
 @license      unlicense
@@ -59,11 +59,12 @@ body, html[dir], [dir] #page_wrap {
     --background_hover: #915ca333;
     --gray_850: #915ca333;
     --text_placeholder: #915ca3;
+    --im_bubble_outgoing:#915ca333;
 }
 body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search {
     color: #915ca3 !important;
 }
-.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ui_tabs_header .ui_tab, .ProfileFullCommonInfo__caption, .ui_tabs .ui_tab, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text {
+.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ui_tabs_header .ui_tab, .ProfileFullCommonInfo__caption, .ui_tabs .ui_tab, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text, .ConvoMessage__text, .ConvoMessage__reply {
     color: #a6a6b5;
 }
 .vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field {
