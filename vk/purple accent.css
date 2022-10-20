@@ -1,4 +1,3 @@
-@-moz-document domain("vk.com") {
 /* ==UserStyle==
 @name         VK Purple accent 
 @namespace    github.com/shrek-gabe-itch/css/VK
@@ -8,6 +7,7 @@
 @preprocessor default
 ==/UserStyle== */
 
+@-moz-document domain("vk.com") {
 body, html[dir], [dir] #page_wrap {
     background: url(https://i.imgur.com/rlsprAZ.jpg) no-repeat fixed 0 !important;
     scrollbar-color: #915ca3 #1a1818 !important;
