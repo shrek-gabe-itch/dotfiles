@@ -1,0 +1,99 @@
+/* ==UserStyle==
+@name         VK Purple accent 
+@namespace    github.com/shrek-gabe-itch/css/VK
+@updateURL    https://github.com/shrek-gabe-itch/css/blob/main/vk/purple%20accent.css
+@version      0.0.1
+@license      unlicense
+@preprocessor default
+==/UserStyle== */
+
+@-moz-document domain("vk.com") {
+body, html[dir], [dir] #page_wrap {
+    background: url(https://i.imgur.com/rlsprAZ.jpg) no-repeat fixed 0 !important;
+    scrollbar-color: #915ca3 #1a1818 !important;
+}
+[scheme=vkcom_dark] {
+    --background_page: #0000;
+    --attach_picker_tab_active_icon: #1a1818;
+    --background_content: #1a1818;
+    --button_bot_shadow: #1a1818;
+    --button_primary_foreground: #915ca3;
+    --control_tint: #1a1818;
+    --counter_primary_text: #1a1818;
+    --counter_secondary_text: #1a1818;
+    --header_background: #1a1818;
+    --landing_background: #1a1818;
+    --landing_login_button_foreground: #1a1818;
+    --landing_primary_button_foreground: #1a1818;
+    --overlay_status_background: #1a1818;
+    --search_bar_background: #1a1818;
+    --segmented_control_bar_background: #1a1818;
+    --vk_connect_button_primary_foreground: #1a1818;
+    --skeleton_shimmer_from: #1a1818;
+    --sky_300: #915ca3;
+    --text_name: #915ca3;
+    --button_secondary_foreground_highlighted: #0000;
+    --button_secondary_background_highlighted: #915ca352;
+    --button_secondary_background: #915ca333;
+    --background_highlighted: #915ca333;
+    --modal_card_background: #1a1818;
+    --snippet_border: #0000;
+    --separator_common: #0000;
+    --landing_snippet_border: #0000;
+    --loader_background: #2d2d2d;
+    --loader_track_fill: #a77cb6;
+    --loader_track_value_fill: #915ca3;
+    --button_primary_background: #915ca333;
+    --text_subhead: #915ca3;
+    --input_background: #915ca333;
+    --input_border: #0000;
+    --text_muted: #915ca3;
+    --separator_alternate: #0000;
+    --image_border: #0000;
+    --content_tint_background: #202020;
+    --icon_tertiary: #915ca3;
+    --text_primary: #915ca3;
+    --background_light: #202020;
+    --icon_outline_medium: #915ca3;
+    --icon_outline_secondary: #915ca3;
+    --vkui--color_text_accent_themed: #915ca3;
+    --background_hover: #915ca333;
+    --gray_850: #915ca333;
+    --text_placeholder: #915ca3;
+}
+body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search {
+    color: #915ca3 !important;
+}
+.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ui_tabs_header .ui_tab, .ProfileFullCommonInfo__caption, .ui_tabs .ui_tab, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text {
+    color: #a6a6b5;
+}
+.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field {
+    background-color: #915ca333 !important;
+}
+/*LOGO*/
+.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
+    fill: #915ca3;
+}
+.post_field_user_image, .TopNavBtn__profileImg, .OwnerPageAvatar__in {
+    filter: saturate(0)invert(0.9);
+}
+[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before {
+    filter: invert(0.69)hue-rotate(255deg)saturate(1.8)brightness(0.98);
+}
+/*FIXES*/
+.audio_w_covers .audio_row .audio_row__cover_icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="%23915ca3" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zM9.5 16.5v-9l7 4.5l-7 4.5z"%2F%3E%3C%2Fsvg%3E');
+}
+.audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon {
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="%23915ca3" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"%2F%3E%3C%2Fsvg%3E');
+}
+.pv_cont .pv_reply_form_wrap .reply_field_wrap {
+    margin-left: 0px;
+}
+.wall_module .reply_box div.submit_post_field, .wall_module .reply_box div.submit_post_field[contenteditable="true"], .wall_module .reply_box div.submit_post_field ~ .placeholder .ph_input, .wall_module .reply_box div.submit_post_field[contenteditable="true"] ~ .placeholder .ph_input {
+    padding-left: 64px;
+}
+.reply_fakebox, .reply_field.submit_post_field {
+    border-radius: 6px;
+}
+}
