@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         VK Purple accent 
-@version      1.0.2
+@version      1.0.3
 @namespace    https://github.com/shrek-gabe-itch/css
 @updateURL    https://raw.githubusercontent.com/shrek-gabe-itch/css/main/vk/purple_accent.user.css
 @license      unlicense
@@ -24,6 +24,7 @@ body, html[dir], [dir] #page_wrap {
     --icon_outline_secondary: #915ca3;
     --vkui--color_text_accent_themed: #915ca3;
     --text_placeholder: #915ca3;
+    --icon_secondary:#915ca3;
     --loader_track_fill: #a77cb6;
     --button_secondary_background_highlighted: #915ca352;
     --button_secondary_background: #915ca333;
@@ -61,7 +62,7 @@ body, html[dir], [dir] #page_wrap {
     --separator_alternate: #0000;
     --image_border: #0000;
 }
-body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search {
+body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, #stl_text {
     color: #915ca3 !important;
 }
 .top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ui_tabs_header .ui_tab, .ProfileFullCommonInfo__caption, .ui_tabs .ui_tab, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text, .ConvoMessage__text, .ConvoMessage__reply {
