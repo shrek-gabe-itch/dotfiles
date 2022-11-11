@@ -24,7 +24,8 @@ body, html[dir], [dir] #page_wrap {
     --icon_outline_secondary: #915ca3;
     --vkui--color_text_accent_themed: #915ca3;
     --text_placeholder: #915ca3;
-    --icon_secondary:#915ca3;
+    --icon_secondary: #915ca3;
+    --button_commerce_background: #915ca3; 
     --loader_track_fill: #a77cb6;
     --button_secondary_background_highlighted: #915ca352;
     --button_secondary_background: #915ca333;
@@ -34,6 +35,7 @@ body, html[dir], [dir] #page_wrap {
     --background_hover: #915ca333;
     --gray_850: #915ca333;
     --im_bubble_outgoing:#915ca333;
+    --content_tint_background: ##915ca333;
     --background_page: #0000;
     --attach_picker_tab_active_icon: #1a1818;
     --background_content: #1a1818;
@@ -51,7 +53,6 @@ body, html[dir], [dir] #page_wrap {
     --vk_connect_button_primary_foreground: #1a1818;
     --skeleton_shimmer_from: #1a1818;
     --modal_card_background: #1a1818;
-    --content_tint_background: #202020;
     --background_light: #202020;
     --loader_background: #2d2d2d;
     --button_secondary_foreground_highlighted: #0000;
