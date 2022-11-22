@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         VK Purple accent 
-@version      1.0.4
+@version      1.0.5
 @namespace    https://github.com/shrek-gabe-itch/rice
 @updateURL    https://raw.githubusercontent.com/shrek-gabe-itch/rice/main/css/vk/purple_accent.user.css
 @license      unlicense
@@ -15,10 +15,12 @@ body, html[dir], [dir] #page_wrap {
     --accent: #915ca3 !important;
     --button_primary_foreground: #915ca3 !important;
     --sky_300: #915ca3 !important;
+    --im_text_name: #915ca3 !important;
     --text_name: #915ca3 !important;
     --loader_track_value_fill: #915ca3 !important;
     --text_subhead: #915ca3 !important;
     --text_muted: #915ca3 !important;
+    --text_link: #915ca3 !important;
     --icon_tertiary: #915ca3 !important;
     --text_primary: #915ca3 !important;
     --icon_outline_medium: #915ca3 !important;
@@ -37,7 +39,8 @@ body, html[dir], [dir] #page_wrap {
     --background_hover: #915ca333 !important;
     --gray_850: #915ca333 !important;
     --im_bubble_outgoing:#915ca333 !important;
-    --content_tint_background: ##915ca333 !important;
+    --content_tint_background: #915ca333 !important;
+    --field_background: #915ca333 !important;
     --background_page: #0000 !important;
     --attach_picker_tab_active_icon: #1a1818 !important;
     --background_content: #1a1818 !important;
@@ -74,23 +77,26 @@ body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .au
 .vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover {
     background-color: #915ca333 !important;
 }
-/*LOGO*/
-.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
-    fill: #915ca3 !important;
-}
-.post_field_user_image, .TopNavBtn__profileImg, .OwnerPageAvatar__in {
-    filter: saturate(0)invert(0.9) !important;
-}
 [scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before {
     filter: invert(0.69)hue-rotate(255deg)saturate(1.8)brightness(0.98) !important;
 }
 /*FIXES*/
+/* logo */
+.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
+    fill: #915ca3 !important;
+}
+/* avatar w|o picture */
+/* .post_field_user_image, .TopNavBtn__profileImg, .OwnerPageAvatar__in {
+    filter: saturate(0)invert(0.9) !important;
+} */
+/* player buttons */
 .audio_w_covers .audio_row .audio_row__cover_icon {
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="%23915ca3" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zM9.5 16.5v-9l7 4.5l-7 4.5z"%2F%3E%3C%2Fsvg%3E');
 }
 .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon {
     background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="%23915ca3" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"%2F%3E%3C%2Fsvg%3E');
 }
+/* reply field when view any photo */
 .pv_cont .pv_reply_form_wrap .reply_field_wrap {
     margin-left: 0px;
 }
