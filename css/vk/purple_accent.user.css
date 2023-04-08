@@ -72,6 +72,8 @@ body, html[dir], [dir] #page_wrap {
     --image_border: #0000 !important;
     --text: #a6a6b5 !important;
 }
+
+/* EXCLUSIONS */
 body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, #stl_text,.vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover {
     color: var(--accent) !important;
 }
@@ -84,6 +86,7 @@ body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .au
 [scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before {
     filter: invert(0.69)hue-rotate(255deg)saturate(1.8)brightness(0.98) !important;
 }
+
 /*FIXES*/
 /* logo */
 .TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
