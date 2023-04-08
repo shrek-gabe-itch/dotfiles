@@ -1,184 +1,184 @@
 /* ==UserStyle==
-@name         VK Enhancer
-@version        1.0.2
-@namespace      https://github.com/shrek-gabe-itch/dotfiles
-@updateURL      https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
-@license        unlicense
-@preprocessor   stylus
+@name			VK Enhancer
+@version		1.0.3
+@namespace		https://github.com/shrek-gabe-itch/dotfiles
+@updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
+@license		unlicense
+@preprocessor	stylus
 
-@var checkbox firstHeader			"Header 1"						0
-@var checkbox secondHeader			"Header 2"						0
-@var checkbox thirdHeader			"Header 3"						0
-@var checkbox fourthHeader			"Header 4"						1
+@var checkbox firstHeader		"Header 1"							0
+@var checkbox secondHeader		"Header 2"							0
+@var checkbox thirdHeader		"Header 3"							0
+@var checkbox fourthHeader		"Header 4"							1
 
-@var checkbox noProfile				"Hide My Profile"				1
-@var checkbox noNews				"Hide News"						1
-@var checkbox noFriends				"Hide Friends"					1
-@var checkbox noFooter				"Hide left menu footer"			1
+@var checkbox noProfile			"Hide My Profile"					1
+@var checkbox noNews			"Hide News"							1
+@var checkbox noFriends			"Hide Friends"						1
+@var checkbox noFooter			"Hide left menu footer"				1
 
-@var checkbox wideFeed			    "Widder feed"					0
-@var checkbox noStories			    "Hide stories"					1
-@var checkbox noComunityRecs	    "Hide comunity recommendations"	1
-@var checkbox noFriendsRecs	        "Hide friends recommendations"	1
+@var checkbox wideFeed			"Widder feed"						0
+@var checkbox noStories			"Hide stories"						1
+@var checkbox noComunityRecs	"Hide community recommendations"	1
+@var checkbox noFriendsRecs		"Hide friends recommendations"		1
 
 
-@var checkbox noStatusMusic         "Hide Broadcast music button"  	1
-@var checkbox noLyricsButton        "Hide Lyrics music button"  	1
+@var checkbox noStatusMusic		"Hide Broadcast music button"		1
+@var checkbox noLyricsButton	"Hide Lyrics music button"			1
 
-@var checkbox widePlaylist          "Widder music playlist"       	1
-@var checkbox noExploreMusic        "Hide Explore music"          	0
-@var checkbox noAdditionsMusic      "Hide New addiсtions music"    	0
-@var checkbox noRecentMusic	    	"Hide Recently played music"	1
-@var checkbox noRecsMusic	        "Hide music recommendations"	1
-@var checkbox noEditorsMusic        "Hide Editor choises music"    	1
+@var checkbox widePlaylist		"Widder music playlist"				1
+@var checkbox noExploreMusic	"Hide Explore music"				0
+@var checkbox noAdditionsMusic	"Hide New addiсtions music"			0
+@var checkbox noRecentMusic		"Hide Recently played music"		1
+@var checkbox noRecsMusic		"Hide music recommendations"		1
+@var checkbox noEditorsMusic	"Hide Editor choises music"			1
 
-@var checkbox noMsgSearchbar        "Hide searchbar in Messages"    0
+@var checkbox noMsgSearchbar	"Hide searchbar in Messages"		0
 
 
 ==/UserStyle== */
 
 
-@-moz-document domain("vk.com"), domain("vk.ru") 
-    /* HADER */
-    if firstHeader
-        .HeaderNav__item--player
-            flex: fit-content
-        .TopNavBtn__profileArrow
-            display: none
-        [dir="ltr"] .TopNavBtn__profileLink
-            padding: 0 10px 0 10px
+@-moz-document domain("vk.com"), domain("vk.ru")
+	/* HADER */
+	if firstHeader
+		.HeaderNav__item--player
+			flex: fit-content
+		.TopNavBtn__profileArrow
+			display: none
+		[dir="ltr"] .TopNavBtn__profileLink
+			padding: 0 10px 0 10px
 
-    if secondHeader
-        .HeaderNav__item.HeaderNav__item--gap
-            display: none
-        #audio_layer_tt
-            left: 0px !important
-        .HeaderNav__item--player
-            flex: fit-content
-        .TopNavBtn__profileArrow
-            display: none
-        [dir="ltr"] .TopNavBtn__profileLink
-            padding: 0 10px 0 10px
+	if secondHeader
+		.HeaderNav__item.HeaderNav__item--gap
+			display: none
+		#audio_layer_tt
+			left: 0px !important
+		.HeaderNav__item--player
+			flex: fit-content
+		.TopNavBtn__profileArrow
+			display: none
+		[dir="ltr"] .TopNavBtn__profileLink
+			padding: 0 10px 0 10px
 
-    if thirdHeader
-        .HeaderNav__item.HeaderNav__item--gap
-            display: none
-        #audio_layer_tt
-            left: 0px !important
-        .HeaderNav__item--player
-            flex: fit-content
-        .TopNavBtn__profileArrow
-            display: none
-        [dir="ltr"] .TopNavBtn__profileLink
-            padding: 0 10px 0 10px
-        .EcosystemServicesNavigationDropdown_button__99Wn9
-            display: none
-            
-    if fourthHeader
-        .HeaderNav__item.HeaderNav__item--gap
-            display: none
-        .EcosystemServicesNavigationDropdown_button__99Wn9
-            display: none
-        [dir="ltr"] #top_notify_wrap
-            left: -370px
-        #audio_layer_tt
-            left: 0px !important
-        .HeaderNav__btns
-            position: absolute
-            height: inherit
-            right: 68px
-        .HeaderNav__item--player
-            flex: fit-content
-        .TopNavBtn__profileArrow
-            display: none
-        [dir="ltr"] .TopNavBtn__profileLink
-            padding: 0 10px 0 10px
+	if thirdHeader
+		.HeaderNav__item.HeaderNav__item--gap
+			display: none
+		#audio_layer_tt
+			left: 0px !important
+		.HeaderNav__item--player
+			flex: fit-content
+		.TopNavBtn__profileArrow
+			display: none
+		[dir="ltr"] .TopNavBtn__profileLink
+			padding: 0 10px 0 10px
+		.EcosystemServicesNavigationDropdown_button__99Wn9
+			display: none
 
-    /* LEFT MENU */
-    if noProfile
-        #l_pr
-            display: none !important
-            
-    if noNews
-        #l_nwsf
-            display: none !important
+	if fourthHeader
+		.HeaderNav__item.HeaderNav__item--gap
+			display: none
+		.EcosystemServicesNavigationDropdown_button__99Wn9
+			display: none
+		[dir="ltr"] #top_notify_wrap
+			left: -370px
+		#audio_layer_tt
+			left: 0px !important
+		.HeaderNav__btns
+			position: absolute
+			height: inherit
+			right: 68px
+		.HeaderNav__item--player
+			flex: fit-content
+		.TopNavBtn__profileArrow
+			display: none
+		[dir="ltr"] .TopNavBtn__profileLink
+			padding: 0 10px 0 10px
 
-            
-    if noFriends
-        #l_fr
-            display: none !important
-            
-    if noFooter
-        .left_menu_nav_wrap
-            display: none !important
+	/* LEFT MENU */
+	if noProfile
+		#l_pr
+			display: none !important
 
-    /* FEED */
-    if wideFeed
-        .narrow_column_wrap
-            width: 29% !important
-        #narrow_column
-            min-width: 265px !important
-            max-width: 265px !important
-        .wide_column
-            width: 115% !important
-            
-    if noStories
-        #stories_feed_wrap
-            display: none !important
-            
-    if noComunityRecs
-        .feed_groups_recomm
-            display: none
-            
-    if noFriendsRecs
-        .feed_friends_recomm
-            display: none
-      
-    /* MUSIC */
-    if noStatusMusic
-        div.audio_page_player_btn
-            display: none !important
-            
-    if noLyricsButton
-        button.audio_page_player_btn:nth-child(10)
-            display: none !important
-            
-    if widePlaylist
-        .redesign_web .CatalogSection__leftColumn
-            max-width: 870px
-        .CatalogSection__rightColumn
-            display: none
-        [dir=ltr] .CatalogSection__leftColumn
-            padding-right: 0 !important
-            border-right: 0 !important
+	if noNews
+		#l_nwsf
+			display: none !important
 
-    if noExploreMusic
-        li._audio_section_tab:nth-child(3)
-            display: none !important
-            
-    if noAdditionsMusic
-        li._audio_section_tab:nth-child(4)
-            display: none !important
-            
-    if noRecentMusic
-        .CatalogBlock__recent_audios_header,
-        .CatalogBlock__recent_audios
-            display: none !important
-        [dir] .redesign_web .audio_page_layout .CatalogBlock--divided
-            padding: 12px 20px
 
-    if noRecsMusic
-        .CatalogSection__general > div:nth-child(4)
-            display: none !important
+	if noFriends
+		#l_fr
+			display: none !important
 
-    if noEditorsMusic
-        .CatalogSection__general > div:nth-child(5)
-            display: none !important
-    
-      
-    /* MESSAGES */
-    if noMsgSearchbar
-        .im-page--header.ui_search._im_dialogs_search
-            display: none
-        #im_dialogs
-            top: -40px
+	if noFooter
+		.left_menu_nav_wrap
+			display: none !important
+
+	/* FEED */
+	if wideFeed
+		.narrow_column_wrap
+			width: 29% !important
+		#narrow_column
+			min-width: 265px !important
+			max-width: 265px !important
+		.wide_column
+			width: 115% !important
+
+	if noStories
+		#stories_feed_wrap
+			display: none !important
+
+	if noComunityRecs
+		.feed_groups_recomm
+			display: none
+
+	if noFriendsRecs
+		.feed_friends_recomm
+			display: none
+
+	/* MUSIC */
+	if noStatusMusic
+		div.audio_page_player_btn
+			display: none !important
+
+	if noLyricsButton
+		button.audio_page_player_btn:nth-child(10)
+			display: none !important
+
+	if widePlaylist
+		.redesign_web .CatalogSection__leftColumn
+			max-width: 870px
+		.CatalogSection__rightColumn
+			display: none
+		[dir=ltr] .CatalogSection__leftColumn
+			padding-right: 0 !important
+			border-right: 0 !important
+
+	if noExploreMusic
+		li._audio_section_tab:nth-child(3)
+			display: none !important
+
+	if noAdditionsMusic
+		li._audio_section_tab:nth-child(4)
+			display: none !important
+
+	if noRecentMusic
+		.CatalogBlock__recent_audios_header,
+		.CatalogBlock__recent_audios
+			display: none !important
+		[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
+			padding: 12px 20px
+
+	if noRecsMusic
+		.CatalogSection__general > div:nth-child(4)
+			display: none !important
+
+	if noEditorsMusic
+		.CatalogSection__general > div:nth-child(5)
+			display: none !important
+
+
+	/* MESSAGES */
+	if noMsgSearchbar
+		.im-page--header.ui_search._im_dialogs_search
+			display: none
+		#im_dialogs
+			top: -40px
