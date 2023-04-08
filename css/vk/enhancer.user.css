@@ -1,0 +1,73 @@
+/* ==UserStyle==
+@name         VK Enhancer
+@version      1.0.0
+@namespace    https://github.com/shrek-gabe-itch/dotfiles
+@updateURL    https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
+@license      unlicense
+==/UserStyle== */
+
+
+@-moz-document domain("vk.com") {
+/* LEFT NAV MENU */
+.left_menu_nav_wrap {display: none;}
+#l_pr {display: none;}
+#l_fr {display: none;}
+#l_nwsf {display: none;}
+
+/* HEAD */
+.HeaderNav__item.HeaderNav__item--gap {display: none;}
+.TopNavBtn.TopNavBtn--messenger {display: none;}
+.EcosystemServicesNavigationDropdown_button__99Wn9 {display: none;}
+[dir="ltr"] #top_notify_wrap {left: -370px;}
+#audio_layer_tt {left: 0px !important}
+.top_audio_player {max-width:580px;}
+.HeaderNav__btns {
+    position: absolute;
+    height: inherit;
+    right: 68px;
+}
+.HeaderNav__item--player {flex: fit-content;}
+[dir] .HeaderNav__item:first-child {padding:0;}
+.HeaderNav__item--player {padding-left: min(140px, 8%);}
+.TopNavBtn__profileArrow {display: none;}
+[dir="ltr"] .TopNavBtn__profileLink {padding: 0 10px 0 10px}
+
+/* MUSIC */
+/*disable recently played*/
+.CatalogBlock__recent_audios_header,.CatalogBlock__recent_audios {display: none ;}
+[dir] .redesign_web .audio_page_layout .CatalogBlock--divided {padding: 12px 20px;}
+/*disable editor choises*/
+.CatalogSection__general > div:nth-child(4) {display: none;}
+/*disable celebrities recs*/
+.CatalogSection__general > div:nth-child(5) {display: none;}
+/*widder music list*/
+.redesign_web .CatalogSection__leftColumn {max-width: 870px;}
+.CatalogSection__rightColumn {display: none;}
+[dir=ltr] .CatalogSection__leftColumn {
+    padding-right: 0 !important; 
+    border-right: 0 !important;
+}
+/*disable status music button*/
+div.audio_page_player_btn {display: none;}
+
+/* FEED */
+.narrow_column_wrap {width: 29%;}
+#narrow_column {min-width: 265px; max-width: 265px;}
+.wide_column {width: 115%;}
+
+#stories_feed_wrap {display: none !important;}                                      /*hide strories*/
+.feed_groups_recomm {display: none;}                                                /*hide comunity recs*/
+.feed_friends_recomm {display: none;}                                               /*hide freinds recs*/
+#recommended_narratives {display: none;}
+.FriendsRecommendationsBlock-module__root--Yp5Oq {display: none;}
+.PageBlockProvider-module__root--o3W9A {display: none;}
+.friends_possible_block {display: none;}                                            
+.block_aliexpress-recommendations-carousel {display: none;}
+#feed_blog_reminder {display:none;}
+#feed_filters > div:nth-child(2) {display:none;}
+
+/* MESSAGES*/
+/* disable ugly searchbar*/
+.im-page--header.ui_search._im_dialogs_search {display: none}
+#im_dialogs {top: -40px;}
+}
