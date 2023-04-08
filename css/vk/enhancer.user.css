@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         VK Enhancer
-@version        1.0.0
+@version        1.0.2
 @namespace      https://github.com/shrek-gabe-itch/dotfiles
 @updateURL      https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license        unlicense
@@ -32,7 +32,7 @@
 @var checkbox noRecsMusic	        "Hide music recommendations"	1
 @var checkbox noEditorsMusic        "Hide Editor choises music"    	1
 
-@var checkbox noMsgSearchbar        "Hide searchmar in Messages"    0
+@var checkbox noMsgSearchbar        "Hide searchbar in Messages"    0
 
 
 ==/UserStyle== */
