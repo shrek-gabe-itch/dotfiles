@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.0.6
+@version		1.0.7
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -40,7 +40,18 @@
 
 
 @-moz-document domain("vk.com"), domain("vk.ru")
+		.media_link__label  {
+			border-radius: 0 0 borderRadius borderRadius !important;
+		}
+		.media_link__media {
+			border-radius: borderRadius borderRadius 0 0 !important;
+		}
+		.page_post_thumb_last_row {
+			border-radius: borderRadius !important;
+		}
 
+    *
+		--mg-border-radius-wrapper: borderRadius !important
 	*
 		--vkui--size_border_radius_paper--regular: borderRadius !important
 		--vkui--size_border_radius--regular: borderRadius !important
@@ -138,6 +149,8 @@
 			display: none
 
 	if noFeedAds
+		.feed_groups_recomm_friends
+			display: none
 		.feed_groups_recomm
 			display: none
 		.feed_friends_recomm
