@@ -1,10 +1,12 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.0.4
+@version		1.0.5
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
 @preprocessor	stylus
+
+@var range borderRadius			"UI border radius"					[12, 0, 28, 4, 'px']
 
 @var checkbox firstHeader		"Header 1"							0
 @var checkbox secondHeader		"Header 2"							0
@@ -18,6 +20,7 @@
 
 @var checkbox wideFeed			"Widder feed"						0
 @var checkbox noStories			"Hide stories"						1
+@var checkbox noFeedComments	"Hide one comment under posts"		0
 @var checkbox noFeedAds			"Hide all feed ads"					1
 
 @var checkbox noStatusMusic		"Hide Broadcast music button"		1
@@ -37,6 +40,10 @@
 
 
 @-moz-document domain("vk.com"), domain("vk.ru")
+
+	*
+		--vkui--size_border_radius_paper--regular: borderRadius !important
+
 	/* HADER */
 	if firstHeader
 		.top_audio_player
@@ -123,6 +130,12 @@
 	if noStories
 		#stories_feed_wrap
 			display: none !important
+
+	if noFeedComments
+		.post_replies_header.clear_fix
+			display: none
+		.replies
+			display: none
 
 	if noFeedAds
 		.feed_groups_recomm
