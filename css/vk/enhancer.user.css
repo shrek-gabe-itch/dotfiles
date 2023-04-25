@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.0.5
+@version		1.0.6
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
 @preprocessor	stylus
 
-@var range borderRadius			"UI border radius"					[12, 0, 28, 4, 'px']
+@var range borderRadius			"UI border radius"					[12, 0, 24, 4, 'px']
 
 @var checkbox firstHeader		"Header 1"							0
 @var checkbox secondHeader		"Header 2"							0
@@ -43,6 +43,7 @@
 
 	*
 		--vkui--size_border_radius_paper--regular: borderRadius !important
+		--vkui--size_border_radius--regular: borderRadius !important
 
 	/* HADER */
 	if firstHeader
@@ -108,7 +109,6 @@
 		#l_nwsf
 			display: none !important
 
-
 	if noFriends
 		#l_fr
 			display: none !important
@@ -147,6 +147,10 @@
 		.new_adaptive_post.Post--redesign
 			display: none
 		.post_header.ads_ad_text_box.adaptive_ad
+			display: none
+		.vkuiGroup__inner
+			display: none
+		._ads_block_data_w.mailru-visibility-check.closed_comments.deep_active.Post--redesign
 			display: none
 
 	/* MUSIC */
