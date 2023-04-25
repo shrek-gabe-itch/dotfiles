@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Purple accent 
-@version		1.0.8
+@version		1.0.9
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/purple_accent.user.css
 @license		unlicense
@@ -110,5 +110,9 @@ body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .au
 }
 .reply_fakebox, .reply_field.submit_post_field {
 	border-radius: 6px;
+}
+/* left menu hover border radius */
+.LeftMenuItem-module__item--dDdjm {
+    border-radius: 8px !important;
 }
 }
