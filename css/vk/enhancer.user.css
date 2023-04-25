@@ -18,9 +18,7 @@
 
 @var checkbox wideFeed			"Widder feed"						0
 @var checkbox noStories			"Hide stories"						1
-@var checkbox noComunityRecs	"Hide community recommendations"	1
-@var checkbox noFriendsRecs		"Hide friends recommendations"		1
-
+@var checkbox noFeedAds			"Hide all feed ads"					1
 
 @var checkbox noStatusMusic		"Hide Broadcast music button"		1
 @var checkbox noLyricsButton	"Hide Lyrics music button"			1
@@ -41,8 +39,8 @@
 @-moz-document domain("vk.com"), domain("vk.ru")
 	/* HADER */
 	if firstHeader
-		.HeaderNav__item--player
-			flex: fit-content
+		.top_audio_player
+			max-width: 800px
 		.TopNavBtn__profileArrow
 			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
@@ -53,8 +51,8 @@
 			display: none
 		#audio_layer_tt
 			left: 0px !important
-		.HeaderNav__item--player
-			flex: fit-content
+		.top_audio_player
+			max-width: 800px
 		.TopNavBtn__profileArrow
 			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
@@ -65,8 +63,8 @@
 			display: none
 		#audio_layer_tt
 			left: 0px !important
-		.HeaderNav__item--player
-			flex: fit-content
+		.top_audio_player
+			max-width: 800px
 		.TopNavBtn__profileArrow
 			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
@@ -87,8 +85,8 @@
 			position: absolute
 			height: inherit
 			right: 68px
-		.HeaderNav__item--player
-			flex: fit-content
+		.top_audio_player
+			max-width: 800px
 		.TopNavBtn__profileArrow
 			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
@@ -126,12 +124,16 @@
 		#stories_feed_wrap
 			display: none !important
 
-	if noComunityRecs
+	if noFeedAds
 		.feed_groups_recomm
 			display: none
-
-	if noFriendsRecs
 		.feed_friends_recomm
+			display: none
+		.FriendsRecommendationsBlock-module__root--Yp5Oq
+			display: none
+		.new_adaptive_post.Post--redesign
+			display: none
+		.post_header.ads_ad_text_box.adaptive_ad
 			display: none
 
 	/* MUSIC */
