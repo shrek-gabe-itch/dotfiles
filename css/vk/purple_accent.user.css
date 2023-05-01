@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Purple accent 
-@version		1.0.9
+@version		1.0.10
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/purple_accent.user.css
 @license		unlicense
@@ -11,6 +11,7 @@ body, html[dir], [dir] #page_wrap {
 	background: url(https://i.imgur.com/rlsprAZ.jpg) no-repeat fixed 0 !important;
 	scrollbar-color: #915ca3 #1a1818 !important;
 }
+
 [scheme=vkcom_dark] {
 	--accent: #915ca3 !important;
 	--button_primary_foreground: #915ca3 !important;
@@ -43,6 +44,7 @@ body, html[dir], [dir] #page_wrap {
 	--float_button_background:#915ca333 !important;
 	--background_suggestions: #915ca333 !important;
 	--background_page: #0000 !important;
+	--vkui--color_background_modal: #1a1818 !important;
 	--attach_picker_tab_active_icon: #1a1818 !important;
 	--background_content: #1a1818 !important;
 	--button_bot_shadow: #1a1818 !important;
@@ -59,7 +61,7 @@ body, html[dir], [dir] #page_wrap {
 	--vk_connect_button_primary_foreground: #1a1818 !important;
 	--skeleton_shimmer_from: #1a1818 !important;
 	--modal_card_background: #1a1818 !important;
-	--background_light: #202020 !important;
+	--background_light: #1a1818 !important;
 	--loader_background: #2d2d2d !important;
 	--button_secondary_foreground_highlighted: #0000 !important;
 	--snippet_border: #0000 !important;
@@ -84,16 +86,27 @@ body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .au
 [scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before {
 	filter: invert(0.69)hue-rotate(255deg)saturate(1.8)brightness(0.98) !important;
 }
+.vkuiDropdown {
+	background-color: var(--background_content) !important;
+}
 
 /*FIXES*/
+/* revert old feed width */
+body,
+:root {
+	--narrow-column-width: 265px !important;
+}
+div.module_body.clear_fix div.people_row div.people_cell:last-child {
+	display: none !important;
+}
 /* logo */
 .TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
 	fill: var(--accent) !important;
 }
-/* avatar w|o picture */
-/* .post_field_user_image, .TopNavBtn__profileImg, .OwnerPageAvatar__in {
-	filter: saturate(0)invert(0.9) !important;
-} */
+/* 1 january */
+.EcosystemAccountIFlip_hidden__T-on7 {
+	display: none;
+}
 /* player buttons */
 .audio_w_covers .audio_row .audio_row__cover_icon {
 	background-image: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"%3E%3Cpath fill="%23915ca3" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zM9.5 16.5v-9l7 4.5l-7 4.5z"%2F%3E%3C%2Fsvg%3E');
@@ -112,7 +125,7 @@ body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .au
 	border-radius: 6px;
 }
 /* left menu hover border radius */
-.LeftMenuItem-module__item--dDdjm {
+.LeftMenu__itemLink {
     border-radius: 8px !important;
 }
 }
