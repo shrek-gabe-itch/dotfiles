@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.1.0
+@version		1.1.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -29,10 +29,9 @@
 @var checkbox noLyricsButton	"Hide Lyrics music button"			1
 
 @var checkbox widePlaylist		"Widder music playlist"				1
-@var checkbox noExploreMusic	"Hide Explore music"				0
-@var checkbox noAdditionsMusic	"Hide New addiсtions music"			0
+@var checkbox noExploreMusic	"Hide Explore music"				1
+@var checkbox noAdditionsMusic	"Hide New addiсtions music"			1
 @var checkbox noRecentMusic		"Hide Recently played music"		1
-@var checkbox noRecsMusic		"Hide music recommendations"		1
 @var checkbox noEditorsMusic	"Hide Editor choises music"			1
 
 @var checkbox fab				"FAB Chats"							1
@@ -61,37 +60,16 @@
 
 	/* HADER */
 	if fluent {
-		[scheme=vkcom_light],
-		.vkui--vkBase--light,
-		.vkui--vkCom--light,
-		:root {
+		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root {
 			--header_background: #fffc !important;
 			--search_bar_field_background: #2f222e10!important;
 		}
-		[scheme=vkcom_dark],
-		.vkui--vkBase--dark,
-		.vkui--vkCom--dark,
-		:root {
+		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root {
 			--header_background: #19191acc !important;
 			--search_bar_field_background: #ffffff10!important;
 		}
-		#page_header_cont,
-		body.new_header_design #page_header_cont,
-		.TopSearch__input,
-		.audio_page_player2.audio_page_player_fixed,
-		.im-page--chat-header {
+		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header {
 			backdrop-filter: blur(40px) saturate(1.5);
-		}
-		.audio_page_player2.audio_page_player_fixed {
-			background-color: var(--header_background);
-			border-radius: 0 0 borderRadius borderRadius;
-		}
-		.audio_layer_container .page_block {
-			background-color: var(--header_background) !important;
-		}
-		.TopSearch__input {
-			border: none !important;
-			backdrop-filter: saturate(4);
 		}
 	}
 	
@@ -108,9 +86,6 @@
 		}
 		[dir] .tt_w.tt_black {
 			border-radius: borderRadius;
-		}
-		[dir] .tt_w.like_tt, [dir] .tt_w.voting_tt {
-			font-weight: 700;
 		}
 		[dir] .like_tt_share {
 			margin: 8px -3px -1px;
@@ -226,15 +201,22 @@
 			display: none !important
 
 	/* FEED */
-    if widderFeed {
-        div.module_body.clear_fix div.people_row div.people_cell:last-child {
-            display: none !important;
-        }
-        body,
-        :root {
-            --narrow-column-width: 265px !important;
-        }
-    }
+	if widderFeed {
+		div.module_body.clear_fix div.people_row div.people_cell:last-child {
+			display: none !important;
+		}
+		body, :root {
+			--narrow-column-width: 265px !important;
+		}
+		div.ScrollStickyWrapper div {
+			width: auto !important;
+			margin-right: 0px !important
+		}
+		div.ScrollStickyWrapper div {
+			max-width: 321px !important
+		}
+	}
+	
 	if noStories
 		#stories_feed_wrap
 			display: none !important
@@ -266,6 +248,8 @@
 			display: none !important
 		.VideosFeedTitle
 			display: none !important
+		#ads_left
+			display: none
 
 	/* MUSIC */
 	if noStatusMusic
@@ -286,141 +270,120 @@
 			border-right: 0 !important
 
 	if noExploreMusic
-		li._audio_section_tab:nth-child(3)
+		.ui_tabs_header ._audio_section_tab__explore, ._audio_section_tab._audio_section_tab__explore
 			display: none !important
 
 	if noAdditionsMusic
-		li._audio_section_tab:nth-child(4)
+		.ui_tabs_header ._audio_section_tab__following_updates, ._audio_page_content_block ._audio_section_tab__updates
 			display: none !important
 
 	if noRecentMusic
-		.CatalogBlock__recent_audios_header,
-		.CatalogBlock__recent_audios
+		.CatalogBlock__recent_audios_header, .CatalogBlock__recent_audios
 			display: none !important
 		[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
 			padding: 12px 20px
 
-	if noRecsMusic
-		.CatalogSection__general > div:nth-child(4)
-			display: none !important
-
 	if noEditorsMusic
-		.CatalogSection__general > div:nth-child(5)
+		#audio_layer_tt .audio_page_sections .CatalogSection__general .CatalogBlock:nth-last-child(-n+2), ._audio_page_layout .CatalogSection__general .CatalogBlock--divided:nth-last-child(1)
 			display: none !important
-
 
 	/* MESSAGES */
 	if fab {
-        .FCPanel {
-            --add-height: 69px;
-            right: 36px;
-        }
-        .FCPanel__list:empty + .FCPanel__add {
-            border-radius: 25%!important;
-        }
-        .FCPanel--collapsed:not(:hover) .FCPanel__add {
-            border-radius: 100%!important;
-        }
-        button.FCPanel__widthToggle,
-        svg.FCPanel__widthToggleIcon {
-            display: none!important;
-            bottom: 0!important;
-        }
-        div.FCPanel__list {
-            opacity: 0;
-            width: 56px;
-            background: 0 0!important;
-            box-shadow: none!important;
-        }
-        .FCThumb {
-            background: 0 0!important;
-            box-shadow: none!important;
-            width: 56px;
-            bottom: 10px;
-        }
-        aside.FCPanel:hover div.FCPanel__list,
-        aside.FCPanel.FCPanel--listOpened div.FCPanel__list {
-            height: auto!important;
-            opacity: 1;
-            transform: translateY(0) !important;
-            -moz-transition: all .24s ease-in-out;
-            -webkit-transition: all .24s ease-in-out;
-            transition: all .24s ease-in-out;
-        }
-        div.FCPanel__list {
-            transform: translateY(77px) !important;
-            opacity: 0;
-            transition: all .1s ease-in-out;
-        }
-        button.FCPanel__add {
-            width: 56px;
-            height: 56px;
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            border-radius: 50%;
-            text-decoration: none;
-            padding: 0;
-            -moz-transition: all .24s ease-in-out;
-            -webkit-transition: all .24s ease-in-out;
-            transition: all .24s ease-in-out;
-            opacity: 1;
-            margin-bottom: 15px;
-            background: var(--background_content)!important;
-            color: var(--accent)!important;
-            -webkit-box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .4)!important;
-            -moz-box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .4)!important;
-            box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .4)!important;
-        }
-        .FCPanel__add:hover::before {
-            background: var(--background_content)!important;
-        }
-        div.FCPanel__list:hover button.FCPanel__add {
-            background: var(--background_content);
-            color: var(--accent) !important;
-            -webkit-box-shadow: 0 1px 3px 0 rgba(50, 50, 50, .8);
-            -moz-box-shadow: 0 1px 3px 0 rgba(50, 50, 50, .8);
-            box-shadow: 0 1px 3px 0 rgba(50, 50, 50, .8);
-            -moz-transition: all .24s ease-in-out;
-            -webkit-transition: all .24s ease-in-out;
-            transition: all .24s ease-in-out;
-        }
-        .FCPanel__addIcon {
-            transform: scale(1.1);
-            transition: all .24s ease-in-out;
-        }
-        aside.FCPanel:hover .FCPanel__addIcon,
-        .FCPanel__add:hover .FCPanel__addIcon,
-        .FCPanel__add:focus .FCPanel__addIconn {
-            transform: scale(1.2);
-        }
-        .FCPanel__addIcon {
-            opacity: .9;
-        }
-        aside.FCPanel:hover .MEAvatar.MEAvatar--size-40,
-        aside.FCPanel.FCPanel--listOpened .MEAvatar.MEAvatar--size-40 {
-            transform: scale(1.1);
-            transition: all .24s ease-in-out;
-        }
-        .MEAvatar.MEAvatar--size-40 {
-            box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .2)!important;
-            margin-left: 2px !important;
-        }
-        aside.FCPanel:hover .MEAvatar.MEAvatar--size-40:hover,
-        aside.FCPanel .AvatarFavorites:hover {
-            box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .4)!important;
-            transition: all .15s ease-in-out;
-        }
-        aside.FCPanel .AvatarFavorites {
-            box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .2)!important;
-            transition: all .15s ease-in-out;
-            width: 44px !important;
-            height: 44px !important;
-        }
-        aside.FCPanel:hover .AvatarFavorites {
-            width: 44px !important;
-            height: 44px !important;
-        }
-    }
+		.FCPanel {
+			--add-height: 69px;
+			right: 36px;
+		}
+		.FCPanel__list:empty + .FCPanel__add {
+			border-radius: 25%!important;
+		}
+		.FCPanel--collapsed:not(:hover) .FCPanel__add {
+			border-radius: 100%!important;
+		}
+		button.FCPanel__widthToggle, svg.FCPanel__widthToggleIcon {
+			display: none!important;
+			bottom: 0!important;
+		}
+		div.FCPanel__list {
+			opacity: 0;
+			width: 56px;
+			background: 0 0!important;
+			box-shadow: none!important;
+		}
+		.FCThumb {
+			background: 0 0!important;
+			box-shadow: none!important;
+			width: 56px;
+			bottom: 10px;
+		}
+		aside.FCPanel:hover div.FCPanel__list, aside.FCPanel.FCPanel--listOpened div.FCPanel__list {
+			height: auto!important;
+			opacity: 1;
+			transform: translateY(0) !important;
+			-moz-transition: all .24s ease-in-out;
+			-webkit-transition: all .24s ease-in-out;
+			transition: all .24s ease-in-out;
+		}
+		div.FCPanel__list {
+			transform: translateY(77px) !important;
+			opacity: 0;
+			transition: all .1s ease-in-out;
+		}
+		button.FCPanel__add {
+			width: 56px;
+			height: 56px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			border-radius: 50%;
+			text-decoration: none;
+			padding: 0;
+			-moz-transition: all .24s ease-in-out;
+			-webkit-transition: all .24s ease-in-out;
+			transition: all .24s ease-in-out;
+			opacity: 1;
+			margin-bottom: 15px;
+			background: var(--background_content)!important;
+			color: var(--accent)!important;
+		}
+		.FCPanel__add:hover::before {
+			background: var(--background_content)!important;
+		}
+		div.FCPanel__list:hover button.FCPanel__add {
+			background: var(--background_content);
+			color: var(--accent) !important;
+			-moz-transition: all .24s ease-in-out;
+			-webkit-transition: all .24s ease-in-out;
+			transition: all .24s ease-in-out;
+		}
+		.FCPanel__addIcon {
+			transform: scale(1.1);
+			transition: all .24s ease-in-out;
+		}
+		aside.FCPanel:hover .FCPanel__addIcon, .FCPanel__add:hover .FCPanel__addIcon, .FCPanel__add:focus .FCPanel__addIconn {
+			transform: scale(1.2);
+		}
+		.FCPanel__addIcon {
+			opacity: .9;
+		}
+		aside.FCPanel:hover .MEAvatar.MEAvatar--size-40, aside.FCPanel.FCPanel--listOpened .MEAvatar.MEAvatar--size-40 {
+			transform: scale(1.1);
+			transition: all .24s ease-in-out;
+		}
+		.MEAvatar.MEAvatar--size-40 {
+			margin-left: 2px !important;
+		}
+		aside.FCPanel:hover .MEAvatar.MEAvatar--size-40:hover, aside.FCPanel .AvatarFavorites:hover {
+			transition: all .15s ease-in-out;
+		}
+		aside.FCPanel .AvatarFavorites {
+			transition: all .15s ease-in-out;
+			width: 44px !important;
+			height: 44px !important;
+		}
+		aside.FCPanel:hover .AvatarFavorites {
+			width: 44px !important;
+			height: 44px !important;
+		}
+	}
 
 	if noMsgSearchbar
 		.im-page--header.ui_search._im_dialogs_search
