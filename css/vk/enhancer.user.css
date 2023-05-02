@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.1.1
+@version		1.1.2
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -20,7 +20,7 @@
 @var checkbox noFriends			"Hide Friends"						1
 @var checkbox noFooter			"Hide left menu footer"				1
 
-@var checkbox widderFeed		"Widder feed"						1
+@var checkbox widderFeed		"Widder feed (reload to apply)"		1
 @var checkbox noStories			"Hide stories"						1
 @var checkbox noFeedComments	"Hide one comment under posts"		1
 @var checkbox noFeedAds			"Hide all feed ads"					1
@@ -214,6 +214,14 @@
 		}
 		div.ScrollStickyWrapper div {
 			max-width: 321px !important
+		}
+		div.ScrollStickyWrapper div div.OwnerVideosListItem {
+			--owner-videos-item-gap-total: calc((var(--owner-videos-count-on-row, 2) - 1)*var(--owner-videos-list-item-gap, 12px));
+			--owner-videos-item-width-part: calc(var(--owner-videos-item-gap-total)/var(--owner-videos-count-on-row, 2));
+			width: calc(100%/var(--owner-videos-count-on-row, 2) - var(--owner-videos-item-width-part)) !important;
+			margin-right: var(--owner-videos-list-item-gap, 12px) !important;
+			-ms-flex-negative: 0;
+			flex-shrink: 0;
 		}
 	}
 	
