@@ -94,14 +94,6 @@ body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .au
 }
 
 /*FIXES*/
-/* revert old feed width */
-body,
-:root {
-	--narrow-column-width: 265px !important;
-}
-div.module_body.clear_fix div.people_row div.people_cell:last-child {
-	display: none !important;
-}
 /* logo */
 .TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
 	fill: var(--accent) !important;
