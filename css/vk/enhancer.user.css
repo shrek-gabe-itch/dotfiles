@@ -3,7 +3,7 @@
 @version		1.1.4
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
-@license		unlicense
+@license		unlicensed
 @preprocessor	stylus
 
 @var range borderRadius			"UI border radius"					[12, 0, 24, 4, 'px']
@@ -299,29 +299,31 @@
 			right: 36px;
 		}
 		.FCPanel__list:empty + .FCPanel__add {
-			border-radius: 25%!important;
+			border-radius: 25% !important;
 		}
 		.FCPanel--collapsed:not(:hover) .FCPanel__add {
-			border-radius: 100%!important;
+			border-radius: 100% !important;
 		}
 		button.FCPanel__widthToggle, svg.FCPanel__widthToggleIcon {
-			display: none!important;
-			bottom: 0!important;
+			display: none !important;
+			bottom: 0 !important;
 		}
 		div.FCPanel__list {
+			transform: translateY(77px) !important;
+			transition: all .1s ease-in-out;
 			opacity: 0;
 			width: 56px;
-			background: 0 0!important;
-			box-shadow: none!important;
+			background: 0 0 !important;
+			box-shadow: none !important;
 		}
 		.FCThumb {
-			background: 0 0!important;
-			box-shadow: none!important;
+			background: 0 0 !important;
+			box-shadow: none !important;
 			width: 56px;
 			bottom: 10px;
 		}
 		aside.FCPanel:hover div.FCPanel__list, aside.FCPanel.FCPanel--listOpened div.FCPanel__list {
-			height: auto!important;
+			height: auto !important;
 			opacity: 1;
 			transform: translateY(0) !important;
 			transition: all .24s ease-in-out;
@@ -335,11 +337,11 @@
 			padding: 0;
 			opacity: 1;
 			margin-bottom: 15px;
-			background: var(--background_content)!important;
-			color: var(--accent)!important;
+			background: var(--background_content) !important;
+			color: var(--accent) !important;
 		}
 		.FCPanel__add:hover::before {
-			background: var(--background_content)!important;
+			background: var(--background_content) !important;
 		}
 		div.FCPanel__list:hover button.FCPanel__add {
 			background: var(--background_content);
