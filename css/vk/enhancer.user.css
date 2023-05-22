@@ -3,7 +3,7 @@
 @version		1.1.4
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
-@license		unlicensed
+@license		unlicense
 @preprocessor	stylus
 
 @var range borderRadius			"UI border radius"					[12, 0, 24, 4, 'px']
