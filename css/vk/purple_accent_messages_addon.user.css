@@ -1,0 +1,54 @@
+/* ==UserStyle==
+@name			VK Purple accent 
+@version		1.0.0
+@namespace		https://github.com/shrek-gabe-itch/dotfiles
+@updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/purple_accent_messages_addon.user.css
+@license		unlicensed
+==/UserStyle== */
+
+@-moz-document domain("vk.com") {
+[scheme=vkcom_dark] .im-page--history.page_block, .im-page--dialogs._im_page_dialogs.page_block, .im-page-history-w .audio_pl_snippet2 {
+    --vkui--color_background_content: #19191a5e !important;
+    --modal_card_background: #19191a91 !important;
+}
+.page_block {
+	backdrop-filter: blur(30px);
+}
+.im-page-history-w .im-chat-input, .im-page--history-new-bar.im-page--history-new-bar_days, .im-page-history-w .im-top-banner, .im-page-history-w .im-page--toolsw {
+    background: none !important;
+}
+.im-page .im-page--history {
+    margin-left: 10.4%;   
+}
+.im-page--history.page_block._im_page_history {
+    max-width: 75%;
+}
+.im-chat-input .im-chat-input--textarea {
+  width: 85%;
+}
+.im-page--dialogs._im_page_dialogs.page_block {
+    height: fit-content;
+    left: 2%;
+}
+.nim-dialog--cw > :not(:last-child), .im_post_top_info_caption, .im-page--dialogs-footer._im_dialogs_footer {
+    display: none !important;
+}
+.im-page .im-page--dialogs, .im-page .im-page--dialogs {
+    width: 75px;
+}
+.nim-dialog--unread._im_dialog_unread_ct {
+    margin: 50px 6px;
+}
+.im-page .im-page--dialogs {
+    padding: 8px 0 8px;
+}
+#im_dialogs {
+  top: 0px;
+}
+.im-page-history-w .post_media.clear_fix.post_media_audio {
+    width: 93%;
+}
+.im-page-history-w .im-chat-input--editing-head {
+    width: 85%; 
+}
+}
