@@ -39,7 +39,6 @@
 ==/UserStyle== */
 
 @-moz-document domain("vk.com"), domain("vk.ru")
-
 	.media_link__label
 		border-radius: 0 0 borderRadius borderRadius !important
 .media_link__media
