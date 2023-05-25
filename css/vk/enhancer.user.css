@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.1.5
+@version		1.2.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -39,327 +39,277 @@
 ==/UserStyle== */
 
 @-moz-document domain("vk.com"), domain("vk.ru")
-		.media_link__label  {
-			border-radius: 0 0 borderRadius borderRadius !important;
-		}
-		.media_link__media {
-			border-radius: borderRadius borderRadius 0 0 !important;
-		}
-		.page_post_thumb_last_row {
-			border-radius: borderRadius !important;
-		}
 
-	*
-		--mg-border-radius-wrapper: borderRadius !important
-	*
-		--vkui--size_border_radius_paper--regular: borderRadius !important
-		--vkui--size_border_radius--regular: borderRadius !important
+	.media_link__label
+		border-radius: 0 0 borderRadius borderRadius !important
+.media_link__media
+	border-radius: borderRadius borderRadius 0 0 !important
+.page_post_thumb_last_row, .summary_tab2, .wdd_add2
+	border-radius: borderRadius !important
 
-	/* HADER */
-	if fluent {
-		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root {
-			--vkui--color_header_background: #fffc !important;
-			--search_bar_field_background: #2f222e10!important;
-		}
-		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root {
-			--vkui--color_header_background: #19191acc !important;
-			--search_bar_field_background: #ffffff10!important;
-		}
-		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header {
-			backdrop-filter: blur(40px) saturate(1.5);
-		}
-	}
-	
-	if floatingPopup {
-		div.EcosystemServicesNavigationDropdown_popout__NYAnq {
-			margin-top: 8px;
-			border-radius: borderRadius;
-		}
-		[dir] .top_notify_show_all {
-			border-radius: 0 0 borderRadius borderRadius;
-		}
-		[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] .ui_actions_menu, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu {
-			border-radius: borderRadius;
-		}
-		[dir] .tt_w.tt_black {
-			border-radius: borderRadius;
-		}
-		[dir] .like_tt_share {
-			margin: 8px -3px -1px;
-		}
-		[dir] #top_notify_btn.active #top_notify_wrap {
-			top: 45px;
-		}
-		[dir] #audio_layer_tt, [dir] #top_notify_wrap {
-			border-radius: borderRadius;
-		}
-		[dir] div#audio_layer_tt eltt eltt_arrow_size_normal eltt_align_center eltt_bottom eltt_vis {
-			top: 8px;
-		}
-		[dir] #top_audio_layer_place {
-			top: 9px;
-		}
-		[dir] .eltt.eltt_bottom.eltt_arrow_size_normal > .eltt_arrow_back {
-			display: none;
-		}
-		[dir] a.page_post_thumb_unsized, [dir] span.page_post_thumb_unsized {
-			border-radius: borderRadius;
-		}
-		[dir] .ts_cont_wrap {
-			margin-top: 10px;
-			border-radius: borderRadius;
-		}
-		[dir] #top_profile_menu {
-			right: -12px;
-			margin-top: 8px;
-			border-radius: borderRadius !important;
-			transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear !important;
-		}
-		[dir] #top_notify_wrap {
-			margin-top: 4px;
-		}
-		[dir] .like_tt_share:before {
-			display: none !important;
-		}
-		[dir] #top_ecosystem_navigation_menu {
-			margin-top: 8px;
-		}
-	}
+*
+	--vkui--size_border_radius_paper--regular: borderRadius !important
+	--mg-border-radius-wrapper: borderRadius !important
+	--vkui--size_border_radius--regular: borderRadius !important
 
-	if firstHeader
-		.top_audio_player
-			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
+/* HADER */
+if fluent
+	[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
+		--vkui--color_header_background: #fffc !important
+		--search_bar_field_background: #2f222e10!important
+	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root
+		--vkui--color_header_background: rgba(25, 25, 26, 0.8) !important
+		--search_bar_field_background: rgba(255, 255, 255, 0) !important
+	#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
+			backdrop-filter: blur(40px) saturate(1.5)
 
-	if secondHeader
-		.HeaderNav__item.HeaderNav__item--gap
-			display: none
-		#audio_layer_tt
-			left: 0px !important
-		.top_audio_player
-			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
+if floatingPopup
+	div.EcosystemServicesNavigationDropdown_popout__NYAnq
+		margin-top: 8px
+		border-radius: borderRadius
+	[dir] .top_notify_show_all
+		border-radius: 0 0 borderRadius borderRadius
+	[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] .ui_actions_menu, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu
+		border-radius: borderRadius
+	[dir] .tt_w.tt_black
+		border-radius: borderRadius
+	[dir] .like_tt_share
+		margin: 8px -3px -1px
+	[dir] #top_notify_btn.active #top_notify_wrap
+		top: 45px
+	[dir] #audio_layer_tt, [dir] #top_notify_wrap
+		border-radius: borderRadius
+	[dir] div#audio_layer_tt eltt eltt_arrow_size_normal eltt_align_center eltt_bottom eltt_vis
+		top: 8px
+	[dir] #top_audio_layer_place
+		top: 9px
+	[dir] .eltt.eltt_bottom.eltt_arrow_size_normal > .eltt_arrow_back
+		display: none
+	[dir] a.page_post_thumb_unsized, [dir] span.page_post_thumb_unsized
+		border-radius: borderRadius
+	[dir] .ts_cont_wrap
+		margin-top: 10px
+		border-radius: borderRadius
+	[dir] #top_profile_menu
+		right: -12px
+		margin-top: 8px
+		border-radius: borderRadius !important
+		transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear !important
+	[dir] #top_notify_wrap
+		margin-top: 4px
+	[dir] .like_tt_share:before
+		display: none !important
+	[dir] #top_ecosystem_navigation_menu
+		margin-top: 8px
 
-	if thirdHeader
-		.HeaderNav__item.HeaderNav__item--gap
-			display: none
-		#audio_layer_tt
-			left: 0px !important
-		.top_audio_player
-			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
-		.EcosystemServicesNavigationDropdown_button__99Wn9
-			display: none
+if firstHeader
+	.top_audio_player
+		max-width: 800px
+	.TopNavBtn__profileArrow
+		display: none
+	[dir="ltr"] .TopNavBtn__profileLink
+		padding: 0 10px 0 10px
+if secondHeader
+	.HeaderNav__item.HeaderNav__item--gap
+		display: none
+	#audio_layer_tt
+		left: 0px !important
+	.top_audio_player
+		max-width: 800px
+	.TopNavBtn__profileArrow
+		display: none
+	[dir="ltr"] .TopNavBtn__profileLink
+		padding: 0 10px 0 10px
+if thirdHeader
+	.HeaderNav__item.HeaderNav__item--gap
+		display: none
+	#audio_layer_tt
+		left: 0px !important
+	.top_audio_player
+		max-width: 800px
+	.TopNavBtn__profileArrow
+		display: none
+	[dir="ltr"] .TopNavBtn__profileLink
+		padding: 0 10px 0 10px
+	.EcosystemServicesNavigationDropdown_button__99Wn9
+		display: none
+if fourthHeader
+	.HeaderNav__item.HeaderNav__item--gap
+		display: none
+	.EcosystemServicesNavigationDropdown_button__99Wn9
+		display: none
+	[dir="ltr"] #top_notify_wrap
+		left: -370px
+	#audio_layer_tt
+		left: 0px !important
+	.HeaderNav__btns
+		position: absolute
+		height: inherit
+		right: 68px
+	.top_audio_player
+		max-width: 800px
+	.TopNavBtn__profileArrow
+		display: none
+	[dir="ltr"] .TopNavBtn__profileLink
+		padding: 0 10px 0 10px
 
-	if fourthHeader
-		.HeaderNav__item.HeaderNav__item--gap
-			display: none
-		.EcosystemServicesNavigationDropdown_button__99Wn9
-			display: none
-		[dir="ltr"] #top_notify_wrap
-			left: -370px
-		#audio_layer_tt
-			left: 0px !important
-		.HeaderNav__btns
-			position: absolute
-			height: inherit
-			right: 68px
-		.top_audio_player
-			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
+/* LEFT MENU */
+if noProfile
+	#l_pr
+		display: none !important
+if noNews
+	#l_nwsf
+		display: none !important
+if noFriends
+	#l_fr
+		display: none !important
+if noFooter
+	.left_menu_nav_wrap
+		display: none !important
 
-	/* LEFT MENU */
-	if noProfile
-		#l_pr
-			display: none !important
+/* FEED */
+if widderFeed
+	div.module_body.clear_fix div.people_row div.people_cell:last-child
+		display: none !important
+	body, :root
+		--narrow-column-width: 265px !important
+	div.ScrollStickyWrapper div
+		width: auto !important
+		margin-right: 0px !important
+	div.ScrollStickyWrapper div
+		max-width: 321px !important
+	div.ScrollStickyWrapper div div.OwnerVideosListItem
+		--owner-videos-item-gap-total: calc((var(--owner-videos-count-on-row, 2) - 1)*var(--owner-videos-list-item-gap, 12px))
+		--owner-videos-item-width-part: calc(var(--owner-videos-item-gap-total)/var(--owner-videos-count-on-row, 2))
+		width: calc(100%/var(--owner-videos-count-on-row, 2) - var(--owner-videos-item-width-part)) !important
+		margin-right: var(--owner-videos-list-item-gap, 12px) !important;
+		-ms-flex-negative: 0
+		flex-shrink: 0
 
-	if noNews
-		#l_nwsf
-			display: none !important
+if noStories
+	#stories_feed_wrap
+		display: none !important
 
-	if noFriends
-		#l_fr
-			display: none !important
+if noFeedComments
+	.post_replies_header.clear_fix
+		display: none
+	.replies
+		display: none
 
-	if noFooter
-		.left_menu_nav_wrap
-			display: none !important
+if noFeedAds
+	.feed_groups_recomm_friends
+		display: none
+	.feed_groups_recomm
+		display: none
+	.feed_friends_recomm
+		display: none
+	.FriendsRecommendationsBlock-module__root--Yp5Oq
+		display: none
+	.new_adaptive_post.Post--redesign
+		display: none
+	.post_header.ads_ad_text_box.adaptive_ad
+		display: none
+	#feed_right_blocks_root
+		display: none
+	._ads_block_data_w.mailru-visibility-check.closed_comments.deep_active.Post--redesign
+		display: none
+	._post.post.post_videos.page_block.deep_active.has_before_block.post--withPostBottomAction
+		display: none !important
+	.VideosFeedTitle
+		display: none !important
+	#ads_left
+		display: none
 
-	/* FEED */
-	if widderFeed {
-		div.module_body.clear_fix div.people_row div.people_cell:last-child {
-			display: none !important;
-		}
-		body, :root {
-			--narrow-column-width: 265px !important;
-		}
-		div.ScrollStickyWrapper div {
-			width: auto !important;
-			margin-right: 0px !important
-		}
-		div.ScrollStickyWrapper div {
-			max-width: 321px !important
-		}
-		div.ScrollStickyWrapper div div.OwnerVideosListItem {
-			--owner-videos-item-gap-total: calc((var(--owner-videos-count-on-row, 2) - 1)*var(--owner-videos-list-item-gap, 12px));
-			--owner-videos-item-width-part: calc(var(--owner-videos-item-gap-total)/var(--owner-videos-count-on-row, 2));
-			width: calc(100%/var(--owner-videos-count-on-row, 2) - var(--owner-videos-item-width-part)) !important;
-			margin-right: var(--owner-videos-list-item-gap, 12px) !important;
-			-ms-flex-negative: 0;
-			flex-shrink: 0;
-		}
-	}
-	
-	if noStories
-		#stories_feed_wrap
-			display: none !important
+/* MUSIC */
+if noStatusMusic
+	div.audio_page_player_btn
+		display: none !important
 
-	if noFeedComments
-		.post_replies_header.clear_fix
-			display: none
-		.replies
-			display: none
+if noLyricsButton
+	button.audio_page_player_btn:nth-child(10)
+		display: none !important
 
-	if noFeedAds
-		.feed_groups_recomm_friends
-			display: none
-		.feed_groups_recomm
-			display: none
-		.feed_friends_recomm
-			display: none
-		.FriendsRecommendationsBlock-module__root--Yp5Oq
-			display: none
-		.new_adaptive_post.Post--redesign
-			display: none
-		.post_header.ads_ad_text_box.adaptive_ad
-			display: none
-		#feed_right_blocks_root
-			display: none
-		._ads_block_data_w.mailru-visibility-check.closed_comments.deep_active.Post--redesign
-			display: none
-		._post.post.post_videos.page_block.deep_active.has_before_block.post--withPostBottomAction
-			display: none !important
-		.VideosFeedTitle
-			display: none !important
-		#ads_left
-			display: none
+if widePlaylist
+	.redesign_web .CatalogSection__leftColumn
+		max-width: 870px
+	.CatalogSection__rightColumn
+		display: none
+	[dir=ltr] .CatalogSection__leftColumn
+		padding-right: 0 !important
+		border-right: 0 !important
 
-	/* MUSIC */
-	if noStatusMusic
-		div.audio_page_player_btn
-			display: none !important
+if noExploreMusic
+	.ui_tabs_header ._audio_section_tab__explore, ._audio_section_tab._audio_section_tab__explore
+		display: none !important
 
-	if noLyricsButton
-		button.audio_page_player_btn:nth-child(10)
-			display: none !important
+if noAdditionsMusic
+	.ui_tabs_header ._audio_section_tab__following_updates, ._audio_page_content_block ._audio_section_tab__updates
+		display: none !important
 
-	if widePlaylist
-		.redesign_web .CatalogSection__leftColumn
-			max-width: 870px
-		.CatalogSection__rightColumn
-			display: none
-		[dir=ltr] .CatalogSection__leftColumn
-			padding-right: 0 !important
-			border-right: 0 !important
+if noRecentMusic
+	.CatalogBlock__recent_audios_header, .CatalogBlock__recent_audios
+		display: none !important
+	[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
+		padding: 12px 20px
 
-	if noExploreMusic
-		.ui_tabs_header ._audio_section_tab__explore, ._audio_section_tab._audio_section_tab__explore
-			display: none !important
+if noEditorsMusic
+	#audio_layer_tt .audio_page_sections .CatalogSection__general .CatalogBlock:nth-last-child(-n+2), ._audio_page_layout .CatalogSection__general .CatalogBlock--divided:nth-last-child(-n+2)
+		display: none !important
 
-	if noAdditionsMusic
-		.ui_tabs_header ._audio_section_tab__following_updates, ._audio_page_content_block ._audio_section_tab__updates
-			display: none !important
-
-	if noRecentMusic
-		.CatalogBlock__recent_audios_header, .CatalogBlock__recent_audios
-			display: none !important
-		[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
-			padding: 12px 20px
-
-	if noEditorsMusic
-		#audio_layer_tt .audio_page_sections .CatalogSection__general .CatalogBlock:nth-last-child(-n+2), ._audio_page_layout .CatalogSection__general .CatalogBlock--divided:nth-last-child(-n+2)
-			display: none !important
-
-	/* MESSAGES */
-	if fab {
-		.FCPanel {
-			--add-height: 69px;
-			right: 36px;
-		}
-		.FCPanel__list:empty + .FCPanel__add {
-			border-radius: 25% !important;
-		}
-		.FCPanel--collapsed:not(:hover) .FCPanel__add {
-			border-radius: 100% !important;
-		}
-		button.FCPanel__widthToggle, svg.FCPanel__widthToggleIcon {
-			display: none !important;
-			bottom: 0 !important;
-		}
-		div.FCPanel__list {
-			transform: translateY(77px) !important;
-			transition: all .1s ease-in-out;
-			opacity: 0;
-			width: 56px;
-			background: 0 0 !important;
-			box-shadow: none !important;
-		}
-		.FCThumb {
-			background: 0 0 !important;
-			box-shadow: none !important;
-			width: 56px;
-			bottom: 10px;
-		}
-		aside.FCPanel:hover div.FCPanel__list, aside.FCPanel.FCPanel--listOpened div.FCPanel__list {
-			height: auto !important;
-			opacity: 1;
-			transform: translateY(0) !important;
-			transition: all .24s ease-in-out;
-		}
-		button.FCPanel__add {
-			width: 56px;
-			height: 56px;
-			box-sizing: border-box;
-			border-radius: 50%;
-			text-decoration: none;
-			padding: 0;
-			opacity: 1;
-			margin-bottom: 15px;
-			background: var(--background_content) !important;
-			color: var(--accent) !important;
-		}
-		.FCPanel__add:hover::before {
-			background: var(--background_content) !important;
-		}
-		div.FCPanel__list:hover button.FCPanel__add {
-			background: var(--background_content);
-			color: var(--accent) !important;
-		}
-		.FCPanel__addIcon {
-			transform: scale(1.2);
-		}
-		aside.FCPanel:hover .MEAvatar.MEAvatar--size-40, aside.FCPanel.FCPanel--listOpened .MEAvatar.MEAvatar--size-40 {
-			transform: scale(1.1);
-		}
-		.MEAvatar.MEAvatar--size-40 {
-			margin-left: 2px !important;
-		}
-	}
+/* MESSAGES */
+if fab
+	.FCPanel
+		--add-height: 69px
+		right: 36px
+	.FCPanel__list:empty + .FCPanel__add
+		border-radius: 25% !important
+	.FCPanel--collapsed:not(:hover) .FCPanel__add
+		border-radius: 100% !important
+	button.FCPanel__widthToggle, svg.FCPanel__widthToggleIcon
+		display: none !important
+		bottom: 0 !important
+	div.FCPanel__list
+		transform: translateY(77px) !important
+		transition: all .1s ease-in-out
+		opacity: 0
+		width: 56px
+		background: 0 0 !important
+		box-shadow: none !important
+	.FCThumb
+		background: 0 0 !important
+		box-shadow: none !important
+		width: 56px
+		bottom: 10px
+	aside.FCPanel:hover div.FCPanel__list, aside.FCPanel.FCPanel--listOpened div.FCPanel__list
+		height: auto !important
+		opacity: 1
+		transform: translateY(0) !important
+		transition: all .24s ease-in-out
+	button.FCPanel__add
+		width: 56px
+		height: 56px
+		box-sizing: border-box
+		border-radius: 50%
+		text-decoration: none
+		padding: 0
+		opacity: 1
+		margin-bottom: 15px
+		background: var(--background_content) !important
+		color: var(--accent) !important
+	.FCPanel__add:hover::before
+		background: var(--background_content) !important
+	div.FCPanel__list:hover button.FCPanel__add
+		background: var(--background_content)
+		color: var(--accent) !important
+	.FCPanel__addIcon
+		transform: scale(1.2)
+	aside.FCPanel:hover .MEAvatar.MEAvatar--size-40, aside.FCPanel.FCPanel--listOpened .MEAvatar.MEAvatar--size-40
+		transform: scale(1.1)
+	.MEAvatar.MEAvatar--size-40
+		margin-left: 2px !important
 
 	if noMsgSearchbar
 		.im-page--header.ui_search._im_dialogs_search
 			display: none
 		#im_dialogs
-			top: -40px
+			top: -40px {}
