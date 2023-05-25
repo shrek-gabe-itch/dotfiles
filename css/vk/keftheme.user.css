@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.0.5
+@version		2.0.6
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -120,24 +120,24 @@
         --im_text_name: rgb(redColor, greenColor, blueColor)!important;
         --text_primary: rgb(redColor, greenColor, blueColor)!important;
         --icon_tertiary: rgb(redColor, greenColor, blueColor)!important;
-        --gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --icon_secondary: rgb(redColor, greenColor, blueColor)!important;
         --text_placeholder: rgb(redColor, greenColor, blueColor)!important;
-        --dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --icon_outline_medium: rgb(redColor, greenColor, blueColor)!important;
-        --background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important;
-        --field_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
-        --input_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --icon_outline_secondary: rgb(redColor, greenColor, blueColor)!important;
-        --loader_track_fill: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --loader_track_value_fill: rgb(redColor, greenColor, blueColor)!important;
         --vkui--color_icon_accent: rgb(redColor, greenColor, blueColor)!important;
-        --im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --vkui--color_text_primary: rgb(redColor, greenColor, blueColor)!important;
         --button_primary_foreground: rgb(redColor, greenColor, blueColor)!important;
         --vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important;
         --button_commerce_background: rgb(redColor, greenColor, blueColor)!important;
         --counter_primary_background: rgb(redColor, greenColor, blueColor)!important;
+        --gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --field_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --input_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --loader_track_fill: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --background_suggestions: rgba(redColor, greenColor, blueColor, 0.2)!important;
         --float_button_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
