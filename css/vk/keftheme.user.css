@@ -1,0 +1,215 @@
+/* ==UserStyle==
+@name			VK Keftheme
+@version		2.0.5
+@namespace		https://github.com/shrek-gabe-itch/dotfiles
+@updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
+@license		unlicense
+@preprocessor	stylus
+
+@var checkbox	customBackground	"Image background"				1
+@var text		backgroundLink		"Background url(image_link)"	"url(https://i.imgur.com/rlsprAZ.jpg)"
+
+@var text		redColor			"Red(0-255)"					145
+@var text		greenColor			"Green(0-255)"					92
+@var text		blueColor			"Blue(0-255)"					163
+@var text		filterColor			"Filters color(0-360)"			62
+
+@var select backgroundColor "Background color" {
+	"Default": "rgb(34, 34, 34)",
+	"1": "rgb(62, 62, 66)",
+	"2": "rgb(45, 45, 48)",
+	"3": "rgb(37, 37, 38)",
+	"4": "rgb(30, 30, 30)",
+	"5": "rgb(26, 24, 24)"
+}
+==/UserStyle== */
+@-moz-document domain("vk.com")
+
+	:root {
+		--main-filter: hue-rotate(filterColor deg) !important;
+	}
+	body, html[dir], [dir] #page_wrap {
+		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor !important;
+	}
+
+	if customBackground {
+		body, html[dir], [dir] #page_wrap {
+			background-size: cover !important;
+			background: backgroundLink no-repeat fixed center  0;
+		}
+	}
+
+	/* [scheme=vkcom_light] {
+		--image_border: #0000 !important;
+		--input_border: #0000 !important;
+		--snippet_border: #0000 !important;
+		--background_page: #0000 !important;
+		--separator_common: #0000 !important;
+		--separator_alternate: #0000 !important;
+		--landing_snippet_border: #0000 !important;
+		--button_secondary_foreground_highlighted: #0000 !important;
+		--accent: rgb(redColor, greenColor, blueColor)!important;
+		--sky_300: rgb(redColor, greenColor, blueColor)!important;
+		--text_name: rgb(redColor, greenColor, blueColor)!important;
+		--im_text_name: rgb(redColor, greenColor, blueColor)!important;
+		--text_primary: rgb(redColor, greenColor, blueColor)!important;
+		--icon_tertiary: rgb(redColor, greenColor, blueColor)!important;
+		--gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--icon_secondary: rgb(redColor, greenColor, blueColor)!important;
+		--text_placeholder: rgb(redColor, greenColor, blueColor)!important;
+		--dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--icon_outline_medium: rgb(redColor, greenColor, blueColor)!important;
+		--background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--field_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--input_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--icon_outline_secondary: rgb(redColor, greenColor, blueColor)!important;
+		--loader_track_fill: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--loader_track_value_fill: rgb(redColor, greenColor, blueColor)!important;
+		--vkui--color_icon_accent: rgb(redColor, greenColor, blueColor)!important;
+		--im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--vkui--color_text_primary: rgb(redColor, greenColor, blueColor)!important;
+		--button_primary_foreground: rgb(redColor, greenColor, blueColor)!important;
+		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important;
+		--button_commerce_background: rgb(redColor, greenColor, blueColor)!important;
+		--counter_primary_background: rgb(redColor, greenColor, blueColor)!important;
+		--background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--background_suggestions: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--float_button_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--content_tint_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor)!important;
+		--button_primary_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--button_secondary_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--vkui--color_background_secondary: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--vkui--color_write_bar_input_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+		--button_secondary_background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important;
+	} */
+
+	[scheme=vkcom_dark] {
+        --text: #a6a6b5 !important;
+        --loader_background: #272727 !important;
+        --image_border: #0000 !important;
+        --input_border: #0000 !important;
+        --snippet_border: #0000 !important;
+        --background_page: #0000 !important;
+        --separator_common: #0000 !important;
+        --separator_alternate: #0000 !important;
+        --landing_snippet_border: #0000 !important;
+        --button_secondary_foreground_highlighted: #0000 !important;
+        --background_light: backgroundColor;
+        --button_bot_shadow: backgroundColor;
+        --background_content: backgroundColor;
+        --landing_background: backgroundColor;
+        --counter_primary_text: backgroundColor;
+        --modal_card_background: backgroundColor;
+        --search_bar_background: backgroundColor;
+        --skeleton_shimmer_from: backgroundColor;
+        --counter_secondary_text: backgroundColor;
+        --overlay_status_background: backgroundColor;
+        --vkui--color_background_modal: backgroundColor;
+        --attach_picker_tab_active_icon: backgroundColor;
+        --vkui--color_header_background: backgroundColor;
+        --vkui--color_background_content: backgroundColor;
+        --landing_login_button_foreground: backgroundColor;
+        --vkui--color_background_tertiary: backgroundColor;
+        --segmented_control_bar_background: backgroundColor;
+        --landing_primary_button_foreground: backgroundColor;
+        --vk_connect_button_primary_foreground: backgroundColor;
+        --accent: rgb(redColor, greenColor, blueColor)!important;
+        --sky_300: rgb(redColor, greenColor, blueColor)!important;
+        --text_name: rgb(redColor, greenColor, blueColor)!important;
+        --im_text_name: rgb(redColor, greenColor, blueColor)!important;
+        --text_primary: rgb(redColor, greenColor, blueColor)!important;
+        --icon_tertiary: rgb(redColor, greenColor, blueColor)!important;
+        --gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --icon_secondary: rgb(redColor, greenColor, blueColor)!important;
+        --text_placeholder: rgb(redColor, greenColor, blueColor)!important;
+        --dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --icon_outline_medium: rgb(redColor, greenColor, blueColor)!important;
+        --background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --field_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --input_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --icon_outline_secondary: rgb(redColor, greenColor, blueColor)!important;
+        --loader_track_fill: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --loader_track_value_fill: rgb(redColor, greenColor, blueColor)!important;
+        --vkui--color_icon_accent: rgb(redColor, greenColor, blueColor)!important;
+        --im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --vkui--color_text_primary: rgb(redColor, greenColor, blueColor)!important;
+        --button_primary_foreground: rgb(redColor, greenColor, blueColor)!important;
+        --vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important;
+        --button_commerce_background: rgb(redColor, greenColor, blueColor)!important;
+        --counter_primary_background: rgb(redColor, greenColor, blueColor)!important;
+        --background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --background_suggestions: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --float_button_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --content_tint_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor)!important;
+        --button_primary_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --button_secondary_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --vkui--color_background_secondary: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --vkui--color_write_bar_input_background: rgba(redColor, greenColor, blueColor, 0.2)!important;
+        --button_secondary_background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important;
+	}
+
+	/* EXCLUSIONS */
+	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .vkuiButton__in, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w {
+		color: var(--accent);
+	}
+	.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ProfileFullCommonInfo__caption, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text, .ConvoMessage__text, .ConvoMessage__reply, .pv_desc_cont {
+		color: var(--text);
+	}
+	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover {
+		background-color: var(--background_highlighted);
+	}
+	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .checkbox.on {
+		filter: var(--main-filter);
+	}
+	.vkuiDropdown {
+		background-color: var(--background_content);
+	}
+	.ui_actions_menu {
+		background-color: var(--loader_background);
+	}
+	.im-page-history-w .im-mess.im-mess_selected:last-child::before {
+		background: var(--background_page);
+	}
+
+	/*FIXES*/
+	/* img */
+	[scheme=vkcom_dark] img[src="/images/camera_50.png"], img[src="https://vk.com/images/camera_200.png"] {
+		filter: saturate(0) invert(0.9);
+	}
+	img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text {
+		filter: var(--main-filter);
+	}
+	/* logo */
+	.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2) {
+		fill: var(--accent);
+	}
+	/* player buttons */
+	.audio_w_covers .audio_row .audio_row__cover_icon {
+		filter: var(--main-filter);
+	}
+	.audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon {
+		filter: var(--main-filter);
+	}
+	[dir] .audio_page_player2 .audio_page_player__cover {
+		filter: var(--main-filter);
+	}
+	/* 1 january */
+	.EcosystemAccountIFlip_hidden__T-on7 {
+		display: none;
+	}
+	/* reply field when view any photo */
+	.pv_cont .pv_reply_form_wrap .reply_field_wrap {
+		margin-left: 0px;
+	}
+	.wall_module .reply_box div.submit_post_field, .wall_module .reply_box div.submit_post_field[contenteditable="true"], .wall_module .reply_box div.submit_post_field ~ .placeholder .ph_input, .wall_module .reply_box div.submit_post_field[contenteditable="true"] ~ .placeholder .ph_input {
+		padding-left: 64px;
+	}
+	.reply_fakebox, .reply_field.submit_post_field {
+		border-radius: 6px;
+	}
+	/* left menu hover border radius */
+	.LeftMenuItem-module__item--dDdjm {
+		border-radius: 8px !important;
+	}

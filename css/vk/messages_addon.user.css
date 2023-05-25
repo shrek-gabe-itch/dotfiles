@@ -1,9 +1,10 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.0.1
+@version		1.0.2
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
-@updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/purple_accent_messages_addon.user.css
+@updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
+
 ==/UserStyle== */
 
 @-moz-document domain("vk.com") {
