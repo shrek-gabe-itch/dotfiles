@@ -59,7 +59,7 @@
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root
 			--vkui--color_header_background: rgba(25, 25, 26, 0.8) !important
 			--search_bar_field_background: rgba(255, 255, 255, 0) !important
-		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .	im-page--chat-header
+		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
 				backdrop-filter: blur(40px) saturate(1.5)
 
 	if floatingPopup
@@ -68,7 +68,7 @@
 			border-radius: borderRadius
 		[dir] .top_notify_show_all
 			border-radius: 0 0 borderRadius borderRadius
-		[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .	emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] .ui_actions_menu, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu
+		[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] .ui_actions_menu, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu
 			border-radius: borderRadius
 		[dir] .tt_w.tt_black
 			border-radius: borderRadius
