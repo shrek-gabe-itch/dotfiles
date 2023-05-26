@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.2.3
+@version		1.2.4
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -252,7 +252,7 @@
 			padding: 12px 20px
 
 	if noEditorsMusic
-		#audio_layer_tt .audio_page_sections .CatalogSection__general .CatalogBlock:nth-last-child(-n+2), ._audio_page_layout .	CatalogSection__general .CatalogBlock--divided:nth-last-child(-n+2)
+		.CatalogSection__general .CatalogBlock:nth-last-child(-n+2)
 			display: none !important
 
 	/* MESSAGES */
