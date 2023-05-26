@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.0.8
+@version		2.0.9
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -24,18 +24,18 @@
 }
 ==/UserStyle== */
 
-@-moz-document domain("vk.com")
-    :root 
-        --main-filter: hue-rotate(filterColor deg) !important
+@-moz-document domain("vk.com"), domain("vk.ru")
+	:root
+		--main-filter: hue-rotate(filterColor deg) !important
 
-    html[dir], [dir] #page_wrap
-        scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor !important
-        
-    if customBackground 
-         body, html[dir], [dir] #page_wrap 
-            background-size: cover !important
-            background: backgroundLink no-repeat fixed center  0
-    
+	html[dir], [dir] #page_wrap
+		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor !important
+
+	if customBackground
+		 body, html[dir], [dir] #page_wrap
+			background-size: cover !important
+			background: backgroundLink no-repeat fixed center 0
+
 	[scheme=vkcom_dark]
 		--text: #a6a6b5 !important
 		--loader_background: #272727 !important
@@ -84,6 +84,7 @@
 		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important
 		--button_commerce_background: rgb(redColor, greenColor, blueColor)!important
 		--counter_primary_background: rgb(redColor, greenColor, blueColor)!important
+		--vkui--vkontakte_color_im_text_name: rgb(redColor, greenColor, blueColor)!important
 		--gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important
@@ -143,5 +144,5 @@
 		border-radius: 6px
 	/* left menu hover border radius */
 	.LeftMenuItem-module__item--dDdjm
-    	border-radius: 8px !important
-    {}
+		border-radius: 8px !important
+	{}
