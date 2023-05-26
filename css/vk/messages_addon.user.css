@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.2.2
+@version		1.2.3
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
@@ -17,11 +17,9 @@
 			--modal_card_background: #19191a91 !important
 		.page_block
 			backdrop-filter: blur(30px)
+		.im-chat-input, .im-page .im-page--history-new-bar, .im-page-history-w .im-top-banner, .im-page-history-w .im-page--toolsw
+			background: none !important
 
-	.im-page-history-w .im-chat-input, .im-page--history-new-bar.im-page--history-new-bar_days, .im-page-history-w .im-top-banner, .	im-page-history-w .im-page--toolsw
-		background: none !important
-	.im-page--header.ui_search._im_dialogs_search
-		display: none
 	#im_dialogs
 		top: -40px
 	.im-page .im-page--history
@@ -33,7 +31,7 @@
 	.im-page--dialogs._im_page_dialogs.page_block
 		height: fit-content
 		left: 2%
-	.nim-dialog--cw > :not(:last-child), .im_post_top_info_caption, .im-page--dialogs-footer._im_dialogs_footer
+	.nim-dialog--cw > :not(:last-child), .im_post_top_info_caption, .im-page--dialogs-footer._im_dialogs_footer, .im-page--header.ui_search._im_dialogs_search
 		display: none !important
 	.im-page .im-page--dialogs, .im-page .im-page--dialogs
 		width: 75px
