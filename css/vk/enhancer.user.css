@@ -58,7 +58,7 @@
 			--search_bar_field_background: #2f222e10!important
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root
 			--vkui--color_header_background: rgba(25, 25, 26, 0.8) !important
-			--search_bar_field_background: rgba(255, 255, 255, 0) !important
+			--search_bar_background: rgba(255, 255, 255, 0) !important
 		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
 				backdrop-filter: blur(40px) saturate(1.5)
 
