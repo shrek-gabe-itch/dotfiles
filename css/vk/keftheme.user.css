@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.0.9
+@version		2.1.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -36,7 +36,7 @@
 			background-size: cover !important
 			background: backgroundLink no-repeat fixed center 0
 
-	[scheme=vkcom_dark]
+	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 !important
 		--loader_background: #272727 !important
 		--image_border: #0000 !important
@@ -126,23 +126,23 @@
 		background: var(--background_page)
 
 	/*FIXES*/
-	/* img */
+	// img
 	[scheme=vkcom_dark] img[src="/images/camera_50.png"], img[src="https://vk.com/images/camera_200.png"]
 		filter: saturate(0) invert(0.9)
-	/* logo */
+	// logo
 	.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2)
 		fill: var(--accent)
-	/* 1 january */
+	// 1 january
 	.EcosystemAccountIFlip_hidden__T-on7
 		display: none;
-	/* reply field when view any photo */
+	// reply field when view any photo 
 	.pv_cont .pv_reply_form_wrap .reply_field_wrap
 		margin-left: 0px
 	.wall_module .reply_box div.submit_post_field, .wall_module .reply_box div.submit_post_field[contenteditable="true"], .wall_module .reply_box div.submit_post_field ~ .placeholder .ph_input, .wall_module .reply_box div.submit_post_field[contenteditable="true"] ~ .placeholder .ph_input
 		padding-left: 64px
 	.reply_fakebox, .reply_field.submit_post_field
 		border-radius: 6px
-	/* left menu hover border radius */
+	// left menu hover border radius
 	.LeftMenuItem-module__item--dDdjm
 		border-radius: 8px !important
 	{}
