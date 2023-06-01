@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.2.4
+@version		1.2.5
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -39,6 +39,11 @@
 ==/UserStyle== */
 
 @-moz-document domain("vk.com"), domain("vk.ru")
+	// round corners
+	*
+		--vkui--size_border_radius_paper--regular: borderRadius !important
+		--mg-border-radius-wrapper: borderRadius !important
+		--vkui--size_border_radius--regular: borderRadius !important
 	.media_link__label
 		border-radius: 0 0 borderRadius borderRadius !important
 	.media_link__media
@@ -46,12 +51,7 @@
 	.page_post_thumb_last_row, .summary_tab2, .wdd_add2
 		border-radius: borderRadius !important
 
-	*
-		--vkui--size_border_radius_paper--regular: borderRadius !important
-		--mg-border-radius-wrapper: borderRadius !important
-		--vkui--size_border_radius--regular: borderRadius !important
-
-	/* HADER */
+	// HADER
 	if fluent
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
 			--vkui--color_header_background: #fffc !important
@@ -59,6 +59,7 @@
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root
 			--vkui--color_header_background: rgba(25, 25, 26, 0.8) !important
 			--search_bar_background: rgba(255, 255, 255, 0) !important
+			--search_bar_field_background: rgba(55, 55, 55, 0.37) !important
 		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
 				backdrop-filter: blur(40px) saturate(1.5)
 
@@ -152,7 +153,7 @@
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
 
-	/* LEFT MENU */
+	// LEFT MENU 
 	if noProfile
 		#l_pr
 			display: none !important
@@ -166,7 +167,7 @@
 		.left_menu_nav_wrap
 			display: none !important
 
-	/* FEED */
+	// FEED
 	if widderFeed
 		div.module_body.clear_fix div.people_row div.people_cell:last-child
 			display: none !important
@@ -219,7 +220,7 @@
 		#ads_left
 			display: none
 
-	/* MUSIC */
+	// MUSIC
 	if noStatusMusic
 		div.audio_page_player_btn
 			display: none !important
@@ -255,7 +256,7 @@
 		.CatalogSection__general .CatalogBlock:nth-last-child(-n+2)
 			display: none !important
 
-	/* MESSAGES */
+	// MESSAGES
 	if fab
 		.FCPanel
 			--add-height: 69px
