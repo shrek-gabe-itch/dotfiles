@@ -1,0 +1,56 @@
+@import "tabs.css";
+@import "context.css";
+@import "./bookmarks/bookmarks.css";
+@import "./extensions/extensions.css";
+
+:root {
+	font-family: "SF Pro Display" Light !important;
+}
+
+/* MacOS window control buttons */
+.titlebar-buttonbox {
+	position: relative;
+	margin-right: 0px;
+}
+.titlebar-button {
+	transition: all 0.3s ease !important;
+	padding: 8px 12px !important;
+}
+.titlebar-button.titlebar-close {
+	padding-right: 16px !important;
+}
+.titlebar-button > .toolbarbutton-icon {
+	transition: all 0.3s ease !important;
+	list-style-image: none;
+	border-radius: 10px;
+}
+.titlebar-button.titlebar-min > .toolbarbutton-icon {
+	background: rgb(36, 209, 49) !important;
+}
+.titlebar-button.titlebar-max > .toolbarbutton-icon,
+.titlebar-button.titlebar-restore > .toolbarbutton-icon {
+	background: rgb(252, 185, 15) !important;
+}
+.titlebar-button.titlebar-close > .toolbarbutton-icon {
+	background: rgb(250, 55, 55) !important;
+}
+.titlebar-button:hover > .toolbarbutton-icon {
+	filter: brightness(50%);
+}
+.titlebar-min, .titlebar-restore, .titlebar-max, .titlebar-close {
+	background-color: transparent !important;
+}
+
+/* Hide search one time uses */
+.search-one-offs {
+	display: none !important;
+}
+
+/* Change default bookmark folder icon */
+/*.bookmark-item[container] {list-style-image: url("file:///path-to-your-file-here.ico") !important}*/
+
+/* Reorder navigaion buttons in context menu */
+/* #context-back {-moz-box-ordinal-group: 0 !important;}
+#context-reload {-moz-box-ordinal-group: 1 !important;}
+#context-forward {-moz-box-ordinal-group: 2 !important;}
+#context-bookmarkpage {-moz-box-ordinal-group: 3 !important;} */

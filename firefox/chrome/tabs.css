@@ -1,0 +1,88 @@
+/* Remove space to left of toolbar  */
+.titlebar-spacer[type="pre-tabs"] {
+	display: none !important;
+}
+
+/* Remove Playing/Muted/... */
+hbox.tab-secondary-label {
+	display:none !important
+}
+
+/* Remove tab close button */
+#TabsToolbar .close-icon {
+	display: none !important;
+}
+
+/* Show separator line betwen inactive tabs */
+.tab-stack {
+	margin-left: 1px;
+}
+.tab-stack::before, .tabbrowser-tab:last-of-type .tab-stack::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 50%;
+	border-left: 1px solid currentColor;
+	top: 25%;
+	opacity: var(--separators-color-saturation, 0);
+	box-sizing: border-box;
+}
+.tab-stack::before {
+	right: 100%;
+}
+.tab-stack::after {
+	left: 100%;
+}
+.tabbrowser-tab:is([selected],[selected] + .tabbrowser-tab,
+:hover, :hover + .tabbrowser-tab, [multiselected],
+[multiselected] + .tabbrowser-tab) .tab-stack::before,
+.tabbrowser-tab:is([selected], :hover, [multiselected]) .tab-stack::after {
+	opacity: 0 !important;
+}
+.tabbrowser-tab:first-of-type .tab-stack::before,
+.tabbrowser-tab:last-of-type[pinned] .tab-stack::after,
+#tabbrowser-tabs[overflow] .tabbrowser-tab[first-visible-unpinned-tab] .tab-stack::before,
+#tabbrowser-tabs[overflow] .tab-stack::after {
+	opacity: 0 !important;
+}
+:root {
+	--separators-color-saturation: 0.5;
+}
+
+/* Pinned tabs width */
+:root {
+	--pinned-tabs-width-offset: 2px;
+}
+.tabbrowser-tab[pinned] .tab-content{
+	padding: 0 calc((var(--tab-min-height) - 16px) / 2 + var(--pinned-tabs-width-offset, 0px)) !important;
+}
+
+/* Reduce spacing between pinned and regular tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > 
+#tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
+	margin-inline-start: initial !important;
+}
+
+/* Fix colors and remove tab borders */
+.tab-background {
+	--tab-selected-bgcolor: var(--toolbar-bgcolor) !important;
+	--lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;
+	--tab-selected-bgimage: var(--toolbar-bgimage) !important;
+	position: relative !important;
+	box-shadow: none !important;
+	opacity: 1 !important;
+	border: none !important;
+	outline: none !important;
+}
+
+/* Apply dimmed background for inactive tabs */
+/* .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected], [multiselected]) {
+	background-color: color-mix(in srgb, currentColor 18%, transparent);
+}
+.tabbrowser-tab>.tab-stack>.tab-background:not([selected], [multiselected]) {
+	background-color: color-mix(in srgb, currentColor 12%, transparent);
+} */
+
+
+
