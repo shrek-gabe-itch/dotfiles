@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.2.5
+@version		1.2.6
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
@@ -31,7 +31,7 @@
 	.im-page--dialogs._im_page_dialogs.page_block
 		height: fit-content
 		left: 2%
-	.nim-dialog--cw > :not(:last-child), .im_post_top_info_caption, .im-page--dialogs-footer._im_dialogs_footer, .im-page--header.ui_search._im_dialogs_search, .im-mess.im-mess_unread+.im-mess::before, .im-mess.im-mess_selected+.im-mess::before
+	.nim-dialog--cw > :not(:last-child), .im_post_top_info_caption, .im-page--dialogs-footer._im_dialogs_footer, .im-page--header.ui_search._im_dialogs_search, .im-mess.im-mess_unread+.im-mess::before, .im-mess.im-mess_selected+.im-mess::before, .nim-dialog--unread._im_dialog_unread_ct
 		display: none !important
 	.im-page .im-page--dialogs, .im-page .im-page--dialogs
 		width: 75px
