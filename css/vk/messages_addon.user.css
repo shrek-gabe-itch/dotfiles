@@ -1,12 +1,15 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.2.6
+@version		1.2.7
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
 @preprocessor	stylus
 
 @var checkbox fluent 	"Background fluency" 			1
+
+@var checkbox fixHeight	"Fix height messages list"		0
+
 ==/UserStyle== */
 
 @-moz-document domain("vk.com")
@@ -19,7 +22,11 @@
 			backdrop-filter: blur(30px)
 		.im-chat-input, .im-page .im-page--history-new-bar, .im-page-history-w .im-top-banner, .im-page-history-w .im-page--toolsw
 			background: none !important
-			
+
+	if fixHeight
+		.im-page--dialogs._im_page_dialogs.page_block
+			height: 100% !important
+	
 	#im_dialogs
 		top: -40px
 	.im-page .im-page--history
