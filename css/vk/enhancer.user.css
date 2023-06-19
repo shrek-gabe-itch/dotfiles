@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.2.6
+@version		1.2.7
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -23,7 +23,7 @@
 @var checkbox widderFeed		"Widder feed (reload to apply)"		1
 @var checkbox noStories			"Hide stories"						1
 @var checkbox noFeedComments	"Hide one comment under posts"		1
-@var checkbox noFeedAds			"Hide all feed ads"					1
+@var checkbox noAds				"Hide all ads"						1
 
 @var checkbox noStatusMusic		"Hide Broadcast music button"		1
 @var checkbox noLyricsButton	"Hide Lyrics music button"			1
@@ -191,35 +191,25 @@
 			display: none !important
 
 	if noFeedComments
+		.replies,
 		.post_replies_header.clear_fix
 			display: none
-		.replies
-			display: none
 
-	if noFeedAds
-		.feed_groups_recomm_friends
-			display: none
-		.feed_groups_recomm
-			display: none
-		.feed_friends_recomm
-			display: none
-		.FriendsRecommendationsBlock-module__root--Yp5Oq
-			display: none
-		.new_adaptive_post.Post--redesign
-			display: none
-		.post_header.ads_ad_text_box.adaptive_ad
-			display: none
-		#feed_right_blocks_root
-			display: none
-		._ads_block_data_w.mailru-visibility-check.closed_comments.deep_active.Post--redesign
-			display: none
+	if noAds
+		#ads_left,
+		.VideosFeedTitle,
+		.feed_groups_recomm,
+		.feed_friends_recomm,
+		#feed_right_blocks_root,
+		.feed_groups_recomm_friends,
+		.new_adaptive_post.Post--redesign,
+		.post_header.ads_ad_text_box.adaptive_ad,
+		.FriendsRecommendationsBlock-module__root--Yp5Oq,
+		._audio_page_layout .CatalogSection--header_section,
+		._ads_block_data_w.mailru-visibility-check.closed_comments.deep_active.Post--redesign,
 		._post.post.post_videos.page_block.deep_active.has_before_block.post--withPostBottomAction
-			display: none !important
-		.VideosFeedTitle
-			display: none !important
-		#ads_left
 			display: none
-
+			
 	// MUSIC
 	if noStatusMusic
 		div.audio_page_player_btn
