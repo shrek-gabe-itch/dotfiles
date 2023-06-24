@@ -1,0 +1,21 @@
+/* title row */
+.main-trackList-trackListHeaderRow.main-trackList-trackListRowGrid [aria-colindex="2"] {
+  min-width: 26rem !important;
+}
+.main-trackList-trackListRow.main-trackList-trackListRowGrid [aria-colindex="2"] {
+  min-width: 26rem !important;
+}
+/* album row */
+.main-trackList-trackListHeaderRow.main-trackList-trackListRowGrid [aria-colindex="3"] {
+  min-width: 20rem !important;
+}
+.main-trackList-trackListRow.main-trackList-trackListRowGrid [aria-colindex="3"] {
+  min-width: 20rem !important;
+}
+/* date added row */
+.main-trackList-trackListHeaderRow.main-trackList-trackListRowGrid [aria-colindex="4"] {
+  display: none !important;
+}
+.main-trackList-trackListRow.main-trackList-trackListRowGrid [aria-colindex="4"] {
+  display: none !important;
+}
