@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.1.4
+@version		2.1.5
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -84,6 +84,7 @@
 		--vkui--color_icon_accent: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_track_buffer: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_text_primary: rgb(redColor, greenColor, blueColor)!important
+		--vkui--color_stroke_accent: rgb(redColor, greenColor, blueColor)!important
 		--button_primary_foreground: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important
 		--button_commerce_background: rgb(redColor, greenColor, blueColor)!important
