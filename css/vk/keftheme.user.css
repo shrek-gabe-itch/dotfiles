@@ -123,7 +123,7 @@
 	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover
 		background-color: var(--background_highlighted)
 
-	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .checkbox.on, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text
+	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .checkbox.on, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge
 		filter: var(--main-filter)
 
 	.vkuiDropdown
