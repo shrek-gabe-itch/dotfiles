@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.1.1
+@version		2.1.2
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -47,6 +47,8 @@
 		--separator_alternate: #0000 !important
 		--landing_snippet_border: #0000 !important
 		--button_secondary_foreground_highlighted: #0000 !important
+		--vkui--vkontakte_color_snippet_border_alpha: #0000 !important
+		--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 !important
 		--background_light: backgroundColor
 		--button_bot_shadow: backgroundColor
 		--background_content: backgroundColor
@@ -77,6 +79,7 @@
 		--icon_outline_medium: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_text_link: rgb(redColor, greenColor, blueColor)!important
 		--icon_outline_secondary: rgb(redColor, greenColor, blueColor)!important
+		--vkui--color_text_accent: rgb(redColor, greenColor, blueColor)!important
 		--loader_track_value_fill: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_icon_accent: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_text_primary: rgb(redColor, greenColor, blueColor)!important
@@ -84,6 +87,7 @@
 		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important
 		--button_commerce_background: rgb(redColor, greenColor, blueColor)!important
 		--counter_primary_background: rgb(redColor, greenColor, blueColor)!important
+		--vkui--color_background_accent: rgb(redColor, greenColor, blueColor)!important
 		--vkui--vkontakte_color_im_text_name: rgb(redColor, greenColor, blueColor)!important
 		--gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
@@ -100,6 +104,8 @@
 		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor)!important
 		--button_primary_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--button_secondary_background: rgba(redColor, greenColor, blueColor, 0.2)!important
+		--vkui--color_track_background: rgba(redColor, greenColor, blueColor, 0.2)!important
+		--vkui--color_transparent--active: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--vkui--color_background_secondary: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--vkui--color_write_bar_input_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--button_secondary_background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important
