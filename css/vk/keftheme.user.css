@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.1.5
+@version		2.1.6
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -101,6 +101,7 @@
 		--im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--background_suggestions: rgba(redColor, greenColor, blueColor, 0.2)!important
+		--steel_gray_200_alpha12: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--vkui--color_accent_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--float_button_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--content_tint_background: rgba(redColor, greenColor, blueColor, 0.2)!important
