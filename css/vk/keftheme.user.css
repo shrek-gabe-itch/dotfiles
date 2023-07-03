@@ -88,10 +88,12 @@
 		--button_primary_foreground: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_icon_secondary: rgb(redColor, greenColor, blueColor)!important
-		--button_commerce_background: rgb(redColor, greenColor, blueColor)!important
 		--counter_primary_background: rgb(redColor, greenColor, blueColor)!important
 		--vkui--color_background_accent: rgb(redColor, greenColor, blueColor)!important
+		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor)!important
+		--vkui--color_text_contrast_themed: rgb(redColor, greenColor, blueColor)!important
 		--vkui--vkontakte_color_im_text_name: rgb(redColor, greenColor, blueColor)!important
+		--vkui--color_background_accent_themed: rgb(redColor, greenColor, blueColor)!important
 		--gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important
@@ -106,8 +108,8 @@
 		--vkui--color_accent_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--float_button_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--content_tint_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor)!important
 		--button_primary_background: rgba(redColor, greenColor, blueColor, 0.2)!important
+		--button_commerce_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--button_secondary_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--vkui--color_track_background: rgba(redColor, greenColor, blueColor, 0.2)!important
 		--vkui--color_transparent--active: rgba(redColor, greenColor, blueColor, 0.2)!important
@@ -136,6 +138,9 @@
 
 	.im-page-history-w .im-mess.im-mess_selected:last-child::before
 		background: var(--background_page)
+
+	.nim-dialog .nim-dialog--unread
+		color: var(--white) !important
 
 	/*FIXES*/
 	// img
