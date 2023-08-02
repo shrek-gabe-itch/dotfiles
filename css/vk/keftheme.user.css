@@ -46,6 +46,7 @@
 		--separator_common: #0000 !important
 		--separator_alternate: #0000 !important
 		--landing_snippet_border: #0000 !important
+		--vkui--color_separator_primary: #0000 !important
 		--button_secondary_foreground_highlighted: #0000 !important
 		--vkui--vkontakte_color_snippet_border_alpha: #0000 !important
 		--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 !important
@@ -143,6 +144,8 @@
 		color: var(--white) !important
 
 	/*FIXES*/
+	.vkuiGroup--mode-card:after
+		display: none
 	// img
 	[scheme=vkcom_dark] img[src="/images/camera_50.png"], img[src="https://vk.com/images/camera_200.png"]
 		filter: saturate(0) invert(0.9)
@@ -160,6 +163,6 @@
 	.reply_fakebox, .reply_field.submit_post_field
 		border-radius: 6px
 	// left menu hover border radius
-	.LeftMenuItem-module__item--dDdjm
+	.LeftMenuItem-module__item--XMcN9
 		border-radius: 8px !important
 	{}
