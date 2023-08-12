@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.2.8
+@version		1.2.9
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
@@ -18,7 +18,7 @@
 			--vkui--color_background_content: #19191a5e !important
 			--modal_card_background: #19191a91 !important
 			--vkui--color_field_background: #19191a5e !important
-		.page_block
+		.im-page--history.page_block, .im-page--dialogs._im_page_dialogs.page_block
 			backdrop-filter: blur(30px)
 		.im-chat-input, .im-page .im-page--history-new-bar, .im-page-history-w .im-top-banner, .im-page-history-w .im-page--toolsw
 			background: none !important

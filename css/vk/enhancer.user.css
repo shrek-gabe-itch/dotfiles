@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.2.8
+@version		1.2.9
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -171,13 +171,15 @@
 	if widderFeed
 		div.module_body.clear_fix div.people_row div.people_cell:last-child
 			display: none !important
+		div.ScrollStickyWrapper > div:nth-child(1)
+			width: 305px !important
 		body, :root
 			--narrow-column-width: 265px !important
 		div.ScrollStickyWrapper div
 			width: auto !important
 			margin-right: 0px !important
 		div.ScrollStickyWrapper div
-			max-width: 321px !important
+			max-width: 305px !important
 		div.ScrollStickyWrapper div div.OwnerVideosListItem
 			--owner-videos-item-gap-total: calc((var(--owner-videos-count-on-row, 2) - 1)*var(--owner-videos-list-item-gap, 12px))
 			--owner-videos-item-width-part: calc(var(--owner-videos-item-gap-total)/var(--owner-videos-count-on-row, 2))
