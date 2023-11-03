@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.2.2
+@version		2.2.3
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -49,6 +49,7 @@
 		--vkui--color_background: #0000 !important
 		--vkui--color_separator_primary: #0000 !important
 		--vkui--color_image_border_alpha: #0000 !important
+		--vkui--color_separator_secondary: #0000 !important
 		--vkui--vkontakte_color_input_border: #0000 !important
 		--vkui--vkontakte_color_snippet_border_alpha: #0000 !important
 		--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 !important

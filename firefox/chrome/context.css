@@ -10,3 +10,38 @@
 @import "./context/sidebar-context.css";
 @import "./context/toolbar-context.css";
 @import "./context/opt_noSendToDevice.css";
+
+
+:root, html, body {
+    --hover: #fafafc;
+    --bg: #0f0f0f;
+    --border: #2f2f2f;
+}
+
+menupopup, panel {
+    --arrowpanel-background: var(--bg) !important;
+    --panel-background: var(--bg) !important;
+    --panel-border-color: var(--border) !important;
+    --panel-separator-zap-gradient: transparent !important;
+}
+
+.context-menu > ul > li > a:is(:focus, :hover), .context-menu > ul > li > button:is(:focus, :hover),
+#context-navigation:not([hidden])>.menuitem-iconic:hover,
+menu:where([_moz-menuactive="true"]:not([disabled="true"])),
+menuitem:where([_moz-menuactive="true"]:not([disabled="true"])),
+panelview .toolbarbutton-1:not([disabled], [open], :active):is(:hover, :focus),
+toolbarbutton.subviewbutton:not([disabled], [open], :active):is(:hover, :focus),
+.navigable.subviewbutton:not([disabled], [open], :active):is(:hover, :focus),
+toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover,
+.widget-overflow-list .toolbarbutton-1:not([disabled], [open], :active):is(:hover, :focus),
+.toolbaritem-combined-buttons:is( :not([cui-areatype="toolbar"]),
+[overflowedItem="true"])>toolbarbutton:not([disabled], [open], :active):is(:hover, :focus) {
+    background-color: color-mix(in srgb, var(--hover), transparent 80%) !important;
+    color: var(--hover) !important;
+}
+
+/* Height bookmarks popup items  */
+menupopup>menuitem {
+    min-height: 24px !important;
+    max-height: 24px !important;
+}

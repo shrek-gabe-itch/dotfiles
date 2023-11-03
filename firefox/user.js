@@ -45,9 +45,14 @@ user_pref("network.http.http3.enable", true);											// default true
 user_pref("network.dns.echconfig.enabled", true);										// default false
 
 // DNS over HTTPS
-user_pref("network.trr.mode", 0);														// default 0
+user_pref("network.trr.mode", 5);														// default 0
 // 0 = disabled;
-// 5 = enabled;
+// 1 = reserved (used to be Race mode);
+// 2 = only if the name resolve fails use the native resolver as a fallback;
+// 3 = never use the native resolver;
+// 4 = reserved (used to be Shadow mode);
+// 5 = same as 0 but marks it as done by choice and not done by default;
+
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");			// doh provider
 
 // Font rendering

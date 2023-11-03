@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.2.9
+@version		1.3.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
@@ -27,8 +27,6 @@
 		.im-page--dialogs._im_page_dialogs.page_block
 			height: 100% !important
 	
-	#im_dialogs
-		top: -40px
 	.im-page .im-page--history
 		margin-left: 10.4%
 	.im-page--history.page_block._im_page_history

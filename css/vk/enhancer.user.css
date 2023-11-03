@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.3.0
+@version		1.3.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -35,7 +35,7 @@
 @var checkbox noEditorsMusic	"Hide Editor choises music"			1
 
 @var checkbox fab				"FAB Chats"							1
-@var checkbox noMsgSearchbar	"Hide searchbar in Messages"		0
+
 ==/UserStyle== */
 
 @-moz-document domain("vk.com"), domain("vk.ru")
@@ -305,11 +305,5 @@
 		aside.FCPanel:hover .MEAvatar.MEAvatar--size-40, aside.FCPanel.FCPanel--listOpened .MEAvatar.MEAvatar--size-40
 			transform: scale(1.1)
 		.MEAvatar.MEAvatar--size-40
-			margin-left: 2px !important
-
-	if noMsgSearchbar
-		.im-page--header.ui_search._im_dialogs_search
-			display: none
-		#im_dialogs
-			top: -40px {}
+			margin-left: 2px !important {}
 

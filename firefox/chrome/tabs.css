@@ -3,6 +3,19 @@
 	display: none !important;
 }
 
+/* Remove gap after pinned tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) { margin-inline-start: 0 !important; }
+
+/* Pinned tabs width */
+:root {
+	--pinned-tabs-width-offset: 2px;
+}
+.tabbrowser-tab[pinned] .tab-content{
+	padding: 0 calc((var(--tab-min-height) - 16px) / 2 + var(--pinned-tabs-width-offset, 0px)) !important;
+}
+
 /* Remove Playing/Muted/... */
 hbox.tab-secondary-label {
 	display:none !important
@@ -13,11 +26,15 @@ hbox.tab-secondary-label {
 	display: none !important;
 }
 
+/* Tabs fill available width */
+/* .tabbrowser-tab[fadein]:not([style^="max-width"]){ max-width: 100vw !important } */
+
 /* Show separator line betwen inactive tabs */
 .tab-stack {
 	margin-left: 1px;
 }
-.tab-stack::before, .tabbrowser-tab:last-of-type .tab-stack::after {
+.tab-stack::before, 
+.tabbrowser-tab:last-of-type .tab-stack::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -50,20 +67,6 @@ hbox.tab-secondary-label {
 	--separators-color-saturation: 0.5;
 }
 
-/* Pinned tabs width */
-:root {
-	--pinned-tabs-width-offset: 2px;
-}
-.tabbrowser-tab[pinned] .tab-content{
-	padding: 0 calc((var(--tab-min-height) - 16px) / 2 + var(--pinned-tabs-width-offset, 0px)) !important;
-}
-
-/* Reduce spacing between pinned and regular tabs */
-#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > 
-#tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] {
-	margin-inline-start: initial !important;
-}
-
 /* Fix colors and remove tab borders */
 .tab-background {
 	--tab-selected-bgcolor: var(--toolbar-bgcolor) !important;
@@ -75,14 +78,3 @@ hbox.tab-secondary-label {
 	border: none !important;
 	outline: none !important;
 }
-
-/* Apply dimmed background for inactive tabs */
-/* .tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected], [multiselected]) {
-	background-color: color-mix(in srgb, currentColor 18%, transparent);
-}
-.tabbrowser-tab>.tab-stack>.tab-background:not([selected], [multiselected]) {
-	background-color: color-mix(in srgb, currentColor 12%, transparent);
-} */
-
-
-

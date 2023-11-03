@@ -1,0 +1,29 @@
+/* Brighness when urlbar [open]*/
+#nav-bar[urlbar-exceeds-toolbar-bounds="true"]::before {
+	position: fixed;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 4 !important;
+	pointer-events: none;
+}
+#urlbar[open] {
+	z-index: 4 !important;
+}
+
+/* Monochrome ff icon */
+#identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+	list-style-image: url(./images/foxFill.svg) !important;
+}
+#identity-box[pageproxystate="valid"].notSecureText>.identity-box-button, #identity-box[pageproxystate="valid"].chromeUI>.identity-box-button, 
+#identity-box[pageproxystate="valid"].extensionPage>.identity-box-button, #urlbar-label-box {
+	background-color: transparent !important;
+}
+
+/* Hide search one time uses */
+.search-one-offs {
+	display: none !important;
+}
