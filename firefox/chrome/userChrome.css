@@ -101,7 +101,7 @@ findbar::after {
 	display: flex;
 	flex-grow: 100;
 }
-@supports -moz-bool-pref("userChrome.findbar.right") {
+@media (-moz-bool-pref: "userChrome.findbar.right") {
 	findbar {
 		flex-direction: row-reverse;
 	}
