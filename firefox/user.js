@@ -1,29 +1,40 @@
 // Custom themes dependencies
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); 				// default false
 user_pref("svg.context-properties.content.enabled", true); 								// default false
-// user_pref("layout.css.overflow-overlay.enabled", true);                                 // default false
+// user_pref("layout.css.overflow-overlay.enabled", true);								// default false
 
 // Scrollbar styles
 user_pref("widget.non-native-theme.scrollbar.style", 0);								//  default 0
-//	0 = native;
-//	1 = MacOS;
-//	2 = GTK;
-//	3 = Android;
-//	4 = Windows 10;
-//	5 = Windows 11;
+// 0 = native;
+// 1 = MacOS;
+// 2 = GTK;
+// 3 = Android;
+// 4 = Windows 10;
+// 5 = Windows 11;
 
 // Disable insecure download block
 user_pref("dom.block_download_insecure", false);										// default true
 
-// Speed up render delay
-user_pref("nglayout.initialpaint.delay", 0);											// default  5
+// Automated cookie banner handling feature (by default enabled only for Germany users)
+user_pref("cookiebanners.service.mode", 0);												// default 0
+// 0 = disabled
+// 1 = reject all and ignore banners with only accept options
+// 2 = reject all or fall back to accept all
+// Enables the clicking feature
+user_pref("cookiebanners.bannerClicking.enabled", true)									// default true
+// Enables the cookie injection feature
+user_pref("cookiebanners.cookieInjector.enabled", true)									// default true
 
-// Prefetching
-user_pref("network.prefetch-next", true);												// default true
-user_pref("network.dns.disablePrefetch", false);										// default false
+// Disabe prefetching
+user_pref("network.prefetch-next", false);												// default true
+user_pref("network.dns.disablePrefetch", true);										    // default false
 user_pref("network.dns.disablePrefetchFromHTTPS", true); 								// default true
 user_pref("network.predictor.prefetch-rolling-load-count", 5);							// default 10
 user_pref("network.predictor.enable-prefetch", false);									// default false
+user_pref("network.http.speculative-parallel-limit", 0);								// default 6
+
+// Remote download filters for block dangerous content 
+user_pref("browser.safebrowsing.downloads.remote.enabled", false);						// default true
 
 // Proxy settings
 user_pref("network.proxy.type", 2);														// default 0
@@ -45,12 +56,12 @@ user_pref("network.http.http3.enable", true);											// default true
 user_pref("network.dns.echconfig.enabled", true);										// default false
 
 // DNS over HTTPS
-user_pref("network.trr.mode", 5);														// default 0
+user_pref("network.trr.mode", 3);														// default 0
 // 0 = disabled;
-// 1 = reserved (used to be Race mode);
-// 2 = only if the name resolve fails use the native resolver as a fallback;
-// 3 = never use the native resolver;
-// 4 = reserved (used to be Shadow mode);
+// 1 = reserved (used to be Race mode)[off];
+// 2 = only if the name resolve fails use the native resolver as a fallback[increased protection];
+// 3 = never use the native resolver[max protection];
+// 4 = reserved (used to be Shadow mode)[off];
 // 5 = same as 0 but marks it as done by choice and not done by default;
 
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");			// doh provider
@@ -63,6 +74,9 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5); 					// defa
 // 3 = GDI Natural Widths;
 // 4 = Natural;
 // 5 = Natural Symmetric;
+
+// Enable HW HEVC decoding
+user_pref("media.wmf.hevc.enabled", 1);													// default 0
 
 // Disable "list all tabs" title bar button
 user_pref("browser.tabs.tabmanager.enabled", false);                                    // default true
@@ -131,6 +145,9 @@ user_pref("security.insecure_field_warning.contextual.enabled", false);					// d
 // Disable menu when pressing alt
 user_pref("ui.key.menuAccessKeyFocuses", false);										// default true
 
+// Speed up render delay
+user_pref("nglayout.initialpaint.delay", 0);											// default  5
+
 // FastFox tweaks
 // Reduce the 5ms Firefox waits to render the page
 user_pref("nglayout.initialpaint.delay", 0);
@@ -139,11 +156,11 @@ user_pref("nglayout.initialpaint.delay_in_oopif", 0);
 user_pref("content.notify.interval", 100000);
 // Disable preSkeletonUI on startup
 user_pref("browser.startup.preXulSkeletonUI", false);
-// CSS Masonry Layout [NIGHTLY]
+// CSS Masonry Layout
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
-// CSS Animation Composition [NIGHTLY]
+// CSS Animation Composition
 user_pref("layout.css.animation-composition.enabled", true);
-// Prioritized Task Scheduling API [NIGHTLY]
+// Prioritized Task Scheduling API
 user_pref("dom.enable_web_task_scheduling", true);
 // Webrender tweaks
 user_pref("gfx.webrender.all", true);
@@ -213,7 +230,7 @@ user_pref("app.normandy.api_url", "");
 // Disable Firefox Home (Activity Stream) telemetry
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-// Disable using the OS's geolocation service
+// Disable using the OS geolocation service
 user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
 // Disable geolocation
 user_pref("geo.enabled", false);
