@@ -25,19 +25,34 @@ user_pref("cookiebanners.bannerClicking.enabled", true)									// default true
 // Enables the cookie injection feature
 user_pref("cookiebanners.cookieInjector.enabled", true)									// default true
 
-// Disabe prefetching
+// Disabe prefetching [uBlock can control this]
 user_pref("network.prefetch-next", false);												// default true
-user_pref("network.dns.disablePrefetch", true);										    // default false
+user_pref("network.dns.isablePrefetch", true);										    // default false
 user_pref("network.dns.disablePrefetchFromHTTPS", true); 								// default true
+user_pref("network.predictor.enabled", false);											// ???
 user_pref("network.predictor.prefetch-rolling-load-count", 5);							// default 10
 user_pref("network.predictor.enable-prefetch", false);									// default false
 user_pref("network.http.speculative-parallel-limit", 0);								// default 6
+
+// Disk cache [about:cache]
+//user_pref("browser.cache.disk.enable", true);											// default true
+// Force a fixed max cache size on disk
+user_pref("browser.cache.disk.smart_size.enabled", false);								// deafult false
+// Maximum size of disk cache
+user_pref("browser.cache.disk.capacity", 512000); 										// default 256000
+// compression level for cached JavaScript bytecode 
+user_pref("browser.cache.jsbc_compression_level", 3);									// default 0
+// 0 = do not compress = 757,914 bytes
+// 2 = minimal compression = 234,034 bytes
+// 7 = average compression = 202,330 bytes
+// 9 = maximum compression
 
 // Remote download filters for block dangerous content 
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);						// default true
 
 // Proxy settings
-user_pref("network.proxy.type", 2);														// default 0
+// [WARNING] May cause slow startup delay 5-180 sec for loading pages
+user_pref("network.proxy.type", 0);														// default 0
 // 0 = direct connection;
 // 1 = manual;
 // 2 = PAC;
@@ -49,7 +64,7 @@ user_pref("network.proxy.type", 2);														// default 0
 user_pref("network.proxy.autoconfig_url", "https://antizapret.prostovpn.org:18443/proxy.pac");
 user_pref("network.proxy.no_proxies_on", "vk.com, .userapi.com, dota2.ru, youtube.com, twitch.tv, reddit.com, dotabuff.com, tiktok.com, vkuseraudio.net, unsplash.com");
 
-//  QUIC protocol(for disable YouTube lags set false)
+// QUIC protocol(if you have YouTube lags set false)
 user_pref("network.http.http3.enable", true);											// default true
 
 // Enable ECH
@@ -77,6 +92,9 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5); 					// defa
 
 // Enable HW HEVC decoding
 user_pref("media.wmf.hevc.enabled", 1);													// default 0
+
+// NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
+// user_pref("gfx.webrender.super-resolution.nvidia", true);							// default false
 
 // Disable "list all tabs" title bar button
 user_pref("browser.tabs.tabmanager.enabled", false);                                    // default true
@@ -145,92 +163,83 @@ user_pref("security.insecure_field_warning.contextual.enabled", false);					// d
 // Disable menu when pressing alt
 user_pref("ui.key.menuAccessKeyFocuses", false);										// default true
 
-// Speed up render delay
-user_pref("nglayout.initialpaint.delay", 0);											// default  5
-
-// FastFox tweaks
+// BetterFox tweaks
 // Reduce the 5ms Firefox waits to render the page
-user_pref("nglayout.initialpaint.delay", 0);
-user_pref("nglayout.initialpaint.delay_in_oopif", 0);
+user_pref("nglayout.initialpaint.delay", 5);											// default 250
+user_pref("nglayout.initialpaint.delay_in_oopif", 5);
 // Lowering the interval will increase responsiveness
-user_pref("content.notify.interval", 100000);
+user_pref("content.notify.interval", 100000);											// default 120000
 // Disable preSkeletonUI on startup
-user_pref("browser.startup.preXulSkeletonUI", false);
-// CSS Masonry Layout
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
-// CSS Animation Composition
-user_pref("layout.css.animation-composition.enabled", true);
+user_pref("browser.startup.preXulSkeletonUI", false);									// default true
 // Prioritized Task Scheduling API
-user_pref("dom.enable_web_task_scheduling", true);
+user_pref("dom.enable_web_task_scheduling", true);										// default false
 // Webrender tweaks
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.compositor", true);
 user_pref("layers.gpu-process.enabled", true);
 user_pref("media.hardware-video-decoding.enabled", true);
-// GPU-accelerated Canvas2D
+// GPU-accelerated Canvas2D [only for discrete GPU]
 user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 80);
-// Image tweaks
-user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 131072);
-user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
-// Increase media cache
-user_pref("media.memory_cache_max_size", 1048576);
-user_pref("media.memory_caches_combined_limit_kb", 3145728);
-// Decrease video buffering
-user_pref("media.cache_readahead_limit", 9000);
-user_pref("media.cache_resume_threshold", 6000);
+user_pref("gfx.canvas.accelerated.cache-items", 8192);									// alt 4096
+user_pref("gfx.canvas.accelerated.cache-size", 1024);									// alt 512
+user_pref("gfx.content.skia-font-cache-size", 20);
+// Image cache
+user_pref("image.mem.decode_bytes_at_a_time", 32768);									// default 16384
+// Media cache
+user_pref("media.memory_cache_max_size", 65536);										// default 8192
+user_pref("media.memory_caches_combined_limit_pc_sysmem", 5);							// default 10 [% of system memory for media cache]
+user_pref("media.cache_readahead_limit", 7200);											// default 60
+user_pref("media.cache_resume_threshold", 3600);										// default 30
+
 // Increase memory cache size
-user_pref("browser.cache.memory.max_entry_size", 327680);
+user_pref("browser.cache.memory.capacity", 1048576);									// default 256000
+user_pref("browser.cache.memory.max_entry_size", 10240);								// default 5120
 // Use bigger packets
-user_pref("network.buffer.cache.size", 327680);
-user_pref("network.buffer.cache.count", 240);
+user_pref("network.buffer.cache.size", 262144);											// default 32768
+user_pref("network.buffer.cache.count", 128);											// default 24 
 // Increase the absolute number of HTTP connections
-user_pref("network.http.max-connections", 1800);
-user_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.http.max-connections", 1800);										// default 900
+user_pref("network.http.max-persistent-connections-per-server", 10);					// default 6
+user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);			// default 3
 // Increase TLS token caching
-user_pref("network.ssl_tokens_cache_capacity", 32768);
+user_pref("network.ssl_tokens_cache_capacity", 10240);									// default 2048
 
 // Disable telemetry
+user_pref("experiments.enabled", false);
+user_pref("toolkit.coverage.opt-out", true);
+user_pref("captivedetect.canonicalURL", "");
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.coverage.endpoint.base", "");
+user_pref("toolkit.telemetry.server", "data:,");
 user_pref("browser.ping-centre.telemetry", false);
+user_pref("default-browser-agent.enabled", false);										// [WARNING] Breaks "Make Default..."
+user_pref("toolkit.telemetry.dap_enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", false);
 user_pref("toolkit.telemetry.bhrPing.enabled", false);
-user_pref("toolkit.telemetry.enabled", false);
-user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
-user_pref("toolkit.telemetry.newProfilePing.enabled", false);
-user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
-user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
-user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.updatePing.enabled", false);
-user_pref("experiments.enabled", false);
-user_pref("datareporting.healthreport.uploadEnabled", false);
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("extensions.screenshots.upload-disabled", true);
-user_pref("toolkit.telemetry.server", "data:,");
-user_pref("toolkit.telemetry.dap_enabled", false);
-// Telemetry Coverage
 user_pref("toolkit.telemetry.coverage.opt-out", true);
-user_pref("toolkit.coverage.opt-out", true);
-// Disable crash reports
+user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("network.connectivity-service.enabled", false);
+user_pref("network.connectivity-service.enabled", false);
+user_pref("extensions.screenshots.upload-disabled", true);
+user_pref("network.captive-portal-service.enabled", false);
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+user_pref("toolkit.telemetry.reportingpolicy.firstRun", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+// Normandy/Shield [extensions tracking]
+user_pref("app.normandy.api_url", "");
+user_pref("app.normandy.enabled", false);
+user_pref("app.shield.optoutstudies.enabled", false);
+// Disable geolocation
+user_pref("geo.enabled", false);
+user_pref("geo.provider.ms-windows-location", false); 									// only for WINDOWS
+// Crash reports
 user_pref("breakpad.reportURL", "");
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
-// Network Connectivity checks
-user_pref("network.connectivity-service.enabled", false);
-// Software that continually reports what default browser you are using
-// [WARNING] Breaks "Make Default..." button in Preferences to set Firefox as the default browser.
-user_pref("default-browser-agent.enabled", false);
-// Normandy/Shield [extensions tracking]
-user_pref("app.normandy.enabled", false);
-user_pref("app.normandy.api_url", "");
-// Disable Firefox Home (Activity Stream) telemetry
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-// Disable using the OS geolocation service
-user_pref("geo.provider.ms-windows-location", false); // [WINDOWS]
-// Disable geolocation
-user_pref("geo.enabled", false);
