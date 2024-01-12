@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14">
-  <defs/>
-  <path fill="#2a71e9" d="M5.6 9.1H16L13.2 14H2.8z"/>
-  <path fill="#fccd48" d="M5.2 0l5.2 9.1H16L10.8 0z"/>
-  <path fill="#0ba25e" d="M8 4.9L5.2 0 0 9.1 2.8 14z"/>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 95 85">
+  <path fill="#2a71e9" d="M33.2 55.3H95L78.4 85H16.6l16.6-29.7z"/>
+  <path fill="#fccd48" d="m30.9 0 30.9 55.3H95L64.1 0H30.9z"/>
+  <path fill="#0ba25e" d="M47.5 29.8 30.9 0 0 55.3 16.6 85l30.9-55.2z"/>
 </svg>

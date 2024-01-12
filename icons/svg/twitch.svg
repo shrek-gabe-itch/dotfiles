@@ -1,4 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <defs/>
-  <path fill="#fff" d="M1 0L0 2.8v11.1h4V16h2.2l2.2-2.1h3.2L16 9.7V0H1zm13.5 9L12 11.4H7.9l-2.2 2.1v-2.1H2.5v-10h12V9zM12 4.2h-1.5v4.1H12V4.2zm-4 0H6.5v4.1H8V4.2z"/>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 100 100">
+  <path fill="#fff" d="M6.2 0 0 17.5v69.4h25V100h13.8l13.7-13.1h20L100 60.6V0H6.2zm84.4 56.2L75 71.2H49.4L35.6 84.4V71.2h-20V8.7h75v47.5zM75 26.2h-9.4v25.6H75V26.2zm-25 0h-9.4v25.6H50V26.2z"/>
 </svg>
