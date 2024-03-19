@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Messages Addon
-@version		1.3.0
+@version		1.4.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/messages_addon.user.css
 @license		unlicense
@@ -22,8 +22,9 @@
 			backdrop-filter: blur(30px)
 		.im-chat-input, .im-page .im-page--history-new-bar, .im-page-history-w .im-top-banner, .im-page-history-w .im-page--toolsw
 			background: none !important
-
-	if fixHeight
+			
+	// fix sidebar if you have many friends
+	if fixHeight	
 		.im-page--dialogs._im_page_dialogs.page_block
 			height: 100% !important
 	
@@ -49,4 +50,11 @@
 	.im-page-history-w .post_media.clear_fix.post_media_audio
 		width: 93%
 	.im-page-history-w .im-chat-input--editing-head
-		width: 85% {}
+		width: 85%
+
+	// fix dropbox attachments menu position
+	.im-dropbox
+		top: 0px !important
+		left: 0px !important
+		background: rgba(25, 25, 26, 0.75)
+		border-radius: var(--primary-attachment-border-radius) !important {}

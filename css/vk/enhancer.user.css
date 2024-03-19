@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.3.1
+@version		1.4.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -27,12 +27,17 @@
 
 @var checkbox noStatusMusic		"Hide Broadcast music button"		1
 @var checkbox noLyricsButton	"Hide Lyrics music button"			1
+@var checkbox noMusicDislike	"Hide Dislike music button"			1
+@var checkbox noShareMusic		"Hide Share music button"			1
 
 @var checkbox widePlaylist		"Widder music playlist"				1
-@var checkbox noExploreMusic	"Hide Explore music"				1
-@var checkbox noAdditionsMusic	"Hide New addiсtions music"			1
 @var checkbox noRecentMusic		"Hide Recently played music"		1
-@var checkbox noEditorsMusic	"Hide Editor choises music"			1
+
+@var checkbox noMusicBlock1		"Hide Music block 1"				1
+@var checkbox noMusicBlock2		"Hide Music block 2"				1
+@var checkbox noMusicBlock3		"Hide Music block 3"				1
+@var checkbox noMusicBlock4		"Hide Music block 4"				1
+@var checkbox noMusicBlock4		"Hide Music block 5"				1
 
 @var checkbox fab				"FAB Chats"							1
 
@@ -40,17 +45,21 @@
 
 @-moz-document domain("vk.com"), domain("vk.ru")
 	// round corners
-	*
-		--vkui--size_border_radius_paper--regular: borderRadius !important
-		--mg-border-radius-wrapper: borderRadius !important
-		--vkui--size_border_radius--regular: borderRadius !important
-	.media_link__label
-		border-radius: 0 0 borderRadius borderRadius !important
-	.media_link__media
-		border-radius: borderRadius borderRadius 0 0 !important
-	.page_post_thumb_last_row, .summary_tab2, .wdd_add2
-		border-radius: borderRadius !important
-
+	*	
+		--mg-border-radius-wrapper: borderRadius !important									// combined post photos
+		--vkui--size_border_radius_paper--regular: borderRadius !important					// blocks
+		--vkui--size_border_radius--regular: borderRadius !important						// popup menus hover & post link button
+		--primary-attachment-border-radius: borderRadius !important							// link preview
+		--photo-primary-border-radius: borderRadius !important								// photo thumbails
+		.feed_row .page_post_thumb_video													// video thumbails
+		.LeftMenuItem-module__item--XMcN9													// left menu hover
+		.ui_actions_menu_item, #top_settings_link											// legacy menus hover
+		.RecommendedPlaylist__top, .RecomsPlaylist, .RecommendedPlaylist					// music playlists
+			border-radius: var(--photo-primary-border-radius) !important
+		.ui_actions_menu																	// legacy popup menu
+		.SecondaryAttachmentAvatar--style-square											// link icon
+		.OwnerContentTabAudiosItem__cover, .AudioPlayerAudioCover-module__image--mslp2		// music cover
+			border-radius: calc(var(--photo-primary-border-radius) - 4px) !important										
 	// HADER
 	if fluent
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
@@ -69,7 +78,7 @@
 			border-radius: borderRadius
 		[dir] .top_notify_show_all
 			border-radius: 0 0 borderRadius borderRadius
-		[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] .ui_actions_menu, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu
+		[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu
 			border-radius: borderRadius
 		[dir] .tt_w.tt_black
 			border-radius: borderRadius
@@ -176,17 +185,13 @@
 		body, :root
 			--narrow-column-width: 265px !important
 		div.ScrollStickyWrapper div
-			width: auto !important
-			margin-right: 0px !important
-		div.ScrollStickyWrapper div
 			max-width: 305px !important
-		div.ScrollStickyWrapper div div.OwnerVideosListItem
-			--owner-videos-item-gap-total: calc((var(--owner-videos-count-on-row, 2) - 1)*var(--owner-videos-list-item-gap, 12px))
-			--owner-videos-item-width-part: calc(var(--owner-videos-item-gap-total)/var(--owner-videos-count-on-row, 2))
-			width: calc(100%/var(--owner-videos-count-on-row, 2) - var(--owner-videos-item-width-part)) !important
-			margin-right: var(--owner-videos-list-item-gap, 12px) !important;
-			-ms-flex-negative: 0
-			flex-shrink: 0
+		// fix profile friends block
+		.vkuiHorizontalCell.HorizontalCell-module__cellSizeS--aDe7P
+			margin-right: -12px
+		// fix width feed videos
+		.feed_row .page_post_thumb_video
+			width: 590px !important
 
 	if noStories
 		#stories_feed_wrap
@@ -198,19 +203,13 @@
 			display: none
 
 	if noAds
-		#ads_left,
-		.VideosFeedTitle,
-		.feed_groups_recomm,
-		.feed_friends_recomm,
-		#feed_right_blocks_root,
-		#friends_right_blocks_root,
-		.feed_groups_recomm_friends,
-		.new_adaptive_post.Post--redesign,
-		.post_header.ads_ad_text_box.adaptive_ad,
-		.FriendsRecommendationsBlock-module__root--Yp5Oq,
-		._audio_page_layout .CatalogSection--header_section,
-		._ads_block_data_w.mailru-visibility-check.closed_comments.deep_active.Post--redesign,
-		._post.post.post_videos.page_block.deep_active.has_before_block.post--withPostBottomAction
+		#bookmark_game									// feed block Game for you
+		.MarketItemsPortlet								// feed block VK Market
+		#feed_right_blocks_root							// right feed menu Popular
+		#friends_right_blocks_root						// right feed menu People you may know
+		.CatalogSection--header_section					// music header block Subscription
+		.FeedBlockWrap.FeedBlockWrap__marginM			// feed block People you may know
+		[data-feed-block-type="recommended_groups"]		// feed block Recommended creators
 			display: none
 			
 	// MUSIC
@@ -221,13 +220,29 @@
 		bottom: 23%
 
 	if noStatusMusic
-		div.audio_page_player_btn
+		[data-testid="audio-player-block-broadcast-enable-button"]
 			display: none !important
+		.AudioPlayerUserControlsContainer-module__volumeSlider--O43ve
+			padding-right: 0px !important
 
 	if noLyricsButton
-		button.audio_page_player_btn:nth-child(10)
+		[data-testid="audio-player-block-lyrics-button"]
 			display: none !important
-
+	
+	if noMusicDislike
+		[data-testid="audio-player-block-add-dislike-button"]
+			display: none !important
+			
+	.AudioPlayerPlaybackBody-module__audioButton--fVxwT
+		margin: -2px
+	.AudioPlayerUserControlsContainer-module__volumeSlider--O43ve
+		padding-right: 20px 
+	
+	if noShareMusic
+		[data-testid="audio-player-block-share-button"]
+			display: none !important
+		
+		
 	if widePlaylist
 		.redesign_web .CatalogSection__leftColumn
 			max-width: 870px
@@ -237,23 +252,31 @@
 			padding-right: 0 !important
 			border-right: 0 !important
 
-	if noExploreMusic
-		.ui_tabs_header ._audio_section_tab__explore, ._audio_section_tab._audio_section_tab__explore
-			display: none !important
-
-	if noAdditionsMusic
-		.ui_tabs_header ._audio_section_tab__following_updates, ._audio_page_content_block ._audio_section_tab__updates
-			display: none !important
-
 	if noRecentMusic
 		.CatalogBlock__recent_audios_header, .CatalogBlock__recent_audios
 			display: none !important
 		[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
 			padding: 12px 20px
 
-	if noEditorsMusic
-		.CatalogSection__general .CatalogBlock:nth-last-child(-n+1)
-			display: none !important
+	if noMusicBlock1
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(2)
+			display: none
+
+	if noMusicBlock2
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(3)
+			display: none
+
+	if noMusicBlock3
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(4)
+			display: none
+
+	if noMusicBlock4
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(5)
+			display: none
+
+	if noMusicBlock5
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(6)
+			display: none
 
 	// MESSAGES
 	if fab
