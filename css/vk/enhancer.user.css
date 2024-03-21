@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.4.0
+@version		1.4.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -34,17 +34,17 @@
 @var checkbox noRecentMusic		"Hide Recently played music"		1
 
 @var checkbox noMusicBlock1		"Hide Music block 1"				1
-@var checkbox noMusicBlock2		"Hide Music block 2"				1
+@var checkbox noMusicBlock2		"Hide Music block 2"				0
 @var checkbox noMusicBlock3		"Hide Music block 3"				1
-@var checkbox noMusicBlock4		"Hide Music block 4"				1
-@var checkbox noMusicBlock4		"Hide Music block 5"				1
+@var checkbox noMusicBlock4		"Hide Music block 4"				0
+@var checkbox noMusicBlock5		"Hide Music block 5"				1
 
 @var checkbox fab				"FAB Chats"							1
 
 ==/UserStyle== */
 
 @-moz-document domain("vk.com"), domain("vk.ru")
-	// round corners
+	// rounded corners
 	*	
 		--mg-border-radius-wrapper: borderRadius !important									// combined post photos
 		--vkui--size_border_radius_paper--regular: borderRadius !important					// blocks
@@ -59,7 +59,8 @@
 		.ui_actions_menu																	// legacy popup menu
 		.SecondaryAttachmentAvatar--style-square											// link icon
 		.OwnerContentTabAudiosItem__cover, .AudioPlayerAudioCover-module__image--mslp2		// music cover
-			border-radius: calc(var(--photo-primary-border-radius) - 4px) !important										
+			border-radius: calc(var(--photo-primary-border-radius) - 4px) !important	
+											
 	// HADER
 	if fluent
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
@@ -189,6 +190,9 @@
 		// fix profile friends block
 		.vkuiHorizontalCell.HorizontalCell-module__cellSizeS--aDe7P
 			margin-right: -12px
+		// fix bookbarks width
+		.bookmark_page_item._bookmark_page_item
+			width: 120px !important
 		// fix width feed videos
 		.feed_row .page_post_thumb_video
 			width: 590px !important
@@ -219,6 +223,10 @@
 		transform: scale(0.7)
 		bottom: 23%
 
+	// fix popup music small volume slider
+	.AudioPlayerVolumeSlider-module__barSizeS--imSvO
+		width: 70px !important
+
 	if noStatusMusic
 		[data-testid="audio-player-block-broadcast-enable-button"]
 			display: none !important
@@ -232,7 +240,8 @@
 	if noMusicDislike
 		[data-testid="audio-player-block-add-dislike-button"]
 			display: none !important
-			
+	
+	// fix useles music buttons
 	.AudioPlayerPlaybackBody-module__audioButton--fVxwT
 		margin: -2px
 	.AudioPlayerUserControlsContainer-module__volumeSlider--O43ve
