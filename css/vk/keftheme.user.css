@@ -26,17 +26,17 @@
 ==/UserStyle== */
 
 imp = !important
- 
+
 @-moz-document domain("vk.com"), domain("vk.ru")
 	:root
-		--main-filter: hue-rotate(filterColor deg) imp
+		--main-filter: hue-rotate(filterColor deg) !important
 
 	html[dir], [dir] #page_wrap
-		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor imp
+		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor !important
 
 	if customBackground
 		 body, html[dir], [dir] #page_wrap
-			background-size: cover imp
+			background-size: cover !important
 			background: backgroundLink no-repeat fixed center 0
 
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
