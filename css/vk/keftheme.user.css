@@ -1,11 +1,12 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.3.2
+@version		2.3.5
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
 @preprocessor	stylus
 
+@var checkbox	darkAvatar			"Dark avatar (no photo)"		1
 @var checkbox	customBackground	"Image background"				1
 @var text		backgroundLink		"Background url(image_link)"	"url(https://i.imgur.com/rlsprAZ.jpg)"
 
@@ -24,35 +25,37 @@
 }
 ==/UserStyle== */
 
+imp = !important
+ 
 @-moz-document domain("vk.com"), domain("vk.ru")
 	:root
-		--main-filter: hue-rotate(filterColor deg) !important
+		--main-filter: hue-rotate(filterColor deg) imp
 
 	html[dir], [dir] #page_wrap
-		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor !important
+		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor imp
 
 	if customBackground
 		 body, html[dir], [dir] #page_wrap
-			background-size: cover !important
+			background-size: cover imp
 			background: backgroundLink no-repeat fixed center 0
 
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
-		--text: #a6a6b5 !important
-		--loader_background: #272727 !important
-		--image_border: #0000 !important
-		--input_border: #0000 !important
-		--snippet_border: #0000 !important
-		--background_page: #0000 !important
-		--separator_common: #0000 !important
-		--separator_alternate: #0000 !important
-		--landing_snippet_border: #0000 !important
-		--vkui--color_background: #0000 !important
-		--vkui--color_separator_primary: #0000 !important
-		--vkui--color_image_border_alpha: #0000 !important
-		--vkui--color_separator_secondary: #0000 !important
-		--vkui--vkontakte_color_input_border: #0000 !important
-		--vkui--vkontakte_color_snippet_border_alpha: #0000 !important
-		--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 !important
+		--text: #a6a6b5 imp
+		--loader_background: #272727 imp
+		--image_border: #0000 imp
+		--input_border: #0000 imp
+		--snippet_border: #0000 imp
+		--background_page: #0000 imp
+		--separator_common: #0000 imp
+		--separator_alternate: #0000 imp
+		--landing_snippet_border: #0000 imp
+		--vkui--color_background: #0000 imp
+		--vkui--color_separator_primary: #0000 imp
+		--vkui--color_image_border_alpha: #0000 imp
+		--vkui--color_separator_secondary: #0000 imp
+		--vkui--vkontakte_color_input_border: #0000 imp
+		--vkui--vkontakte_color_snippet_border_alpha: #0000 imp
+		--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 imp
 		--background_light: backgroundColor
 		--button_bot_shadow: backgroundColor
 		--background_content: backgroundColor
@@ -72,61 +75,61 @@
 		--segmented_control_bar_background: backgroundColor
 		--landing_primary_button_foreground: backgroundColor
 		--vk_connect_button_primary_foreground: backgroundColor
-		--accent: rgb(redColor, greenColor, blueColor)!important
-		--sky_300: rgb(redColor, greenColor, blueColor)!important
-		--text_name: rgb(redColor, greenColor, blueColor)!important
-		--im_text_name: rgb(redColor, greenColor, blueColor)!important
-		--text_primary: rgb(redColor, greenColor, blueColor)!important
-		--icon_tertiary: rgb(redColor, greenColor, blueColor)!important
-		--icon_secondary: rgb(redColor, greenColor, blueColor)!important
-		--text_placeholder: rgb(redColor, greenColor, blueColor)!important
-		--icon_outline_medium: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_text_link: rgb(redColor, greenColor, blueColor)!important
-		--icon_outline_secondary: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_text_accent: rgb(redColor, greenColor, blueColor)!important
-		--loader_track_value_fill: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_write_bar_icon: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_icon_accent: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_track_buffer: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_text_primary: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_stroke_accent: rgb(redColor, greenColor, blueColor)!important
-		--button_primary_foreground: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_icon_secondary: rgb(redColor, greenColor, blueColor)!important
-		--counter_primary_background: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_background_accent: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_text_contrast_themed: rgb(redColor, greenColor, blueColor)!important
-		--vkui--vkontakte_color_im_text_name: rgb(redColor, greenColor, blueColor)!important
-		--vkui--color_icon_accent_themed: rgb(redColor, greenColor, blueColor)!important
-		--gray_850: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--background_hover: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--field_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--input_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--loader_track_fill: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--control_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--background_suggestions: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--steel_gray_200_alpha12: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_accent_blue: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--float_button_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--content_tint_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--button_primary_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--button_commerce_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--button_secondary_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--vkontakte_color_background_suggestions: rgba(redColor, greenColor, blueColor, 0.2)!important/////
-		--vkui--color_track_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_transparent--active: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_background_secondary: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_background_accent_themed: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--vkontakte_background_hover_alpha: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_write_bar_input_background: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--button_secondary_background_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--vkui--color_background_secondary_alpha: rgba(redColor, greenColor, blueColor, 0.2)!important
-		--button_secondary_foreground_highlighted: rgba(redColor, greenColor, blueColor, 0.2)!important // #0000
-		--vkui--color_background_accent_themed--hover: rgba(redColor, greenColor, blueColor, 0.3)!important
+		--accent: rgb(redColor, greenColor, blueColor) imp
+		--sky_300: rgb(redColor, greenColor, blueColor) imp
+		--text_name: rgb(redColor, greenColor, blueColor) imp
+		--im_text_name: rgb(redColor, greenColor, blueColor) imp
+		--text_primary: rgb(redColor, greenColor, blueColor) imp
+		--icon_tertiary: rgb(redColor, greenColor, blueColor) imp
+		--icon_secondary: rgb(redColor, greenColor, blueColor) imp
+		--text_placeholder: rgb(redColor, greenColor, blueColor) imp
+		--icon_outline_medium: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_text_link: rgb(redColor, greenColor, blueColor) imp
+		--icon_outline_secondary: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_text_accent: rgb(redColor, greenColor, blueColor) imp
+		--loader_track_value_fill: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_icon_accent: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_track_buffer: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_text_primary: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_stroke_accent: rgb(redColor, greenColor, blueColor) imp
+		--button_primary_foreground: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_write_bar_icon: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_icon_secondary: rgb(redColor, greenColor, blueColor) imp
+		--counter_primary_background: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_background_accent: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_icon_accent_themed: rgb(redColor, greenColor, blueColor) imp
+		--vkui--color_text_contrast_themed: rgb(redColor, greenColor, blueColor) imp
+		--vkui--vkontakte_color_im_text_name: rgb(redColor, greenColor, blueColor) imp
+		--gray_850: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--dynamic_blue: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--background_hover: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--field_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--input_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--loader_track_fill: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--control_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--im_bubble_outgoing: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--background_highlighted: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--background_suggestions: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--steel_gray_200_alpha12: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_accent_blue: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--float_button_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--content_tint_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--button_primary_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--button_commerce_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--button_secondary_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_track_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_transparent--active: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_background_secondary: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_background_accent_themed: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--vkontakte_background_hover_alpha: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_write_bar_input_background: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_background_secondary_alpha: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--button_secondary_background_highlighted: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--button_secondary_foreground_highlighted: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--vkontakte_color_background_suggestions: rgba(redColor, greenColor, blueColor, 0.2) imp
+		--vkui--color_background_accent_themed--hover: rgba(redColor, greenColor, blueColor, 0.3) imp
 
 
 	/* EXCLUSIONS */
@@ -152,19 +155,21 @@
 		background: var(--background_page)
 
 	.nim-dialog .nim-dialog--unread
-		color: var(--white) !important
+		color: var(--white) imp
 	// accent hovers
-	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton
-		background-color: unset !important
+	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton, .vkuiIconButton, .vkuiLink
+		background-color: unset imp
 	// shuffle and repeat buttons
 	.AudioPlayerPlaybackControlsContainer-module__playbackButtonsContainer--TYuxY .getColorClass-module__colorIconSecondary--U5K8f
-		color: var(--background_highlighted) !important
+		color: var(--background_highlighted) imp
 	/* FIXES */
 	.vkuiGroup--mode-card:after
 		display: none
 	// img
-	[scheme=vkcom_dark] img[src="/images/camera_50.png"], img[src="https://vk.com/images/camera_200.png"]
-		filter: saturate(0) invert(0.9)
+	// img
+	if darkAvatar
+		[alt="User photo"], ._post_field_image .AvatarRich__img, .AvatarRich--sz-24 .AvatarRich__img, .TopNavBtn__profileImg, .vkuiImageBase__img
+			filter: saturate(0) invert(0.9)
 	// logo
 	.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2)
 		fill: var(--accent)
@@ -180,6 +185,4 @@
 		border-radius: 6px
 	// left menu hover border radius
 	.LeftMenuItem-module__item--XMcN9
-		border-radius: 8px !important
-
-	{}
+		border-radius: 8px imp {}

@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.4.1
+@version		1.4.5
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -8,12 +8,14 @@
 
 @var range borderRadius			"UI border radius"					[12, 0, 24, 4, 'px']
 
+@var select headerVariant		"Headed variants" {
+    "1": "1",
+    "2": "2",
+    "3": "3",
+	"4": "4"
+}
 @var checkbox fluent 			"Header fluency" 					1
 @var checkbox floatingPopup		"Floafting popup windows"			1
-@var checkbox firstHeader		"Header 1"							0
-@var checkbox secondHeader		"Header 2"							0
-@var checkbox thirdHeader		"Header 3"							0
-@var checkbox fourthHeader		"Header 4"							1
 
 @var checkbox noProfile			"Hide My Profile"					1
 @var checkbox noNews			"Hide News"							1
@@ -21,6 +23,7 @@
 @var checkbox noFooter			"Hide left menu footer"				1
 
 @var checkbox widderFeed		"Widder feed (reload to apply)"		1
+@var checkbox  noReactionsPosts	"Hide posts reactions"				1
 @var checkbox noStories			"Hide stories"						1
 @var checkbox noFeedComments	"Hide one comment under posts"		1
 @var checkbox noAds				"Hide all ads"						1
@@ -43,33 +46,35 @@
 
 ==/UserStyle== */
 
+imp = !important
+
 @-moz-document domain("vk.com"), domain("vk.ru")
 	// rounded corners
 	*	
-		--mg-border-radius-wrapper: borderRadius !important									// combined post photos
-		--vkui--size_border_radius_paper--regular: borderRadius !important					// blocks
-		--vkui--size_border_radius--regular: borderRadius !important						// popup menus hover & post link button
-		--primary-attachment-border-radius: borderRadius !important							// link preview
-		--photo-primary-border-radius: borderRadius !important								// photo thumbails
+		--mg-border-radius-wrapper: borderRadius imp									// combined post photos
+		--vkui--size_border_radius_paper--regular: borderRadius imp					// blocks
+		--vkui--size_border_radius--regular: borderRadius imp						// popup menus hover & post link button
+		--primary-attachment-border-radius: borderRadius imp							// link preview
+		--photo-primary-border-radius: borderRadius imp								// photo thumbails
 		.feed_row .page_post_thumb_video													// video thumbails
 		.LeftMenuItem-module__item--XMcN9													// left menu hover
 		.ui_actions_menu_item, #top_settings_link											// legacy menus hover
 		.RecommendedPlaylist__top, .RecomsPlaylist, .RecommendedPlaylist					// music playlists
-			border-radius: var(--photo-primary-border-radius) !important
+			border-radius: var(--photo-primary-border-radius) imp
 		.ui_actions_menu																	// legacy popup menu
 		.SecondaryAttachmentAvatar--style-square											// link icon
 		.OwnerContentTabAudiosItem__cover, .AudioPlayerAudioCover-module__image--mslp2		// music cover
-			border-radius: calc(var(--photo-primary-border-radius) - 4px) !important	
+			border-radius: calc(var(--photo-primary-border-radius) - 4px) imp	
 											
 	// HADER
 	if fluent
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
-			--vkui--color_header_background: #fffc !important
+			--vkui--color_header_background: #fffc imp
 			--search_bar_field_background: #2f222e10!important
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root
-			--vkui--color_header_background: rgba(25, 25, 26, 0.8) !important
-			--search_bar_background: rgba(255, 255, 255, 0) !important
-			--search_bar_field_background: rgba(55, 55, 55, 0.37) !important
+			--vkui--color_header_background: rgba(25, 25, 26, 0.8) imp
+			--search_bar_background: rgba(255, 255, 255, 0) imp
+			--search_bar_field_background: rgba(55, 55, 55, 0.37) imp
 		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
 				backdrop-filter: blur(40px) saturate(1.5)
 
@@ -103,38 +108,38 @@
 		[dir] #top_profile_menu
 			right: -12px
 			margin-top: 8px
-			border-radius: borderRadius !important
-			transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear !important
+			border-radius: borderRadius imp
+			transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear imp
 		[dir] #top_notify_wrap
 			margin-top: 4px
 		[dir] .like_tt_share:before
-			display: none !important
+			display: none imp
 		[dir] #top_ecosystem_navigation_menu
 			margin-top: 8px
 
-	if firstHeader
+	if headerVariant == "1"
 		.top_audio_player
 			max-width: 800px
 		.TopNavBtn__profileArrow
 			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
-	if secondHeader
+	if headerVariant == "2"
 		.HeaderNav__item.HeaderNav__item--gap
 			display: none
 		#audio_layer_tt
-			left: 0px !important
+			left: 0px imp
 		.top_audio_player
 			max-width: 800px
 		.TopNavBtn__profileArrow
 			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
-	if thirdHeader
+	if headerVariant == "3"
 		.HeaderNav__item.HeaderNav__item--gap
 			display: none
 		#audio_layer_tt
-			left: 0px !important
+			left: 0px imp
 		.top_audio_player
 			max-width: 800px
 		.TopNavBtn__profileArrow
@@ -143,7 +148,7 @@
 			padding: 0 10px 0 10px
 		.EcosystemServicesNavigationDropdown_button__99Wn9
 			display: none
-	if fourthHeader
+	if headerVariant == "4"
 		.HeaderNav__item.HeaderNav__item--gap
 			display: none
 		.EcosystemServicesNavigationDropdown_button__99Wn9
@@ -151,7 +156,7 @@
 		[dir="ltr"] #top_notify_wrap
 			left: -370px
 		#audio_layer_tt
-			left: 0px !important
+			left: 0px imp
 		.HeaderNav__btns
 			position: absolute
 			height: inherit
@@ -166,40 +171,45 @@
 	// LEFT MENU 
 	if noProfile
 		#l_pr
-			display: none !important
+			display: none imp
 	if noNews
 		#l_nwsf
-			display: none !important
+			display: none imp
 	if noFriends
 		#l_fr
-			display: none !important
+			display: none imp
 	if noFooter
 		.left_menu_nav_wrap, .LegalRecommendationsLinkLeftMenuAuthorized
-			display: none !important
+			display: none imp
 
 	// FEED
 	if widderFeed
 		div.module_body.clear_fix div.people_row div.people_cell:last-child
-			display: none !important
+			display: none imp
 		div.ScrollStickyWrapper > div:nth-child(1)
-			width: 305px !important
+			width: 305px imp
 		body, :root
-			--narrow-column-width: 265px !important
+			--narrow-column-width: 265px imp
 		div.ScrollStickyWrapper div
-			max-width: 305px !important
+			max-width: 305px imp
 		// fix profile friends block
 		.vkuiHorizontalCell.HorizontalCell-module__cellSizeS--aDe7P
 			margin-right: -12px
 		// fix bookbarks width
 		.bookmark_page_item._bookmark_page_item
-			width: 120px !important
+			width: 120px imp
 		// fix width feed videos
 		.feed_row .page_post_thumb_video
-			width: 590px !important
+			width: 590px imp
 
 	if noStories
 		#stories_feed_wrap
-			display: none !important
+			display: none imp
+
+	if noReactionsPosts
+		[dir] .ReactionsMenu
+			display: none 
+		
 
 	if noFeedComments
 		.replies,
@@ -225,21 +235,21 @@
 
 	// fix popup music small volume slider
 	.AudioPlayerVolumeSlider-module__barSizeS--imSvO
-		width: 70px !important
+		width: 70px imp
 
 	if noStatusMusic
 		[data-testid="audio-player-block-broadcast-enable-button"]
-			display: none !important
+			display: none imp
 		.AudioPlayerUserControlsContainer-module__volumeSlider--O43ve
-			padding-right: 0px !important
+			padding-right: 0px imp
 
 	if noLyricsButton
 		[data-testid="audio-player-block-lyrics-button"]
-			display: none !important
+			display: none imp
 	
 	if noMusicDislike
 		[data-testid="audio-player-block-add-dislike-button"]
-			display: none !important
+			display: none imp
 	
 	// fix useles music buttons
 	.AudioPlayerPlaybackBody-module__audioButton--fVxwT
@@ -249,7 +259,7 @@
 	
 	if noShareMusic
 		[data-testid="audio-player-block-share-button"]
-			display: none !important
+			display: none imp
 		
 		
 	if widePlaylist
@@ -258,12 +268,12 @@
 		.CatalogSection__rightColumn
 			display: none
 		[dir=ltr] .CatalogSection__leftColumn
-			padding-right: 0 !important
-			border-right: 0 !important
+			padding-right: 0 imp
+			border-right: 0 imp
 
 	if noRecentMusic
 		.CatalogBlock__recent_audios_header, .CatalogBlock__recent_audios
-			display: none !important
+			display: none imp
 		[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
 			padding: 12px 20px
 
@@ -293,28 +303,28 @@
 			--add-height: 69px
 			right: 36px
 		.FCPanel__list:empty + .FCPanel__add
-			border-radius: 25% !important
+			border-radius: 25% imp
 		.FCPanel--collapsed:not(:hover) .FCPanel__add
-			border-radius: 100% !important
+			border-radius: 100% imp
 		button.FCPanel__widthToggle, svg.FCPanel__widthToggleIcon
-			display: none !important
-			bottom: 0 !important
+			display: none imp
+			bottom: 0 imp
 		div.FCPanel__list
-			transform: translateY(77px) !important
+			transform: translateY(77px) imp
 			transition: all .1s ease-in-out
 			opacity: 0
 			width: 56px
-			background: 0 0 !important
-			box-shadow: none !important
+			background: 0 0 imp
+			box-shadow: none imp
 		.FCThumb
-			background: 0 0 !important
-			box-shadow: none !important
+			background: 0 0 imp
+			box-shadow: none imp
 			width: 56px
 			bottom: 10px
 		aside.FCPanel:hover div.FCPanel__list, aside.FCPanel.FCPanel--listOpened div.FCPanel__list
-			height: auto !important
+			height: auto imp
 			opacity: 1
-			transform: translateY(0) !important
+			transform: translateY(0) imp
 			transition: all .24s ease-in-out
 		button.FCPanel__add
 			width: 56px
@@ -325,17 +335,17 @@
 			padding: 0
 			opacity: 1
 			margin-bottom: 15px
-			background: var(--background_content) !important
-			color: var(--accent) !important
+			background: var(--background_content) imp
+			color: var(--accent) imp
 		.FCPanel__add:hover::before
-			background: var(--background_content) !important
+			background: var(--background_content) imp
 		div.FCPanel__list:hover button.FCPanel__add
 			background: var(--background_content)
-			color: var(--accent) !important
+			color: var(--accent) imp
 		.FCPanel__addIcon
 			transform: scale(1.2)
 		aside.FCPanel:hover .MEAvatar.MEAvatar--size-40, aside.FCPanel.FCPanel--listOpened .MEAvatar.MEAvatar--size-40
 			transform: scale(1.1)
 		.MEAvatar.MEAvatar--size-40
-			margin-left: 2px !important {}
+			margin-left: 2px imp {}
 
