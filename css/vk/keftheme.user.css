@@ -154,9 +154,11 @@
 	.nim-dialog .nim-dialog--unread
 		color: var(--white) !important
 	// accent hovers
-	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke
-		background-color: var(--background_page) !important
-
+	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton
+		background-color: unset !important
+	// shuffle and repeat buttons
+	.AudioPlayerPlaybackControlsContainer-module__playbackButtonsContainer--TYuxY .getColorClass-module__colorIconSecondary--U5K8f
+		color: var(--background_highlighted) !important
 	/* FIXES */
 	.vkuiGroup--mode-card:after
 		display: none
