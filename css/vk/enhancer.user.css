@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.4.5
+@version		1.5.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -14,7 +14,8 @@
     "3": "3",
 	"4": "4"
 }
-@var checkbox fluent 			"Header fluency" 					1
+@var checkbox noBorders			"Hide borders & separators"			1
+@var checkbox fluentHeader		"Header fluency" 					1
 @var checkbox floatingPopup		"Floafting popup windows"			1
 
 @var checkbox noProfile			"Hide My Profile"					1
@@ -23,7 +24,7 @@
 @var checkbox noFooter			"Hide left menu footer"				1
 
 @var checkbox widderFeed		"Widder feed (reload to apply)"		1
-@var checkbox  noReactionsPosts	"Hide posts reactions"				1
+@var checkbox noReactionsPosts	"Hide posts reactions"				1
 @var checkbox noStories			"Hide stories"						1
 @var checkbox noFeedComments	"Hide one comment under posts"		1
 @var checkbox noAds				"Hide all ads"						1
@@ -51,13 +52,13 @@ imp = !important
 @-moz-document domain("vk.com"), domain("vk.ru")
 	// rounded corners
 	*	
-		--mg-border-radius-wrapper: borderRadius imp									// combined post photos
-		--vkui--size_border_radius_paper--regular: borderRadius imp					// blocks
-		--vkui--size_border_radius--regular: borderRadius imp						// popup menus hover & post link button
-		--primary-attachment-border-radius: borderRadius imp							// link preview
-		--photo-primary-border-radius: borderRadius imp								// photo thumbails
+		--mg-border-radius-wrapper: borderRadius imp										// combined post photos
+		--vkui--size_border_radius_paper--regular: borderRadius imp							// blocks
+		--vkui--size_border_radius--regular: borderRadius imp								// popup menus hover & post link button
+		--primary-attachment-border-radius: borderRadius imp								// link preview
+		--photo-primary-border-radius: borderRadius imp										// photo thumbails
 		.feed_row .page_post_thumb_video													// video thumbails
-		.LeftMenuItem-module__item--XMcN9													// left menu hover
+		[class^="LeftMenuItem-module__item"]												// left menu hover
 		.ui_actions_menu_item, #top_settings_link											// legacy menus hover
 		.RecommendedPlaylist__top, .RecomsPlaylist, .RecommendedPlaylist					// music playlists
 			border-radius: var(--photo-primary-border-radius) imp
@@ -65,9 +66,34 @@ imp = !important
 		.SecondaryAttachmentAvatar--style-square											// link icon
 		.OwnerContentTabAudiosItem__cover, .AudioPlayerAudioCover-module__image--mslp2		// music cover
 			border-radius: calc(var(--photo-primary-border-radius) - 4px) imp	
-											
+		.ui_search_button_search															// searchbox search button
+			border-radius: 0 borderRadius borderRadius 0 imp
+		.ui_search_input_inner 																// searchbox input field
+			border-radius: borderRadius 0 0 borderRadius imp
+		[data-stat-container="group_wall"] .page_post_thumb_last_row						// groups feed videos
+			border-radius: borderRadius
+	
+	if noBorders
+		*
+			//--image_border: #0000 imp
+			//--input_border: #0000 imp
+			//--snippet_border: #0000 imp
+			//--background_page: #0000 imp
+			//--separator_common: #0000 imp
+			//--separator_alternate: #0000 imp
+			//--landing_snippet_border: #0000 imp
+			--vkui--color_background: #0000 imp									// space between blocks in profile
+			--vkui--color_separator_primary: #0000 imp							// block borders & menu separators 
+			--vkui--color_image_border_alpha: #0000 imp							// music covers border
+			--vkui--color_separator_secondary: #0000 imp						// header 1px border
+			--vkui--vkontakte_color_input_border: #0000 imp						// searchbar borders
+			--vkui--vkontakte_color_snippet_border_alpha: #0000 imp				// popup playlist header separator
+			--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 imp		// custom playlists borders
+			//--vkui--size_border--regular: #0000 imp							// VK ID
+			//--vkui--color_field_border_alpha: #0000 imp						// VK ID
+
 	// HADER
-	if fluent
+	if fluentHeader
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
 			--vkui--color_header_background: #fffc imp
 			--search_bar_field_background: #2f222e10!important
@@ -201,6 +227,8 @@ imp = !important
 		// fix width feed videos
 		.feed_row .page_post_thumb_video
 			width: 590px imp
+		.reply_content .page_post_thumb_video, .feed_updates .page_post_thumb_video
+			width: unset imp
 
 	if noStories
 		#stories_feed_wrap
@@ -220,6 +248,7 @@ imp = !important
 		#bookmark_game									// feed block Game for you
 		.MarketItemsPortlet								// feed block VK Market
 		#feed_right_blocks_root							// right feed menu Popular
+		.apps_feedRightAppsBlock						// right feed menu *APP*
 		#friends_right_blocks_root						// right feed menu People you may know
 		.CatalogSection--header_section					// music header block Subscription
 		.FeedBlockWrap.FeedBlockWrap__marginM			// feed block People you may know

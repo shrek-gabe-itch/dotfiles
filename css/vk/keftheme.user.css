@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.3.5
+@version		2.4.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -42,20 +42,6 @@ imp = !important
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 imp
 		--loader_background: #272727 imp
-		--image_border: #0000 imp
-		--input_border: #0000 imp
-		--snippet_border: #0000 imp
-		--background_page: #0000 imp
-		--separator_common: #0000 imp
-		--separator_alternate: #0000 imp
-		--landing_snippet_border: #0000 imp
-		--vkui--color_background: #0000 imp
-		--vkui--color_separator_primary: #0000 imp
-		--vkui--color_image_border_alpha: #0000 imp
-		--vkui--color_separator_secondary: #0000 imp
-		--vkui--vkontakte_color_input_border: #0000 imp
-		--vkui--vkontakte_color_snippet_border_alpha: #0000 imp
-		--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 imp
 		--background_light: backgroundColor
 		--button_bot_shadow: backgroundColor
 		--background_content: backgroundColor
@@ -133,13 +119,13 @@ imp = !important
 
 
 	/* EXCLUSIONS */
-	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w
+	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w, [class^="LeftMenuItem-module__icon"] svg
 		color: var(--accent)
 
 	.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ProfileFullCommonInfo__caption, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text, .ConvoMessage__text, .ConvoMessage__reply, .pv_desc_cont, .vkuiButton__in
 		color: var(--text)
 
-	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent
+	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent, .ui_search_input_inner
 		background-color: var(--background_highlighted)
 
 	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .checkbox.on, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge
@@ -156,33 +142,21 @@ imp = !important
 
 	.nim-dialog .nim-dialog--unread
 		color: var(--white) imp
+
+	/* FIXES */
+	.vkuiGroup--mode-card:after
+		display: none
 	// accent hovers
 	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton, .vkuiIconButton, .vkuiLink
 		background-color: unset imp
 	// shuffle and repeat buttons
-	.AudioPlayerPlaybackControlsContainer-module__playbackButtonsContainer--TYuxY .getColorClass-module__colorIconSecondary--U5K8f
+	[class*="playbackButtonsContainer"] svg
 		color: var(--background_highlighted) imp
-	/* FIXES */
-	.vkuiGroup--mode-card:after
-		display: none
-	// img
 	// img
 	if darkAvatar
-		[alt="User photo"], ._post_field_image .AvatarRich__img, .AvatarRich--sz-24 .AvatarRich__img, .TopNavBtn__profileImg, .vkuiImageBase__img
+		[alt="User photo"], ._post_field_image .AvatarRich__img, .AvatarRich--sz-24 .AvatarRich__img, .TopNavBtn__profileImg, .vkuiImageBase__img, ._post_field_image
 			filter: saturate(0) invert(0.9)
 	// logo
 	.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2)
-		fill: var(--accent)
-	// 1 january
-	.EcosystemAccountIFlip_hidden__T-on7
-		display: none;
-	// reply field when view any photo 
-	.pv_cont .pv_reply_form_wrap .reply_field_wrap
-		margin-left: 0px
-	.wall_module .reply_box div.submit_post_field, .wall_module .reply_box div.submit_post_field[contenteditable="true"], .wall_module .reply_box div.submit_post_field ~ .placeholder .ph_input, .wall_module .reply_box div.submit_post_field[contenteditable="true"] ~ .placeholder .ph_input
-		padding-left: 64px
-	.reply_fakebox, .reply_field.submit_post_field
-		border-radius: 6px
-	// left menu hover border radius
-	.LeftMenuItem-module__item--XMcN9
-		border-radius: 8px imp {}
+		fill: var(--accent) 
+	{}
