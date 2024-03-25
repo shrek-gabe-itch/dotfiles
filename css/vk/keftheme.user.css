@@ -42,6 +42,7 @@ imp = !important
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 imp
 		--loader_background: #272727 imp
+		--vkui--color_background: #0000 imp	// space between blocks in profile
 		--background_light: backgroundColor
 		--button_bot_shadow: backgroundColor
 		--background_content: backgroundColor
