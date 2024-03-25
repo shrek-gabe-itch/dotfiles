@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.5.0
+@version		1.5.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -82,7 +82,6 @@ imp = !important
 			//--separator_common: #0000 imp
 			//--separator_alternate: #0000 imp
 			//--landing_snippet_border: #0000 imp
-			--vkui--color_background: #0000 imp									// space between blocks in profile
 			--vkui--color_separator_primary: #0000 imp							// block borders & menu separators 
 			--vkui--color_image_border_alpha: #0000 imp							// music covers border
 			--vkui--color_separator_secondary: #0000 imp						// header 1px border
