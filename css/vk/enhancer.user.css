@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.5.1
+@version		1.5.4
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
 @preprocessor	stylus
 
-@var range borderRadius			"UI border radius"					[12, 0, 24, 4, 'px']
+@var range borderRadius			"UI border radius"					[8, 0, 24, 4, 'px']
 
 @var select headerVariant		"Headed variants" {
     "1": "1",
@@ -58,20 +58,24 @@ imp = !important
 		--primary-attachment-border-radius: borderRadius imp								// link preview
 		--photo-primary-border-radius: borderRadius imp										// photo thumbails
 		.feed_row .page_post_thumb_video													// video thumbails
-		[class^="LeftMenuItem-module__item"]												// left menu hover
 		.ui_actions_menu_item, #top_settings_link											// legacy menus hover
+		.reply_field_wrap, .im-chat-input--txt-wrap											// input fields
+		[data-stat-container="group_wall"] .page_post_thumb_last_row						// groups feed videos
 		.RecommendedPlaylist__top, .RecomsPlaylist, .RecommendedPlaylist					// music playlists
 			border-radius: var(--photo-primary-border-radius) imp
 		.ui_actions_menu																	// legacy popup menu
 		.SecondaryAttachmentAvatar--style-square											// link icon
 		.OwnerContentTabAudiosItem__cover, .AudioPlayerAudioCover-module__image--mslp2		// music cover
-			border-radius: calc(var(--photo-primary-border-radius) - 4px) imp	
+			border-radius: calc(var(--photo-primary-border-radius) * .8) imp	
 		.ui_search_button_search															// searchbox search button
 			border-radius: 0 borderRadius borderRadius 0 imp
 		.ui_search_input_inner 																// searchbox input field
 			border-radius: borderRadius 0 0 borderRadius imp
-		[data-stat-container="group_wall"] .page_post_thumb_last_row						// groups feed videos
-			border-radius: borderRadius
+		[class^="LeftMenuItem-module__item"]												// left menu hover
+			border-radius: calc(var(--photo-primary-border-radius) * .6) imp
+		[class^="LeftMenuItem-module__counter"]												// left menu counter
+			border-radius: calc(var(--vkui--size_border_radius_paper--regular) * .42) imp
+
 	
 	if noBorders
 		*
@@ -91,15 +95,15 @@ imp = !important
 			//--vkui--size_border--regular: #0000 imp							// VK ID
 			//--vkui--color_field_border_alpha: #0000 imp						// VK ID
 
-	// HADER
+	// HEADER
 	if fluentHeader
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
 			--vkui--color_header_background: #fffc imp
 			--search_bar_field_background: #2f222e10!important
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark,:root
-			--vkui--color_header_background: rgba(25, 25, 26, 0.8) imp
+			--vkui--color_header_background: rgba(25, 25, 26, .8) imp
 			--search_bar_background: rgba(255, 255, 255, 0) imp
-			--search_bar_field_background: rgba(55, 55, 55, 0.37) imp
+			--search_bar_field_background: rgba(55, 55, 55, .37) imp
 		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
 				backdrop-filter: blur(40px) saturate(1.5)
 
@@ -237,7 +241,6 @@ imp = !important
 		[dir] .ReactionsMenu
 			display: none 
 		
-
 	if noFeedComments
 		.replies,
 		.post_replies_header.clear_fix
@@ -258,7 +261,7 @@ imp = !important
 	// Audio snippets FIX
 	.AudioSnippetBanner__images
 		width: 55%
-		transform: scale(0.7)
+		transform: scale(.7)
 		bottom: 23%
 
 	// fix popup music small volume slider
@@ -376,4 +379,3 @@ imp = !important
 			transform: scale(1.1)
 		.MEAvatar.MEAvatar--size-40
 			margin-left: 2px imp {}
-
