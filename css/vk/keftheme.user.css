@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.4.4
+@version		2.4.5
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -153,7 +153,7 @@ imp = !important
 	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton, .vkuiIconButton, .vkuiLink
 		background-color: unset imp
 	// shuffle and repeat buttons
-	[class*="playbackButtonsContainer"] svg
+	[class*="playbackButtonsContainer"] [class*="colorIconSecondary"]
 		color: var(--background_highlighted) imp
 	// img
 	if darkAvatar
