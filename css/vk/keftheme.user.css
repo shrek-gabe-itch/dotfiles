@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.4.5
+@version		2.4.9
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -26,112 +26,124 @@
 ==/UserStyle== */
 
 imp = !important
+bg = backgroundColor
+solid = rgb(redColor, greenColor, blueColor)
+half = rgba(redColor, greenColor, blueColor, .2)
 
 @-moz-document domain("vk.com"), domain("vk.ru")
 	:root
 		--main-filter: hue-rotate(filterColor deg) imp
 
 	html[dir], [dir] #page_wrap
-		scrollbar-color: rgb(redColor, greenColor, blueColor) backgroundColor imp
+		scrollbar-color: solid bg imp
 
 	if customBackground
 		 body, html[dir], [dir] #page_wrap
 			background-size: cover imp
 			background: backgroundLink no-repeat fixed center 0
+		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
+			--vkui--color_background: #0000 imp	// space between blocks in profile
 
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 imp
 		--loader_background: #272727 imp
-		--vkui--color_background: #0000 imp	// space between blocks in profile
-		--background_light: backgroundColor
-		--button_bot_shadow: backgroundColor
-		--background_content: backgroundColor
-		--landing_background: backgroundColor
-		--counter_primary_text: backgroundColor
-		--modal_card_background: backgroundColor
-		--search_bar_background: backgroundColor
-		--skeleton_shimmer_from: backgroundColor
-		--counter_secondary_text: backgroundColor
-		--overlay_status_background: backgroundColor
-		--vkui--color_background_modal: backgroundColor
-		--attach_picker_tab_active_icon: backgroundColor
-		--vkui--color_header_background: backgroundColor
-		--vkui--color_background_content: backgroundColor
-		--landing_login_button_foreground: backgroundColor
-		--vkui--color_background_tertiary: backgroundColor
-		--segmented_control_bar_background: backgroundColor
-		--landing_primary_button_foreground: backgroundColor
-		--vk_connect_button_primary_foreground: backgroundColor
-		--accent: rgb(redColor, greenColor, blueColor) imp
-		--sky_300: rgb(redColor, greenColor, blueColor) imp
-		--text_name: rgb(redColor, greenColor, blueColor) imp
-		--im_text_name: rgb(redColor, greenColor, blueColor) imp
-		--text_primary: rgb(redColor, greenColor, blueColor) imp
-		--icon_tertiary: rgb(redColor, greenColor, blueColor) imp
-		--icon_secondary: rgb(redColor, greenColor, blueColor) imp
-		--text_placeholder: rgb(redColor, greenColor, blueColor) imp
-		--icon_outline_medium: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_text_link: rgb(redColor, greenColor, blueColor) imp
-		--icon_outline_secondary: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_text_accent: rgb(redColor, greenColor, blueColor) imp
-		--loader_track_value_fill: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_icon_accent: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_track_buffer: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_text_primary: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_stroke_accent: rgb(redColor, greenColor, blueColor) imp
-		--button_primary_foreground: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_icon_tertiary: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_write_bar_icon: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_icon_secondary: rgb(redColor, greenColor, blueColor) imp
-		--counter_primary_background: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_background_accent: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_text_accent_themed: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_icon_accent_themed: rgb(redColor, greenColor, blueColor) imp
-		--vkui--color_text_contrast_themed: rgb(redColor, greenColor, blueColor) imp
-		--vkui--vkontakte_color_im_text_name: rgb(redColor, greenColor, blueColor) imp
-		--vkui--vkontakte_color_icon_outline_medium: rgb(redColor, greenColor, blueColor) imp
-		--vkui--vkontakte_color_icon_outline_secondary: rgb(redColor, greenColor, blueColor) imp
-		--gray_850: rgba(redColor, greenColor, blueColor, .2) imp
-		--dynamic_blue: rgba(redColor, greenColor, blueColor, .2) imp
-		--background_hover: rgba(redColor, greenColor, blueColor, .2) imp
-		--field_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--input_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--loader_track_fill: rgba(redColor, greenColor, blueColor, .2) imp
-		--control_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--im_bubble_outgoing: rgba(redColor, greenColor, blueColor, .2) imp
-		--background_highlighted: rgba(redColor, greenColor, blueColor, .2) imp
-		--background_suggestions: rgba(redColor, greenColor, blueColor, .2) imp
-		--steel_gray_200_alpha12: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_accent_blue: rgba(redColor, greenColor, blueColor, .2) imp
-		--float_button_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--content_tint_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--button_primary_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--button_commerce_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--button_secondary_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_track_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_transparent--active: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_background_secondary: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_background_accent_themed: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--vkontakte_background_hover_alpha: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_write_bar_input_background: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--color_background_secondary_alpha: rgba(redColor, greenColor, blueColor, .2) imp
-		--button_secondary_background_highlighted: rgba(redColor, greenColor, blueColor, .2) imp
-		--button_secondary_foreground_highlighted: rgba(redColor, greenColor, blueColor, .2) imp
-		--vkui--vkontakte_color_background_suggestions: rgba(redColor, greenColor, blueColor, .2) imp
+		--background_light: bg
+		--button_bot_shadow: bg
+		--background_content: bg
+		--landing_background: bg
+		--counter_primary_text: bg
+		--modal_card_background: bg
+		--search_bar_background: bg
+		--skeleton_shimmer_from: bg
+		--counter_secondary_text: bg
+		--overlay_status_background: bg
+		--vkui--color_background_modal: bg
+		--attach_picker_tab_active_icon: bg
+		--vkui--color_header_background: bg
+		--vkui--color_background_content: bg
+		--landing_login_button_foreground: bg
+		--vkui--color_background_tertiary: bg
+		--segmented_control_bar_background: bg
+		--landing_primary_button_foreground: bg
+		--vk_connect_button_primary_foreground: bg
+		--accent: solid imp
+		--sky_300: solid imp
+		--blue_400: solid imp
+		--text_name: solid imp
+		--blue_bright: solid imp
+		--im_text_name: solid imp
+		--text_primary: solid imp
+		--icon_tertiary: solid imp
+		--steel_gray_200: solid imp
+		--light_blue_500: solid imp
+		--icon_secondary: solid imp
+		--text_placeholder: solid imp
+		--icon_outline_medium: solid imp
+		--vkui--color_text_link: solid imp
+		--icon_outline_secondary: solid imp
+		--vkui--color_text_accent: solid imp
+		--loader_track_value_fill: solid imp
+		--vkui--color_icon_accent: solid imp
+		--vkui--color_track_buffer: solid imp
+		--vkui--color_text_primary: solid imp
+		--vkui--color_stroke_accent: solid imp
+		--button_primary_foreground: solid imp
+		--vkui--color_icon_tertiary: solid imp
+		--vkui--color_write_bar_icon: solid imp
+		--vkui--color_icon_secondary: solid imp
+		--counter_primary_background: solid imp
+		--vkui--color_background_accent: solid imp
+		--vkui--color_text_accent_themed: solid imp
+		--vkui--color_icon_accent_themed: solid imp
+		--vkui--color_text_contrast_themed: solid imp
+		--vkui--vkontakte_color_im_text_name: solid imp
+		--vkui--vkontakte_color_icon_outline_medium: solid imp
+		--vkui--vkontakte_color_icon_outline_secondary: solid imp
+		--gray_850: half imp
+		--dynamic_blue: half imp
+		--steel_gray_120: half imp
+		--background_hover: half imp
+		--field_background: half imp
+		--input_background: half imp
+		--loader_track_fill: half imp
+		--control_background: half imp
+		--im_bubble_outgoing: half imp
+		--background_highlighted: half imp
+		--background_suggestions: half imp
+		--steel_gray_200_alpha12: half imp
+		--vkui--color_accent_blue: half imp
+		--float_button_background: half imp
+		--content_tint_background: half imp
+		--button_primary_background: half imp
+		--button_commerce_background: half imp
+		--button_secondary_background: half imp
+		--vkui--color_track_background: half imp
+		--vkui--color_transparent--active: half imp
+		--vkui--color_background_secondary: half imp
+		--vkui--color_background_accent_themed: half imp
+		--vkui--vkontakte_background_hover_alpha: half imp
+		--vkui--color_write_bar_input_background: half imp
+		--vkui--color_background_secondary_alpha: half imp
+		--button_secondary_background_highlighted: half imp
+		--button_secondary_foreground_highlighted: half imp
+		--vkui--vkontakte_color_background_suggestions: half imp
 		--vkui--color_background_accent_themed--hover: rgba(redColor, greenColor, blueColor, .3) imp
 
 
 	/* EXCLUSIONS */
-	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w, [class^="LeftMenuItem-module__icon"] svg
+	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w, [class^="LeftMenuItem-module__icon"] svg //left menu icons
+	[class*="viewUrlBtn"] .vkuiButton__content // url buttons text
 		color: var(--accent) imp
 
 	.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ProfileFullCommonInfo__caption, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text, .ConvoMessage__text, .ConvoMessage__reply, .pv_desc_cont, .vkuiButton__in
+	.groups_edit_event_log_item_text // groups event log text
+	.groups_edit_event_log_title // groups event log date
 		color: var(--text)
 
-	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent, .ui_search_input_inner, .im-chat-input--txt-wrap, .reply_field_wrap, .ui_search_custom_ctrl
+	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent, .ui_search_input_inner, .im-chat-input--txt-wrap, .reply_field_wrap, .ui_search_custom_ctrl, .ui_toggler
 		background-color: var(--background_highlighted)
 
-	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .checkbox.on, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge
+	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge, .checkbox.on::before
 		filter: var(--main-filter)
 
 	.vkuiDropdown

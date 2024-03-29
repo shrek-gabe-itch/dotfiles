@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.5.4
+@version		1.5.9
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -222,8 +222,10 @@ imp = !important
 		div.ScrollStickyWrapper div
 			max-width: 305px imp
 		// fix profile friends block
-		.vkuiHorizontalCell.HorizontalCell-module__cellSizeS--aDe7P
-			margin-right: -12px
+		.vkuiHorizontalCell:nth-last-child(-n+2)
+			display: none imp
+		.ProfileGroupHorizontalCells [class*="HorizontalCell-module"]
+			width: 33.3% imp
 		// fix bookbarks width
 		.bookmark_page_item._bookmark_page_item
 			width: 120px imp
@@ -232,6 +234,9 @@ imp = !important
 			width: 590px imp
 		.reply_content .page_post_thumb_video, .feed_updates .page_post_thumb_video
 			width: unset imp
+		// fix feed urlbutton empty space
+		*
+			--primary-attachment-ratio: 1.55 imp
 
 	if noStories
 		#stories_feed_wrap
@@ -247,6 +252,7 @@ imp = !important
 			display: none
 
 	if noAds
+		#uxpoll_block									// feed block VK research
 		#bookmark_game									// feed block Game for you
 		.MarketItemsPortlet								// feed block VK Market
 		#feed_right_blocks_root							// right feed menu Popular
