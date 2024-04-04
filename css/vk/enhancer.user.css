@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.5.9
+@version		1.6.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -36,12 +36,14 @@
 
 @var checkbox widePlaylist		"Widder music playlist"				1
 @var checkbox noRecentMusic		"Hide Recently played music"		1
+@var checkbox noVKMix			"Hide VK Mix"						1
 
-@var checkbox noMusicBlock1		"Hide Music block 1"				1
-@var checkbox noMusicBlock2		"Hide Music block 2"				0
-@var checkbox noMusicBlock3		"Hide Music block 3"				1
-@var checkbox noMusicBlock4		"Hide Music block 4"				0
-@var checkbox noMusicBlock5		"Hide Music block 5"				1
+@var checkbox noMusicBlock1		"Hide Music block 1"				0
+@var checkbox noMusicBlock2		"Hide Music block 2"				1
+@var checkbox noMusicBlock3		"Hide Music block 3"				0
+@var checkbox noMusicBlock4		"Hide Music block 4"				1
+@var checkbox noMusicBlock5		"Hide Music block 5"				0
+@var checkbox noMusicBlock6		"Hide Music block 6"				1
 
 @var checkbox fab				"FAB Chats"							1
 
@@ -297,8 +299,7 @@ imp = !important
 	if noShareMusic
 		[data-testid="audio-player-block-share-button"]
 			display: none imp
-		
-		
+
 	if widePlaylist
 		.redesign_web .CatalogSection__leftColumn
 			max-width: 870px
@@ -313,6 +314,10 @@ imp = !important
 			display: none imp
 		[dir] .redesign_web .audio_page_layout .CatalogBlock--divided
 			padding: 12px 20px
+
+	if noVKMix
+		[class*="AudioCatalogMusicMixBlockComponent"]
+			display: none
 
 	if noMusicBlock1
 		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(2)
@@ -332,6 +337,10 @@ imp = !important
 
 	if noMusicBlock5
 		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(6)
+			display: none
+			
+	if noMusicBlock6
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(7)
 			display: none
 
 	// MESSAGES
