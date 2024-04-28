@@ -17,17 +17,14 @@
 }
 .platform-win.app-focused .typeWindows_e41dab .winButtonClose__6396d {
 	background-color: rgb(250, 55, 55);
-	transition: all 0.2s ease !important;
-}
-.platform-win.app-focused .typeWindows_e41dab .winButtonClose__6396d:hover, .platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:hover {
-	filter: brightness(50%);
-	transition: all 0.2s ease !important;
 }
 .platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:nth-child(2n) {
 	background-color: rgb(36, 209, 49);
-	transition: all 0.2s ease !important;
 }
 .platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:nth-child(3n) {
 	background-color: rgb(252, 185, 15);
+}
+.platform-win.app-focused .typeWindows_e41dab .winButtonClose__6396d:hover, .platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:hover {
+	filter: brightness(50%);
 	transition: all 0.2s ease !important;
 }
