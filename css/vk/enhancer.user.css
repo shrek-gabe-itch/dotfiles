@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.6.0
+@version		1.6.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -241,7 +241,7 @@ imp = !important
 			--primary-attachment-ratio: 1.55 imp
 
 	if noStories
-		#stories_feed_wrap
+		.stories_feed_wrap
 			display: none imp
 
 	if noReactionsPosts
