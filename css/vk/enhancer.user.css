@@ -348,7 +348,7 @@ imp = !important
 
 	if noMusicBlock7
 		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(8)
-		display: none
+			display: none
 
 	// MESSAGES
 	if fab
