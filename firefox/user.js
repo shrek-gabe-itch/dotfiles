@@ -99,6 +99,9 @@ user_pref("media.wmf.hevc.enabled", 1);													// default 0
 // Disable "list all tabs" title bar button
 user_pref("browser.tabs.tabmanager.enabled", false);                                    // default true
 
+// Disable "Copy without site tracking"
+user_pref("privacy.query_stripping.strip_on_share.enabled", false);                     // default true
+
 // Native windows notifications
 user_pref("alerts.useSystemBackend", true);												// default false
 
@@ -162,6 +165,9 @@ user_pref("security.insecure_field_warning.contextual.enabled", false);					// d
 
 // Disable menu when pressing alt
 user_pref("ui.key.menuAccessKeyFocuses", false);										// default true
+
+// Disable Firefox Accessibility Service
+user_pref("accessibility.force_disabled", 1);                                           // default 0
 
 // BetterFox tweaks
 // Reduce the 5ms Firefox waits to render the page

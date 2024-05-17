@@ -18,13 +18,13 @@
     --border: #2f2f2f;
 }
 
+/* Changed colors */
 menupopup, panel {
     --arrowpanel-background: var(--bg) !important;
     --panel-background: var(--bg) !important;
     --panel-border-color: var(--border) !important;
     --panel-separator-zap-gradient: transparent !important;
 }
-
 .context-menu > ul > li > a:is(:focus, :hover), .context-menu > ul > li > button:is(:focus, :hover),
 #context-navigation:not([hidden])>.menuitem-iconic:hover,
 menu:where([_moz-menuactive="true"]:not([disabled="true"])),
@@ -44,4 +44,18 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
 menupopup>menuitem {
     min-height: 24px !important;
     max-height: 24px !important;
+}
+
+/* Rounded corners */
+menupopup :-moz-any(menu, menuitem) {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    margin: 0px !important;
+}
+:not(#ContentSelectDropdown) > menupopup {
+    --panel-border-radius: 8px !important;
+}
+#context-navigation:not([hidden]) {
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
 }

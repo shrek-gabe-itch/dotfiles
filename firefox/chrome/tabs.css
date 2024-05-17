@@ -21,6 +21,12 @@ hbox.tab-secondary-label {
 	display:none !important
 }
 
+/* Colored soundplaying tab */
+#tabbrowser-tabs .tabbrowser-tab:is([soundplaying]) .tab-background:not([selected]) {
+    background-color: #5960c482 !important;
+    transition: background-color 500ms ease !important;
+}
+
 /* Remove tab close button */
 #TabsToolbar .close-icon {
 	display: none !important;
@@ -69,9 +75,9 @@ hbox.tab-secondary-label {
 
 /* Fix colors and remove tab borders */
 .tab-background {
-	--tab-selected-bgcolor: var(--toolbar-bgcolor) !important;
-	--lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important;
-	--tab-selected-bgimage: var(--toolbar-bgimage) !important;
+	/* --tab-selected-bgcolor: var(--toolbar-bgcolor) !important; */
+	/* --lwt-selected-tab-background-color: var(--toolbar-bgcolor) !important; */
+	/* --tab-selected-bgimage: var(--toolbar-bgimage) !important; */
 	position: relative !important;
 	box-shadow: none !important;
 	opacity: 1 !important;

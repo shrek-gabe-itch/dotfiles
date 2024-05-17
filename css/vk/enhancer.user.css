@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.6.1
+@version		1.6.2
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -44,6 +44,7 @@
 @var checkbox noMusicBlock4		"Hide Music block 4"				1
 @var checkbox noMusicBlock5		"Hide Music block 5"				0
 @var checkbox noMusicBlock6		"Hide Music block 6"				1
+@var checkbox noMusicBlock6		"Hide Music block 7"				1
 
 @var checkbox fab				"FAB Chats"							1
 
@@ -257,9 +258,11 @@ imp = !important
 		#uxpoll_block									// feed block VK research
 		#bookmark_game									// feed block Game for you
 		.MarketItemsPortlet								// feed block VK Market
+		.vkuiInternalGroupCard							// right feed menu ???
 		#feed_right_blocks_root							// right feed menu Popular
 		.apps_feedRightAppsBlock						// right feed menu *APP*
 		#friends_right_blocks_root						// right feed menu People you may know
+		.NewMiniAppsRightBlock__root					// rigth feed menu New Mini Apps
 		.CatalogSection--header_section					// music header block Subscription
 		.FeedBlockWrap.FeedBlockWrap__marginM			// feed block People you may know
 		[data-feed-block-type="recommended_groups"]		// feed block Recommended creators
@@ -342,6 +345,10 @@ imp = !important
 	if noMusicBlock6
 		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(7)
 			display: none
+
+	if noMusicBlock7
+		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(8)
+		display: none
 
 	// MESSAGES
 	if fab
