@@ -1,64 +1,128 @@
 /* Monochrome count badge */
 .toolbarbutton-badge {
-    background-color: rgb(255, 255, 255) !important;
-    color: rgb(0, 0, 0) !important;
-    min-width: 8px !important;
+	/* background-color: rgb(120, 120, 120) !important; */
+	/* color: rgb(255, 255, 255) !important; */
+	background-color: var(--arrowpanel-color) !important;
+	color: var(--background-color-box) !important;
+	min-width: 8px !important;
+}
+/* Reading list */
+#leetcat_cs_ubc_ca-BAP {
+	list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 48 48'%3E%3Cpath fill='context-fill' d='M14.6.3a8.1 8.1 0 0 0-8.1 8.1v37.5c0 1 .8 1.9 1.9 1.9.4 0 .8-.1 1.1-.4L24 36.9l14.5 10.5c.8.6 2 .4 2.6-.4.2-.3.4-.7.4-1.1V8.4c0-4.5-3.7-8.1-8.1-8.1H14.6zm0 3.7h18.8c2.4 0 4.4 1.9 4.4 4.4v33.8l-12.7-9.1c-.7-.5-1.5-.5-2.2 0l-12.7 9.1V8.4c0-2.5 2-4.4 4.4-4.4z'/%3E%3C/svg%3E") !important;
+}
+#pageAction-urlbar-leetcat_cs_ubc_ca {
+	--pageAction-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 48 48'%3E%3Cpath fill='context-fill' d='M14.6.3a8.1 8.1 0 0 0-8.1 8.1v37.5c0 1 .8 1.9 1.9 1.9.4 0 .8-.1 1.1-.4L24 36.9l14.5 10.5c.8.6 2 .4 2.6-.4.2-.3.4-.7.4-1.1V8.4c0-4.5-3.7-8.1-8.1-8.1H14.6zm0 3.7h18.8c2.4 0 4.4 1.9 4.4 4.4v33.8l-12.7-9.1c-.7-.5-1.5-.5-2.2 0l-12.7 9.1V8.4c0-2.5 2-4.4 4.4-4.4z'/%3E%3C/svg%3E") !important;
+}
+
+/* UBlock */
+#ublock0_raymondhill_net-BAP {
+    list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 128 128'%3E%3Cpath fill='context-fill' d='M113.6 15.1c-20.9 0-26.5 0-46.1-13.2l-1-.6a7 7 0 0 0-5.3 0l-.2.1-.3.2-.4.3C40.8 15 35.2 15 14.4 15A6.4 6.4 0 0 0 8 21.4c0 36.5 0 54.8 6.9 68.5 7 14.1 19.9 21.5 45.5 36.1l1.1.6a6 6 0 0 0 2.5.6c.8 0 1.5-.2 2.2-.4l.5-.1.2-.2.3-.2.3-.2c25.7-14.7 38.6-22.1 45.6-36.2 6.9-13.8 6.9-32.1 6.9-68.5 0-3.4-2.9-6.3-6.4-6.3zm-6.3 12.8c0 29.8-.3 45.9-5.5 56.4-5 10.1-15.8 16.6-37.8 29.2-21.9-12.6-32.7-19.1-37.8-29.3-5.2-10.4-5.5-26.5-5.5-56.4A66.8 66.8 0 0 0 64 14.9a67 67 0 0 0 43.3 13z'/%3E%3C/svg%3E") !important;
 }
 
 /* Stylus */
 .webextension-browser-action[label="Stylus"] {
-    list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' id='Layer_1' x='0' y='0' version='1.1' viewBox='0 0 18 18'%3E%3Cstyle%3E.st0%7Bfill:%23fff%7D%3C/style%3E%3Cpath d='M16.9 7.6V2c-.1-1.1-1-2-2.2-2H3.3C2 0 1.1.9 1.1 2.1v5.6H0v2.6h1.1v5.6C1.1 17 2 18 3.3 18h11.5c1.1 0 2.1-.9 2.1-2.1v-5.6H18V7.6h-1.1zm-1 1.5c-.2.2-.3.6-.3.9v5.6c0 .4-.3.8-.8.8H3.3c-.5 0-.8-.3-.8-.8V10c0-.3-.1-.7-.3-.9-.3-.2-.6-.2-1-.2.7-.1 1.1-.7 1.1-1.2V2.1c0-.4.3-.8.8-.8h11.5c.4 0 .8.3.8.8v5.5c0 .7.7 1.2 1.2 1.3-.3 0-.5 0-.7.2z' class='st0'/%3E%3Cpath d='m10.2 7.7-.9-.2c-.7-.2-1.3-.6-1.6-.8-.4-.3-.6-.7-.6-1 0-.4.2-.8.6-1 .3-.2.9-.3 1.4-.3s1 .1 1.4.4c.3.1.7.6.8.9l2.4-.9c-.2-.8-.8-1.5-1.6-2-.7-.6-1.8-.8-3.1-.8-.9 0-1.7.1-2.4.5s-1.2.7-1.5 1.3c-.5.6-.6 1.2-.6 1.9 0 .9.3 1.7 1 2.3a5 5 0 0 0 2.4 1.4l.9.3c.9.3 1.6.7 2 1 .4.3.6.7.6 1.2 0 .4-.2.9-.7 1.1-.4.2-.9.3-1.6.3s-1.3-.2-1.8-.7c-.5-.4-.8-1-1-1.7L3.8 12c.3 1.2 1 2.1 2 2.8.9.7 2 1 3.3 1a5 5 0 0 0 4-1.7c.4-.6.7-1.3.7-2.2 0-1-.3-1.9-1-2.6-.4-.6-1.3-1.1-2.6-1.6z' class='st0'/%3E%3C/svg%3E") !important;
+	list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' id='Layer_1' x='0' y='0' version='1.1'  viewBox='0 0 48 48'%3E%3Cstyle%3E.st1%7Bfill:none;stroke:context-fill;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10%7D%3C/style%3E%3Cpath d='M44.5 10.4 27.4 2.6c-1.9-.8-4.9-.8-6.7 0L3.5 10.4c-2 .9-2 2.4 0 3.3l17 7.7c1.9.9 5.1.9 7.1 0l17-7.7c1.9-.8 1.9-2.3-.1-3.3M13 30l-9.5 4.3c-2 .9-2 2.4 0 3.3l17 7.7c1.9.9 5.1.9 7.1 0l17-7.7c2-.9 2-2.4 0-3.3l-9.2-4.4' class='st1'/%3E%3Cpath d='m13 18.1-9.5 4.3c-2 .9-2 2.4 0 3.3l17 7.7c1.9.9 5.1.9 7.1 0l17-7.7c2-.9 2-2.4 0-3.3L35 18.1' class='st1'/%3E%3C/svg%3E") !important;
 }
 
 /* Violentmonkey */
 .webextension-browser-action[label="Violentmonkey"] {
-    list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 23 16'%3E%3Cpath fill='%23fff' d='M14.2 11.2c.6 1.2 1.8 2 3.2 1.9 1.3 0 2.2-.7 2.2-1.6 0-1.1-.9-1.5-2.3-2.1l-.8-.3c-2.3-1-3.9-2.2-3.9-4.8 0-2.4 1.8-4.2 4.7-4.2a5 5 0 0 1 4.6 2.6l-2.5 1.6a2.3 2.3 0 0 0-2.1-1.4c-.8-.1-1.5.5-1.5 1.2v.1c0 1 .6 1.4 2 1.9l.8.3c2.7 1.2 4.3 2.4 4.3 5 0 2.9-2.3 4.5-5.3 4.5a6 6 0 0 1-5.8-3.3l2.4-1.4zm-11.3.3c.5.9 1 1.6 2.1 1.6s1.7-.4 1.7-2V.2h3.2v10.9c0 3.3-1.9 4.8-4.8 4.8A5 5 0 0 1 .3 13l2.6-1.5z'/%3E%3C/svg%3E") !important;
+	list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xml:space='preserve' viewBox='0 0 23 16'%3E%3Cpath fill='context-fill' d='M14.2 11.2c.6 1.2 1.8 2 3.2 1.9 1.3 0 2.2-.7 2.2-1.6 0-1.1-.9-1.5-2.3-2.1l-.8-.3c-2.3-1-3.9-2.2-3.9-4.8 0-2.4 1.8-4.2 4.7-4.2a5 5 0 0 1 4.6 2.6l-2.5 1.6a2.3 2.3 0 0 0-2.1-1.4c-.8-.1-1.5.5-1.5 1.2v.1c0 1 .6 1.4 2 1.9l.8.3c2.7 1.2 4.3 2.4 4.3 5 0 2.9-2.3 4.5-5.3 4.5a6 6 0 0 1-5.8-3.3l2.4-1.4zm-11.3.3c.5.9 1 1.6 2.1 1.6s1.7-.4 1.7-2V.2h3.2v10.9c0 3.3-1.9 4.8-4.8 4.8A5 5 0 0 1 .3 13l2.6-1.5z'/%3E%3C/svg%3E") !important;
 }
 .webextension-browser-action[label="Violentmonkey"] > .toolbarbutton-badge-stack > .toolbarbutton-icon {
-    scale: 1.2;
+		scale: 1.2;
 }
 
-/* Compact extensions view */
-#unified-extensions-view {
-	--uei-icon-size: 16px;
-	.unified-extensions-item {
-		margin-block: 0 !important;
-		border-radius: var(--arrowpanel-menuitem-border-radius) !important;
-		> .unified-extensions-item-action-button {
-			.unified-extensions-item-message-deck {
-				display: none;
-			}
-			&:hover {
-				background-color: initial !important;
-			}
-		}
-		> .unified-extensions-item-menu-button {
-			list-style-image: url("chrome://global/skin/icons/more.svg") !important;
-			padding: 0 !important;
-			> .toolbarbutton-icon {
-				padding: var(--arrowpanel-menuitem-padding-block) var(--arrowpanel-menuitem-padding-inline) !important;
-				border: none !important;
-				opacity: 0;
-			}
-			&:hover {
-				color: var(--button-primary-bgcolor) !important;
-				> .toolbarbutton-icon {
+/* Compact extensions menu view */
+@media (-moz-bool-pref: "userChrome.extensions.menu.compact1") {
+	#unified-extensions-view {
+		--uei-icon-size: 16px;
+		.unified-extensions-item {
+			margin-block: 0 !important;
+			border-radius: var(--arrowpanel-menuitem-border-radius) !important;
+			> .unified-extensions-item-action-button {
+					.unified-extensions-item-message-deck {
+						display: none;
+					}
+				&:hover {
 					background-color: initial !important;
 				}
 			}
-			&:active {
-				color: var(--button-primary-hover-bgcolor) !important;
+			> .unified-extensions-item-menu-button {
+				list-style-image: url("chrome://global/skin/icons/more.svg") !important;
+				padding: 0 !important;
+				> .toolbarbutton-icon {
+					padding: var(--arrowpanel-menuitem-padding-block) var(--arrowpanel-menuitem-padding-inline) !important;
+					border: none !important;
+					opacity: 0;
+				}
+				&:hover {
+					color: var(--button-primary-bgcolor) !important;
+					> .toolbarbutton-icon {
+					background-color: initial !important;
+					}
+				}
+				&:active {
+					color: var(--button-primary-hover-bgcolor) !important;
+				}
+			}
+			&:hover {
+				background-color: var(--panel-item-hover-bgcolor);
+				> .unified-extensions-item-menu-button > .toolbarbutton-icon {
+					opacity: 1;
+				}
+			}
+			&:has(> .unified-extensions-item-action-button:not([disabled]):hover:active) {
+				background-color: var(--panel-item-active-bgcolor);
 			}
 		}
-		&:hover {
-			background-color: var(--panel-item-hover-bgcolor);
-  
-			> .unified-extensions-item-menu-button > .toolbarbutton-icon {
-				opacity: 1;
-			}
-		}
-		&:has(> .unified-extensions-item-action-button:not([disabled]):hover:active) {
-			background-color: var(--panel-item-active-bgcolor);
-		}
+	}
+}
+
+@media (-moz-bool-pref: "userChrome.extensions.menu.compact2") {
+	#unified-extensions-panel #unified-extensions-view {
+			width: 100% !important;
+	}
+	#unified-extensions-view{
+		--uei-icon-size: 22px; /*  Change icon size */
+		--firefoxcss-number-of-extensions-in-a-row: 4; /*  Increase to the number of icons you want in one row */
+	}
+	#unified-extensions-view .panel-header,
+	#unified-extensions-view .panel-header + toolbarseparator,
+	#unified-extensions-view .panel-subview-body + toolbarseparator,
+	#unified-extensions-view #unified-extensions-manage-extensions,
+	#unified-extensions-view .unified-extensions-item-menu-button.subviewbutton,
+	#unified-extensions-view .unified-extensions-item-action-button .unified-extensions-item-contents{
+		display:none !important;
+	}
+	#unified-extensions-view .panel-subview-body {
+		padding:4px !important;
+	}
+	#unified-extensions-view .unified-extensions-item .unified-extensions-item-icon, 
+	#unified-extensions-view .unified-extensions-item .toolbarbutton-badge-stack {
+		margin-inline-end: 0px !important;
+	}
+	#unified-extensions-view #overflowed-extensions-list,
+	#unified-extensions-view #unified-extensions-area,
+	#unified-extensions-view .unified-extensions-list {
+		display: grid !important;
+		grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row),auto);
+		justify-items:left !important;
+		align-items:left !important;
+	}
+	#unified-extensions-view .unified-extensions-list .unified-extensions-item,
+	#unified-extensions-view .unified-extensions-list{
+		max-width: max-content;
+	}
+	#unified-extensions-view #unified-extensions-area {
+		padding-bottom: 3px !important;
+		border-bottom: 1px solid #aeaeae33 !important;
+	}
+	/* #unified-extensions-view .unified-extensions-list {
+	    border-top: 1px solid #aeaeae33 !important;
+	} */
+	#wrapper-edit-controls:is([place="palette"], 
+	[place="panel"]) > #edit-controls, #wrapper-zoom-controls:is([place="palette"], 
+	[place="panel"]) > #zoom-controls, :is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
+		margin: 0px !important;
 	}
 }

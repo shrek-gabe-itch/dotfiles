@@ -1,8 +1,9 @@
 @import "tabs.css";
-@import "searchbar.css";
+@import "findbar.css";
 @import "context.css";
 @import "bookmarks.css";
 @import "extensions.css";
+@import "urlbar.css";
 
 /* MacOS window control buttons */
 .titlebar-buttonbox {
@@ -10,7 +11,7 @@
 	margin-right: 0px;
 }
 .titlebar-button {
-	transition: all 0.3s ease !important;
+	transition: all .3s ease !important;
 	padding: 8px 12px !important;
 }
 .titlebar-button.titlebar-close {
@@ -38,129 +39,28 @@
 	background-color: transparent !important;
 }
 
-/* Floating findbar */
-findbar {
-	order: -1;
-	margin-bottom: -33px;
-	position: relative;
-	border-top: none !important;
-	padding: 0 !important;
-	transition: transform 82ms linear, opacity 82ms linear 32ms !important;
-	background: none !important;
-	pointer-events: none;
-	z-index: 1;
-	white-space: nowrap;
-}
-.findbar-container>.findbar-find-fast {
-	padding: var(--toolbarbutton-inner-padding) 1px;
-	margin: 0 !important;
-}
-findbar[hidden] {
-	transform: translateY(-30px);
-}
-findbar>.findbar-container,
-findbar>.close-icon {
-	border: 1px solid var(--chrome-content-separator-color);
-	border-width: 0 0 1px 0px;
-	background-color: var(--lwt-accent-color) !important;
-	background-image: linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none);
-	pointer-events: auto;
-}
-findbar>.findbar-container {
-	border-bottom-right-radius: 4px;
-	border-right-width: 1px;
-	height: initial !important;
-	margin-inline: 0px !important;
-	overflow-inline: visible !important;
-}
-.findbar-find-status {
-	display: flex;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	flex-grow: 1;
-}
-.findbar-closebutton {
-	margin: 0 !important;
-	border-radius: 0 !important;
-	padding: 5px !important;
-	width: initial !important;
-	order: -1;
-}
-.findbar-closebutton>image {
-	padding: 3px
-}
-.findbar-closebutton:hover>image {
-	background: var(--toolbarbutton-hover-background) !important;
-	border-radius: 4px
-}
-findbar>.findbar-container>hbox {
-	margin: 0 5px
-}
-findbar::after {
-	content: "";
-	display: flex;
-	flex-grow: 100;
-}
-@media (-moz-bool-pref: "userChrome.findbar.right") {
-	findbar {
-		flex-direction: row-reverse;
-	}
-	findbar>.findbar-container {
-		flex-direction: row-reverse;
-		border-inline-width: 1px 0px;
-		border-bottom-right-radius: 0px;
-		border-bottom-left-radius: 4px;
-	}
-	findbar {
-		margin-right: 16px;
-		border-right: 1px solid var(--chrome-content-separator-color);
-	}
-}
-
 /* Hide bottom hovered link  */
 #statuspanel[type=overLink] {
     display: none !important;
 }
 
 /* Round root, searchbar and urlbar */
-@supports -moz-bool-pref("userChrome.full.rounded.style") {
+@media (-moz-bool-pref: "userChrome.full.rounded.style") {
 	/* Root backgound colors */
 	:root {
 		--lwt-frame: var(--lwt-accent-color, #030615) !important;                                                           
 		--toolbar-field-focus-border-color: transparent !important;                              
 		--chrome-content-separator-color: transparent !important;                                   
 	  }
-	/* Rounded corner and hover animation in urlbar */
-	#urlbar {
-		border-radius: 8px !important;
-	}
-	#urlbar:not([open], [focused]) #urlbar-background {
-		border-radius: 8px !important;
-		transition: ease-in 150ms !important;
-		transition-delay: 80ms !important;
-	}
-	#urlbar:not([open], [focused]):hover #urlbar-background {
-		background-color: var(--toolbarbutton-hover-background) !important;
-		border-radius: 8px !important;
-		transition: linear 150ms !important;
-		transition-delay: 80ms !important;
-	}
-	#urlbar[focused] #urlbar-background {
-		border-radius: 8px !important;
-		box-shadow: none !important;
-	}
-	#urlbar[open] #urlbar-background {
-		border-radius: 8px !important;
-	}
-	/* Rounded corner in searchbar */
-	#nav-bar, #PersonalToolbar {
-		border-radius: 10px !important;
-		margin-inline: 6px !important;
-	}
 	/* Rounded corner in pages */
 	.browserContainer {
 		padding: 3px 5px 5px 5px !important;
 	}
+	/* Rounded corner in toolbar */
+	#nav-bar, #PersonalToolbar {
+		border-radius: 10px !important;
+		margin-inline: 6px !important;
+}
 	.browserStack>browser{
 		border-radius: 10px !important;
 		outline: 5px solid var(--lwt-frame) !important;

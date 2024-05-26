@@ -1,0 +1,4 @@
+content userchromejs ./
+content userscripts ../jsLoader/JS/
+skin userstyles classic/1.0 ../jsLoader/CSS/
+content userchrome ../jsLoader/resources/

@@ -7,23 +7,23 @@
 @import "./context/sidebar-header.css";
 @import "./context/source-context.css";
 @import "./context/urlbar-context.css";
+@import "./context/main-hamburger.css";
 @import "./context/sidebar-context.css";
 @import "./context/toolbar-context.css";
 @import "./context/opt_noSendToDevice.css";
 
 
 :root, html, body {
-    --hover: #fafafc;
-    --bg: #0f0f0f;
-    --border: #2f2f2f;
+	--bg: var(--arrowpanel-background);
+	--hover: var(--toolbarbutton-icon-fill);
+	--border: var(--arrowpanel-border-color);
 }
 
-/* Changed colors */
+/* Context menu colors */
 menupopup, panel {
-    --arrowpanel-background: var(--bg) !important;
-    --panel-background: var(--bg) !important;
-    --panel-border-color: var(--border) !important;
-    --panel-separator-zap-gradient: transparent !important;
+	--arrowpanel-background: var(--bg) !important;
+	--panel-background: var(--bg) !important;
+	--panel-border-color: var(--border) !important;
 }
 .context-menu > ul > li > a:is(:focus, :hover), .context-menu > ul > li > button:is(:focus, :hover),
 #context-navigation:not([hidden])>.menuitem-iconic:hover,
@@ -36,26 +36,95 @@ toolbarbutton.bookmark-item:not(.subviewbutton, [disabled="true"], [open]):hover
 .widget-overflow-list .toolbarbutton-1:not([disabled], [open], :active):is(:hover, :focus),
 .toolbaritem-combined-buttons:is( :not([cui-areatype="toolbar"]),
 [overflowedItem="true"])>toolbarbutton:not([disabled], [open], :active):is(:hover, :focus) {
-    background-color: color-mix(in srgb, var(--hover), transparent 80%) !important;
-    color: var(--hover) !important;
+	background-color: color-mix(in srgb, var(--hover), transparent 80%) !important;
+	color: var(--hover) !important;
+}
+
+/* Autoscroller knob colors */
+.autoscroller {
+	--panel-background: unset !important;
+	--panel-border-color: unset !important;
+	--panel-border-radius: unset !important;
+	--panel-width: unset !important;
+	--panel-shadow-margin: unset !important;
+	margin: 4px !important;
+	width: 36px !important;
+	height: 36px !important;
+	border: 2px solid var(--bg) !important;
+	border-radius: 100% !important;
+	background: var(--hover) no-repeat center url("chrome://global/skin/icons/autoscroll-vertical.svg") !important;
+}
+
+/* Reorder right-click menu action buttons */
+#context-back {
+	order: 1;
+}
+#context-reload {
+	order: 2 !important;
+}
+#context-forward {
+	order: 3;
+}
+#context-bookmarkpage {
+	order: 4;
 }
 
 /* Height bookmarks popup items  */
 menupopup>menuitem {
-    min-height: 24px !important;
-    max-height: 24px !important;
+	min-height: 24px !important;
+	max-height: 24px !important;
 }
 
 /* Rounded corners */
 menupopup :-moz-any(menu, menuitem) {
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
-    margin: 0px !important;
+	padding-top: 4px !important;
+	padding-bottom: 4px !important;
+	margin: 0px !important;
+}
+.toolbar-menupopup {
+	& :is(menu, menuitem) {
+		margin-left: 6px !important;
+		margin-right: 6px !important;
+	}
 }
 :not(#ContentSelectDropdown) > menupopup {
-    --panel-border-radius: 8px !important;
+	--panel-border-radius: 8px !important;
 }
 #context-navigation:not([hidden]) {
-    border-top-left-radius: 8px !important;
-    border-top-right-radius: 8px !important;
+	border-top-left-radius: 8px !important;
+	border-top-right-radius: 8px !important;
 }
+
+/* Replace account name in hamburger menu */
+#appMenu-fxa-label2 #appMenu-header-description {
+	display: none !important;
+}
+#appMenu-popup #appMenu-fxa-label2::before {
+	content: 'Firefox account' !important; /* any text */
+}
+
+/* Widder empty right-click menu */
+menupopup {
+	min-width: 200px !important;
+}
+
+/* Hamburger menu icons  */
+#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image {
+  fill: currentColor;
+  -moz-context-properties: fill;
+  margin-inline: 0 8px !important;
+}
+#appMenu-new-window-button2 {list-style-image: url("chrome://browser/skin/window.svg")}
+#appMenu-new-private-window-button2 {list-style-image: url("chrome://browser/skin/privateBrowsing.svg")}
+#appMenu-bookmarks-button {list-style-image: url("chrome://browser/skin/bookmark-star-on-tray.svg")}
+#appMenu-history-button {list-style-image: url("chrome://browser/skin/history.svg")}
+#appMenu-downloads-button {list-style-image: url("chrome://browser/skin/downloads/downloads.svg")}
+#appMenu-passwords-button {list-style-image: url("chrome://browser/skin/login.svg") }
+#appMenu-extensions-themes-button {list-style-image: url("chrome://mozapps/skin/extensions/extension.svg")}
+#appMenu-settings-button {list-style-image: url("chrome://global/skin/icons/settings.svg")}
+#appMenu-more-button2 {list-style-image: url("chrome://global/skin/icons/developer.svg")}
+#appMenu-help-button2 {list-style-image: url("chrome://global/skin/icons/info.svg")}
+#appMenu-quit-button2 {list-style-image: url("chrome://devtools/skin/images/search-clear.svg")}
+#appMenu-translate-button {list-style-image: url("chrome://browser/skin/translations.svg")}
+#appMenu-advanced-settings-button {list-style-image: url("chrome://browser/skin/places/bookmarksToolbar.svg")}
+#appMenu-userChrome-button {list-style-image: url("chrome://browser/skin/trending.svg")}

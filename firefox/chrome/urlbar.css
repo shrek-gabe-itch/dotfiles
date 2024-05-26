@@ -27,3 +27,31 @@
 .search-one-offs {
 	display: none !important;
 }
+
+/* Rounded corner and hover animation in urlbar */
+#urlbar {
+	border-radius: 8px !important;
+}
+#urlbar:not([open], [focused]) #urlbar-background {
+	border-radius: 8px !important;
+	transition: ease-in .3s !important;
+	transition-delay: .08s !important;
+}
+#urlbar:not([open], [focused]):hover #urlbar-background {
+	background-color: color-mix(in srgb, var(--toolbarbutton-icon-fill), transparent 80%) !important; 
+	border-radius: 8px !important;
+	transition: linear .3s !important;
+	transition-delay: .08s !important;
+}
+#urlbar[focused] #urlbar-background {
+	border-radius: 8px !important;
+	box-shadow: none !important;
+}
+#urlbar[open] #urlbar-background {
+	border-radius: 8px !important;
+}
+.urlbarView-row {
+	&[selected], &[row-selectable]:not([selected]):hover {
+		background-color: color-mix(in srgb, var(--toolbarbutton-icon-fill), transparent 80%) !important;
+	}
+}
