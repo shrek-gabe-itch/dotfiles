@@ -1,13 +1,12 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.4.9
+@version		2.5.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
 @preprocessor	stylus
 
 @var checkbox	darkAvatar			"Dark avatar (no photo)"		0
-@var checkbox	customBackground	"Image background"				1
 @var text		backgroundLink		"Background url(image_link)"	"url(https://i.imgur.com/rlsprAZ.jpg)"
 
 @var text		redColor			"Red(0-255)"					145
@@ -15,18 +14,34 @@
 @var text		blueColor			"Blue(0-255)"					163
 @var text		filterColor			"Filters color(0-360)"			62
 
-@var select backgroundColor "Background color" {
+@var select	customBackground "Custom background" {
+	"color": "color",
+	"image": "image"
+}
+
+@var select foregroundColor "Foreground color" {
 	"Default": "rgb(34, 34, 34)",
 	"1": "rgb(62, 62, 66)",
 	"2": "rgb(45, 45, 48)",
 	"3": "rgb(37, 37, 38)",
 	"4": "rgb(30, 30, 30)",
-	"5": "rgb(26, 24, 24)"
+	"5": "rgb(26, 24, 24)",
+	"Mocha": "rgb(30, 30, 46)",
+	"Macchiato": "rgb(36, 39, 58)",
+	"Frappe": "rgb(48, 52, 70)"
+}
+
+@var select backgroundColor "Background color" {
+	"Default": "rgb(20, 20, 20)",
+	"Mocha": "rgb(17, 17, 27)",
+	"Macchiato": "rgb(24, 25, 38)",
+	"Frappe": "rgb(35, 38, 52)"
 }
 ==/UserStyle== */
 
 imp = !important
 bg = backgroundColor
+fg = foregroundColor
 solid = rgb(redColor, greenColor, blueColor)
 half = rgba(redColor, greenColor, blueColor, .2)
 
@@ -35,37 +50,40 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		--main-filter: hue-rotate(filterColor deg) imp
 
 	html[dir], [dir] #page_wrap
-		scrollbar-color: solid bg imp
-
-	if customBackground
+		scrollbar-color: solid fg imp
+	
+	if customBackground == "image"
 		 body, html[dir], [dir] #page_wrap
 			background-size: cover imp
 			background: backgroundLink no-repeat fixed center 0
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 			--vkui--color_background: #0000 imp	// space between blocks in profile
+	if customBackground == "color"
+		body, html[dir], [dir] #page_wrap
+			background-color: bg
 
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 imp
 		--loader_background: #272727 imp
-		--background_light: bg
-		--button_bot_shadow: bg
-		--background_content: bg
-		--landing_background: bg
-		--counter_primary_text: bg
-		--modal_card_background: bg
-		--search_bar_background: bg
-		--skeleton_shimmer_from: bg
-		--counter_secondary_text: bg
-		--overlay_status_background: bg
-		--vkui--color_background_modal: bg
-		--attach_picker_tab_active_icon: bg
-		--vkui--color_header_background: bg
-		--vkui--color_background_content: bg
-		--landing_login_button_foreground: bg
-		--vkui--color_background_tertiary: bg
-		--segmented_control_bar_background: bg
-		--landing_primary_button_foreground: bg
-		--vk_connect_button_primary_foreground: bg
+		--background_light: fg
+		--button_bot_shadow: fg
+		--background_content: fg
+		--landing_background: fg
+		--counter_primary_text: fg
+		--modal_card_background: fg
+		--search_bar_background: fg
+		--skeleton_shimmer_from: fg
+		--counter_secondary_text: fg
+		--overlay_status_background: fg
+		--vkui--color_background_modal: fg
+		--attach_picker_tab_active_icon: fg
+		--vkui--color_header_background: fg
+		--vkui--color_background_content: fg
+		--landing_login_button_foreground: fg
+		--vkui--color_background_tertiary: fg
+		--segmented_control_bar_background: fg
+		--landing_primary_button_foreground: fg
+		--vk_connect_button_primary_foreground: fg
 		--accent: solid imp
 		--sky_300: solid imp
 		--blue_400: solid imp
