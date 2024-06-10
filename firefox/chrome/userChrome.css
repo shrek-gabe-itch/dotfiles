@@ -12,7 +12,7 @@
 }
 .titlebar-button {
 	transition: all .3s ease !important;
-	padding: 8px 12px !important;
+	padding: 9px 12px 7px !important;
 }
 .titlebar-button.titlebar-close {
 	padding-right: 16px !important;
@@ -20,7 +20,9 @@
 .titlebar-button > .toolbarbutton-icon {
 	transition: all 0.3s ease !important;
 	list-style-image: none;
-	border-radius: 10px;
+	border-radius: 100%;
+	width: 14px !important;
+	height: 14px !important;
 }
 .titlebar-button.titlebar-min > .toolbarbutton-icon {
 	background: rgb(36, 209, 49) !important;
@@ -44,30 +46,40 @@
     display: none !important;
 }
 
-/* Round root, searchbar and urlbar */
-@media (-moz-bool-pref: "userChrome.full.rounded.style") {
-	/* Root backgound colors */
-	:root {
-		--lwt-frame: var(--lwt-accent-color, #030615) !important;                                                           
-		--toolbar-field-focus-border-color: transparent !important;                              
-		--chrome-content-separator-color: transparent !important;                                   
-	  }
+/* Round pages and toolbar */
+@media (-moz-bool-pref: "userChrome.rounded.style1") {
 	/* Rounded corner in pages */
+	.browserStack>browser{
+		border-radius: 10px !important;
+	}
 	.browserContainer {
-		padding: 3px 5px 5px 5px !important;
+		padding: 5px !important;
+	}
+	/* Rounded corners in toolbar */
+	#nav-bar, #PersonalToolbar {
+		border-radius: 10px !important;
+		margin-inline: 5px !important;
+	}
+	.browserContainer, .browserStack, #browser {
+		background-color: var(--lwt-accent-color) !important;
+	}
+	#navigator-toolbox {
+		border-bottom: unset !important;
+	}
+}
+@media (-moz-bool-pref: "userChrome.rounded.style2") {
+	/* Rounded corners in pages */
+	.browserStack>browser{
+		border-radius: 10px 10px 0 0 !important;
+	}
+	.browserContainer, .browserStack, #browser{
+		background-color: var(--toolbar-bgcolor) !important;
 	}
 	/* Rounded corner in toolbar */
 	#nav-bar, #PersonalToolbar {
-		border-radius: 10px !important;
-		margin-inline: 6px !important;
-}
-	.browserStack>browser{
-		border-radius: 10px !important;
-		outline: 5px solid var(--lwt-frame) !important;
-		outline-offset: 1px !important;
-		box-shadow: 0 0 4px 0px color-mix(in srgb, var(--lwt-frame) 85%, var(--lwt-tab-text)) !important;
+		border-radius: 10px 10px 0 0 !important;
 	}
-	.browserContainer, .browserStack, #browser{
-		background-color: var(--lwt-frame) !important;
+	#navigator-toolbox {
+		border-bottom: unset !important;
 	}
 }

@@ -34,14 +34,9 @@
 }
 #urlbar:not([open], [focused]) #urlbar-background {
 	border-radius: 8px !important;
-	transition: ease-in .3s !important;
-	transition-delay: .08s !important;
 }
 #urlbar:not([open], [focused]):hover #urlbar-background {
-	background-color: color-mix(in srgb, var(--toolbarbutton-icon-fill), transparent 80%) !important; 
 	border-radius: 8px !important;
-	transition: linear .3s !important;
-	transition-delay: .08s !important;
 }
 #urlbar[focused] #urlbar-background {
 	border-radius: 8px !important;
