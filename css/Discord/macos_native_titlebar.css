@@ -1,4 +1,4 @@
-.platform-win .typeWindows_e41dab {
+.platform-win .typeWindows_a934d8 {
 	z-index: 102;
 	position: absolute;
 	flex-direction: row;
@@ -12,7 +12,7 @@
 	-webkit-app-region: drag;
 	background: transparent !important;
 }
-.platform-win .typeWindows_e41dab .wordmark__5b8c9 {
+.platform-win .typeWindows_a934d8 .wordmark_a934d8 {
 	top: 11px;
 	left: 11px;
 	width: 52px;
@@ -20,10 +20,10 @@
 	padding: 0;
 	-webkit-app-region: no-drag;
 }
-.platform-win .typeWindows_e41dab .wordmark__5b8c9 g {
+.platform-win .typeWindows_a934d8 .wordmark_a934d8 g {
 	display: none;
 }
-.platform-win .typeWindows_e41dab .winButton_f17fb6 {
+.platform-win .typeWindows_a934d8 .winButton_a934d8 {
 	width: 12px;
 	height: 12px;
 	margin-left: 8px;
@@ -33,23 +33,23 @@
 	-webkit-app-region: no-drag;
 	transition: all 0.3s ease !important;
 }
-.platform-win .typeWindows_e41dab .winButton_f17fb6 svg {
+.platform-win .typeWindows_a934d8 .winButton_a934d8 svg {
 	display: none;
 }
-.platform-win.app-focused .typeWindows_e41dab .winButtonClose__6396d {
+.platform-win.app-focused .typeWindows_a934d8 .winButtonClose_a934d8 {
 	background-color: rgb(250, 55, 55);
 }
-.platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:nth-child(2n) {
+.platform-win.app-focused .typeWindows_a934d8 .winButtonMinMax_a934d8:nth-child(2n) {
 	background-color: rgb(36, 209, 49);
 }
-  .platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:nth-child(3n) {
+  .platform-win.app-focused .typeWindows_a934d8 .winButtonMinMax_a934d8:nth-child(3n) {
 	background-color: rgb(252, 185, 15);
 }
-.platform-win.app-focused .typeWindows_e41dab .winButtonClose__6396d:hover, .platform-win.app-focused .typeWindows_e41dab .winButtonMinMax_caf9c8:hover {
+.platform-win.app-focused .typeWindows_a934d8 .winButtonClose_a934d8:hover, .platform-win.app-focused .typeWindows_a934d8 .winButtonMinMax_a934d8:hover {
 	filter: brightness(50%);
 	transition: all 0.2s ease !important;
 }
-.guilds__2b93a {
+.guilds_a4d4d9 {
 	margin-top: 32px;
 } 
 .notice__5fd4c, .bd-notice:first-child {
@@ -57,7 +57,7 @@
 	-webkit-app-region: drag;
 	border-radius: 0;
 }
-.notice__5fd4c button, .notice__5fd4c .closeIcon__967e7, .bd-notice:first-child button, .bd-notice:first-child .closeIcon__967e7 {
+.notice__5fd4c button, .notice__5fd4c .closeIcon_c91bad, .bd-notice:first-child button, .bd-notice:first-child .closeIcon_c91bad {
 	-webkit-app-region: no-drag;
 }
 .standardSidebarView__12528 {
@@ -72,16 +72,16 @@
 .standardSidebarView__12528 .contentColumn__5f80b {
 	-webkit-app-region: no-drag;
 }
-.platform-win .sidebar_e031be {
+.platform-win .sidebar_a4d4d9 {
 	border-radius: 0;
 }
-.platform-win .sidebar_e031be .header__77c95, .platform-win .sidebar_e031be .searchBar__621ec {
+.platform-win .sidebar_a4d4d9 .header__77c95, .platform-win .sidebar_a4d4d9 .searchBar__621ec {
 	z-index: 103;
 }
-.platform-win .sidebar_e031be .header__77c95, .platform-win .sidebar_e031be .searchBarComponent__8f95f {
+.platform-win .sidebar_a4d4d9 .header__77c95, .platform-win .sidebar_a4d4d9 .searchBarComponent__8f95f {
 	-webkit-app-region: no-drag;
 }
-.platform-win .sidebar_e031be .searchBar__621ec {
+.platform-win .sidebar_a4d4d9 .searchBar__621ec {
 	-webkit-app-region: drag;
 }
 .chat__52833 {
