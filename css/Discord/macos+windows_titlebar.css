@@ -1,0 +1,30 @@
+.theme-dark .titleBar_a934d8.withFrame_a934d8 {
+	height: 28px;
+} 
+.platform-win .typeWindows_a934d8 .wordmark_a934d8 g {
+	display: none;
+}
+.platform-win .typeWindows_a934d8 .winButton_a934d8 {
+	width: 13px;
+	height: 13px;
+	margin: 10px 14px 0 6px;
+	border-radius: 8px;
+	background-color: var(--background-primary);
+	transition: all 0.3s ease !important;
+}
+.platform-win .typeWindows_a934d8 .winButton_a934d8 svg {
+	display: none;
+}
+.platform-win.app-focused .typeWindows_a934d8 .winButtonClose_a934d8 {
+	background-color: rgb(250, 55, 55);
+}
+.platform-win.app-focused .typeWindows_a934d8 .winButtonMinMax_a934d8:nth-child(2n) {
+	background-color: rgb(36, 209, 49);
+}
+.platform-win.app-focused .typeWindows_a934d8 .winButtonMinMax_a934d8:nth-child(3n) {
+	background-color: rgb(252, 185, 15);
+}
+.platform-win.app-focused .typeWindows_a934d8 .winButtonClose_a934d8:hover, .platform-win.app-focused .typeWindows_a934d8 .winButtonMinMax_a934d8:hover {
+	filter: brightness(50%);
+	transition: all 0.2s ease !important;
+}

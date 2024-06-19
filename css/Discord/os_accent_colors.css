@@ -1,0 +1,58 @@
+:root{
+    --accent: var(--os-accent-color); 
+}
+.focused_d90b3d {
+    background-color: var(--accent) !important;
+}
+.checked__36fdc {
+    background-color: var(--accent)!important;
+}
+.checked__36fdc path{
+    fill: var(--accent)!important;
+}
+.button__437ce:hover .sendIcon_f67abd path {
+    fill: var(--accent);
+}
+.vc-spotify-shuffle-on {
+    color: var(--accent);
+}
+.vc-spotify-repeat-context {
+    color: var(--accent);
+}
+.vc-spotify-repeat-track {
+    color: var(--accent);
+}
+.numberBadge__40d6f {
+    --status-danger: var(--accent);
+}
+.jumpToPresentBar__69174,
+.mention_dd733a {
+    background: var(--accent);
+}
+.botTagRegular_c89c9a {
+    background: var(--accent);
+}
+.newMessagesBar__8b272 {
+    background: var(--accent);
+}
+.theme-light .wrapper__53064.interactive:not([style]),
+.theme-light .wrapper__53064:not(.mention) {
+    background: var(--accent);
+}
+.theme-dark .wrapper__53064.interactive:not([style]),
+.theme-dark .wrapper__53064:not(.mention) {
+    background: var(--accent);
+}
+:root {
+    --brand-430: color-mix(in hsl, var(--accent) 90%, white);
+    --brand-300: color-mix(in hsl, var(--accent) 50%, white);
+    --brand-360: color-mix(in hsl, var(--accent) 60%, white);
+    --brand-500: var(--accent);
+    --brand-560: color-mix(in hsl, var(--accent) 90%, black);
+    --brand-600: color-mix(in hsl, var(--accent) 80%, black);
+
+}
+.theme-dark,
+.theme-light {
+    --info-warning-foreground: var(--os-accent-color);
+}

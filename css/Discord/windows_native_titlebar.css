@@ -1,0 +1,36 @@
+.theme-dark .titleBar_a934d8 {
+	background-color: transparent;
+}
+.theme-dark .titleBar_a934d8.withFrame_a934d8 {
+	height: 28px;
+}
+.theme-dark .titleBar_a934d8 .wordmarkWindows_a934d8 {
+	color: rgba(255, 255, 255, 0.3628);
+}
+.theme-dark .titleBar_a934d8 .wordmarkWindows_a934d8 svg {
+	display: none;
+}
+.theme-dark .titleBar_a934d8 .winButton_a934d8 {
+	width: 46px;
+	height: 32px;
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.3628);
+	transition: background-color 83ms linear;
+}
+.theme-dark .titleBar_a934d8 .winButton_a934d8:hover {
+	background-color: rgba(255, 255, 255, 0.0837);
+	color: #FFF;
+}
+.theme-dark .titleBar_a934d8 .winButton_a934d8:active {
+	background-color: rgba(255, 255, 255, 0.0326);
+}
+.theme-dark .titleBar_a934d8 .winButton_a934d8.winButtonClose_a934d8:hover {
+	background-color: #C42B1C;
+}
+.theme-dark .titleBar_a934d8 .winButton_a934d8.winButtonClose_a934d8:active {
+	background-color: rgba(196, 43, 28, 0.9);
+}
+html.theme-dark.app-focused .wordmarkWindows_a934d8,
+html.theme-dark.app-focused .winButton_a934d8 {
+	color: #FFF;
+}
