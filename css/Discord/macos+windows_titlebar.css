@@ -1,6 +1,9 @@
 .theme-dark .titleBar_a934d8.withFrame_a934d8 {
 	height: 28px;
 } 
+.platform-win .bg_d4b6c5 {
+    top: -30px;
+}
 .platform-win .typeWindows_a934d8 .wordmark_a934d8 g {
 	display: none;
 }

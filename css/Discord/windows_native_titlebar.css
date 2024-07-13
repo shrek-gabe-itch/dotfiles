@@ -4,6 +4,9 @@
 .theme-dark .titleBar_a934d8.withFrame_a934d8 {
 	height: 28px;
 }
+.platform-win .bg_d4b6c5 {
+    top: -30px;
+}
 .theme-dark .titleBar_a934d8 .wordmarkWindows_a934d8 {
 	color: rgba(255, 255, 255, 0.3628);
 }
