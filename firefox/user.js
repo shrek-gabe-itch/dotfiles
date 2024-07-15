@@ -5,7 +5,7 @@ user_pref("svg.context-properties.content.enabled", true); 								// [false]
 user_pref("recentlyClosedTabsContextMenu.includePopupWindows", false);
 user_pref("recentlyClosedTabsContextMenu.showContainerTabColors.inPopupPanels", true);
 user_pref("userChrome.findbar.right", true);
-user_pref("userChrome.extensions.menu.compact1", true);
+user_pref("userChrome.extensions.menu.style1", true);
 
 // Scrollbar styles
 // user_pref("widget.non-native-theme.scrollbar.style", 0);								// [0]
@@ -70,7 +70,7 @@ user_pref("network.proxy.type", 0);														// [5]
 // user_pref("network.proxy.no_proxies_on", "vk.com, .userapi.com, dota2.ru, youtube.com, twitch.tv, reddit.com, dotabuff.com, tiktok.com, vkuseraudio.net, unsplash.com");
 
 // QUIC protocol(if you have YouTube lags set false)
-// user_pref("network.http.http3.enable", true);										// [true]
+user_pref("network.http.http3.enable", true);										    // [true]
 
 // Enable ECH
 // user_pref("network.dns.echconfig.enabled", true);									// [true]
@@ -140,6 +140,9 @@ user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);					// [
 
 // Disable reader mode
 user_pref("reader.parse-on-load.enabled", false);										// [true]
+
+// Disable all embedded translation options
+user_pref("browser.translations.enable", false);										// [true]
 
 // Disable Pocket extension
 user_pref("extensions.pocket.enabled", false);											// [true]
