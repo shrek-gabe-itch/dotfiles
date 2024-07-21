@@ -32,36 +32,39 @@ hbox.tab-secondary-label {
 /* Show separator line betwen inactive tabs */
 .tab-stack {
 	margin-left: 1px;
+	margin-right: -4px;
 }
 .tab-stack::before, 
 .tabbrowser-tab:last-of-type .tab-stack::after {
 	content: "";
 	display: block;
 	position: absolute;
-	width: 1px;
+	/* width: 1px; */
 	height: 50%;
 	border-left: 1px solid currentColor;
 	top: 25%;
 	opacity: var(--separators-color-saturation, 0);
-	box-sizing: border-box;
+	/* box-sizing: border-box; */
 }
 .tab-stack::before {
 	right: 100%;
 }
 .tab-stack::after {
-	left: 100%;
+	left: 99.7%;
 }
 .tabbrowser-tab:is([selected],[selected] + .tabbrowser-tab,
 :hover, :hover + .tabbrowser-tab, [multiselected],
 [multiselected] + .tabbrowser-tab) .tab-stack::before,
 .tabbrowser-tab:is([selected], :hover, [multiselected]) .tab-stack::after {
 	opacity: 0 !important;
+	transition: all 0.3s ease !important;
 }
 .tabbrowser-tab:first-of-type .tab-stack::before,
 .tabbrowser-tab:last-of-type[pinned] .tab-stack::after,
 #tabbrowser-tabs[overflow] .tabbrowser-tab[first-visible-unpinned-tab] .tab-stack::before,
 #tabbrowser-tabs[overflow] .tab-stack::after {
 	opacity: 0 !important;
+	transition: all 0.3s ease !important;
 }
 :root {
 	--separators-color-saturation: 0.5;
@@ -77,4 +80,5 @@ hbox.tab-secondary-label {
 	opacity: 1 !important;
 	border: none !important;
 	outline: none !important;
+	transition: all 0.3s ease !important;
 }

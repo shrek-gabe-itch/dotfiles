@@ -12,7 +12,6 @@
 @import "./context/toolbar-context.css";
 @import "./context/opt_noSendToDevice.css";
 
-
 :root, html, body {
 	--bg: var(--arrowpanel-background);
 	--hover: var(--toolbarbutton-icon-fill);
@@ -109,7 +108,7 @@ menupopup {
 }
 
 /* Hamburger menu icons  */
-#appMenu-protonMainView > .panel-subview-body > toolbarbutton > image {
+/* #appMenu-protonMainView > .panel-subview-body > toolbarbutton > image {
   fill: currentColor;
   -moz-context-properties: fill;
   margin-inline: 0 8px !important;
@@ -127,4 +126,4 @@ menupopup {
 #appMenu-quit-button2 {list-style-image: url("chrome://devtools/skin/images/search-clear.svg")}
 #appMenu-translate-button {list-style-image: url("chrome://browser/skin/translations.svg")}
 #appMenu-advanced-settings-button {list-style-image: url("chrome://browser/skin/places/bookmarksToolbar.svg")}
-#appMenu-userChrome-button {list-style-image: url("chrome://browser/skin/trending.svg")}
+#appMenu-userChrome-button {list-style-image: url("chrome://browser/skin/trending.svg")} */

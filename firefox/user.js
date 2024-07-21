@@ -6,6 +6,8 @@ user_pref("recentlyClosedTabsContextMenu.includePopupWindows", false);
 user_pref("recentlyClosedTabsContextMenu.showContainerTabColors.inPopupPanels", true);
 user_pref("userChrome.findbar.right", true);
 user_pref("userChrome.extensions.menu.style1", true);
+user_pref("userChrome.rounded.style1", true);
+
 
 // Scrollbar styles
 // user_pref("widget.non-native-theme.scrollbar.style", 0);								// [0]

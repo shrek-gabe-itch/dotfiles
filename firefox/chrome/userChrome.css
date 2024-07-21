@@ -48,6 +48,22 @@
 
 /* Round pages and toolbar */
 @media (-moz-bool-pref: "userChrome.rounded.style1") {
+	/* Rounded corners in pages */
+	.browserStack>browser{
+		border-radius: 10px 10px 0 0 !important;
+	}
+	.browserContainer, .browserStack, #browser{
+		background-color: var(--toolbar-bgcolor) !important;
+	}
+	/* Rounded corner in toolbar */
+	#nav-bar, #PersonalToolbar {
+		border-radius: 10px 10px 0 0 !important;
+	}
+	#navigator-toolbox {
+		border-bottom: unset !important;
+	}
+}
+@media (-moz-bool-pref: "userChrome.rounded.style2") {
 	/* Rounded corner in pages */
 	.browserStack>browser{
 		border-radius: 10px !important;
@@ -62,22 +78,6 @@
 	}
 	.browserContainer, .browserStack, #browser {
 		background-color: var(--lwt-accent-color) !important;
-	}
-	#navigator-toolbox {
-		border-bottom: unset !important;
-	}
-}
-@media (-moz-bool-pref: "userChrome.rounded.style2") {
-	/* Rounded corners in pages */
-	.browserStack>browser{
-		border-radius: 10px 10px 0 0 !important;
-	}
-	.browserContainer, .browserStack, #browser{
-		background-color: var(--toolbar-bgcolor) !important;
-	}
-	/* Rounded corner in toolbar */
-	#nav-bar, #PersonalToolbar {
-		border-radius: 10px 10px 0 0 !important;
 	}
 	#navigator-toolbox {
 		border-bottom: unset !important;

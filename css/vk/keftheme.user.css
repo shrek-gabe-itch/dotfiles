@@ -65,6 +65,8 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 imp
 		--loader_background: #272727 imp
+		--vkui--vkontakte_color_snippet_background: bg
+		--vkui--vkontakte_color_control_background: bg
 		--background_light: fg
 		--button_bot_shadow: fg
 		--background_content: fg
@@ -138,6 +140,7 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		--vkui--color_track_background: half imp
 		--vkui--color_transparent--active: half imp
 		--vkui--color_background_secondary: half imp
+		--vkui--color_search_field_background: half imp
 		--vkui--color_background_accent_themed: half imp
 		--vkui--vkontakte_background_hover_alpha: half imp
 		--vkui--color_write_bar_input_background: half imp
@@ -164,11 +167,8 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge, .checkbox.on::before
 		filter: var(--main-filter)
 
-	.vkuiDropdown
-		background-color: var(--background_content)
-
-	.ui_actions_menu
-		background-color: var(--loader_background)
+	.vkuiDropdown, .ui_actions_menu, vkuiPopover
+		background-color: bg imp
 
 	.im-page-history-w .im-mess.im-mess_selected:last-child::before
 		background: var(--background_page)
