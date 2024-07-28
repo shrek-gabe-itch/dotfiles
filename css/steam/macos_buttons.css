@@ -1,0 +1,59 @@
+body.DesktopUI .title-bar-actions .closeButton::before,
+html.client_chat_frame .title-bar-actions .closeButton::before,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.closeButton::before,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.restoreButton::before,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.minimizeButton::before,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.maximizeButton::before {
+	display: none !important;
+}
+body.DesktopUI .title-bar-actions .title-area-icon > div,
+html.client_chat_frame .title-bar-actions .title-area-icon > div {
+	display: none !important;
+}
+.title-bar-actions {
+	padding: 0 10px !important;
+}
+body.DesktopUI .title-bar-actions.window-controls,
+html.client_chat_frame .title-bar-actions.window-controls {
+	margin-right: 10px !important;
+}
+/* Uncomment if button size broken */
+/* .title-bar-actions, .title-area {
+  min-width: 15px !important;
+  min-height: 15px !important;
+} */
+body.DesktopUI .title-bar-actions .title-area-icon,
+html.client_chat_frame .title-bar-actions .title-area-icon {
+	width: 15px !important;
+	height: 15px !important;
+	padding: 4px !important;
+	box-sizing: border-box !important;
+	border-radius: 50% !important;
+	margin: 1px 0 0 18px !important;
+	transition: all 0.3s ease !important;
+}
+body.DesktopUI .title-bar-actions .closeButton,
+html.client_chat_frame .title-bar-actions .closeButton,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.closeButton {
+	background: rgb(250, 55, 55) !important;
+}
+html.client_chat_frame .title-bar-actions .restoreButton,
+html.client_chat_frame .title-bar-actions .maximizeButton,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.restoreButton,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.maximizeButton {
+	background: rgb(252, 185, 15) !important;
+}
+html.client_chat_frame .title-bar-actions .minimizeButton,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.minimizeButton {
+	background: rgb(36, 209, 49) !important;
+}
+html.client_chat_frame .title-bar-actions .closeButton:hover,
+html.client_chat_frame .title-bar-actions .restoreButton:hover,
+html.client_chat_frame .title-bar-actions .maximizeButton:hover,
+html.client_chat_frame .title-bar-actions .minimizeButton:hover,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.closeButton:hover,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.restoreButton:hover,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.minimizeButton:hover,
+body.DesktopUI div._3Z7VQ1IMk4E3HsHvrkLNgo div.qP17eBPXkfezFfexZ4hC3 .title-area-icon.maximizeButton:hover {
+	filter: brightness(50%);
+}
