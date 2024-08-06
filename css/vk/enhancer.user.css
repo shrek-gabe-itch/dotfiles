@@ -9,10 +9,10 @@
 @var range borderRadius			"UI border radius"					[8, 0, 24, 4, 'px']
 
 @var select headerVariant		"Headed variants" {
-    "1": "1",
+    "1": "4",
     "2": "2",
     "3": "3",
-	"4": "4"
+	"4": "1"
 }
 @var checkbox noBorders			"Hide borders & separators"			1
 @var checkbox fluentHeader		"Header fluency" 					1
