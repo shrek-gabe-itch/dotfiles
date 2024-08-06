@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.5.0
+@version		2.6.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -61,6 +61,8 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	if customBackground == "color"
 		body, html[dir], [dir] #page_wrap
 			background-color: bg
+		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
+			--vkui--color_background: #0000 imp	// space between blocks in profile
 
 	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		--text: #a6a6b5 imp
@@ -167,7 +169,7 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge, .checkbox.on::before
 		filter: var(--main-filter)
 
-	.vkuiDropdown, .ui_actions_menu, vkuiPopover
+	.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, div[contenteditable="true"]
 		background-color: bg imp
 
 	.im-page-history-w .im-mess.im-mess_selected:last-child::before
@@ -180,7 +182,7 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	.vkuiGroup--mode-card:after
 		display: none
 	// accent hovers
-	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton, .vkuiIconButton, .vkuiLink
+	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton, .vkuiIconButton, .vkuiLink, .ProfileInfo__fullInfo .vkuiTappable--hasPointer-none
 		background-color: unset imp
 	// shuffle and repeat buttons
 	[class*="playbackButtonsContainer"] [class*="colorIconSecondary"]

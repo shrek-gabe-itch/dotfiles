@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.6.3
+@version		1.7.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -82,21 +82,15 @@ imp = !important
 	
 	if noBorders
 		*
-			//--image_border: #0000 imp
-			//--input_border: #0000 imp
-			//--snippet_border: #0000 imp
-			//--background_page: #0000 imp
-			//--separator_common: #0000 imp
-			//--separator_alternate: #0000 imp
-			//--landing_snippet_border: #0000 imp
-			--vkui--color_separator_primary: #0000 imp							// block borders & menu separators 
+			--vkui--size_border--regular: #0000 imp								// block borders & menu separators
+			--vkui--color_separator_primary: #0000 imp							// block borders & menu separators
 			--vkui--color_image_border_alpha: #0000 imp							// music covers border
 			--vkui--color_separator_secondary: #0000 imp						// header 1px border
 			--vkui--vkontakte_color_input_border: #0000 imp						// searchbar borders
 			--vkui--vkontakte_color_snippet_border_alpha: #0000 imp				// popup playlist header separator
 			--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 imp		// custom playlists borders
-			//--vkui--size_border--regular: #0000 imp							// VK ID
-			//--vkui--color_field_border_alpha: #0000 imp						// VK ID
+			--vkui--color_field_border_alpha: #0000 imp							// selector borders
+			--vkui--vkontakte_color_input_border: #0000 imp						// input field borders
 
 	// HEADER
 	if fluentHeader
@@ -108,7 +102,9 @@ imp = !important
 			--search_bar_background: rgba(255, 255, 255, 0) imp
 			--search_bar_field_background: rgba(55, 55, 55, .37) imp
 		#page_header_cont, body.new_header_design #page_header_cont, .TopSearch__input, .audio_page_player2.audio_page_player_fixed, .im-page--chat-header
-				backdrop-filter: blur(40px) saturate(1.5)
+			backdrop-filter: blur(40px) saturate(1.5)
+		#page_header
+			background-color: unset imp
 
 	if floatingPopup
 		div.EcosystemServicesNavigationDropdown_popout__NYAnq
@@ -157,33 +153,30 @@ imp = !important
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
 	if headerVariant == "2"
+		.TopNavBtn__profileArrow
 		.HeaderNav__item.HeaderNav__item--gap
 			display: none
 		#audio_layer_tt
 			left: 0px imp
 		.top_audio_player
 			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
 	if headerVariant == "3"
+		.TopNavBtn__profileArrow
 		.HeaderNav__item.HeaderNav__item--gap
+		#react_rootEcosystemServicesNavigationEntry
 			display: none
 		#audio_layer_tt
 			left: 0px imp
 		.top_audio_player
 			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
-		.EcosystemServicesNavigationDropdown_button__99Wn9
-			display: none
 	if headerVariant == "4"
+		.TopNavBtn__profileArrow
 		.HeaderNav__item.HeaderNav__item--gap
-			display: none
-		.EcosystemServicesNavigationDropdown_button__99Wn9
+		#react_rootEcosystemServicesNavigationEntry
 			display: none
 		[dir="ltr"] #top_notify_wrap
 			left: -370px
@@ -195,8 +188,6 @@ imp = !important
 			right: 68px
 		.top_audio_player
 			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
 		[dir="ltr"] .TopNavBtn__profileLink
 			padding: 0 10px 0 10px
 
@@ -257,8 +248,9 @@ imp = !important
 	if noAds
 		#uxpoll_block									// feed block VK research
 		#bookmark_game									// feed block Game for you
+		#achievement_game								// feed block Friends playing
 		.MarketItemsPortlet								// feed block VK Market
-		.vkuiInternalGroupCard							// right feed menu ???
+		#feed_mini_apps_recomm							// feed block Recommended mini apps
 		#feed_right_blocks_root							// right feed menu Popular
 		.apps_feedRightAppsBlock						// right feed menu *APP*
 		#friends_right_blocks_root						// right feed menu People you may know
@@ -276,8 +268,8 @@ imp = !important
 		bottom: 23%
 
 	// fix popup music small volume slider
-	.AudioPlayerVolumeSlider-module__barSizeS--imSvO
-		width: 70px imp
+	[class^="AudioPlayerVolumeSlider-module"]
+		min-width: 70px imp
 
 	if noStatusMusic
 		[data-testid="audio-player-block-broadcast-enable-button"]
