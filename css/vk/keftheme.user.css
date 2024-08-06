@@ -169,7 +169,7 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge, .checkbox.on::before
 		filter: var(--main-filter)
 
-	.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, div[contenteditable="true"]
+	.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, .im-chat-input div[contenteditable="true"]
 		background-color: bg imp
 
 	.im-page-history-w .im-mess.im-mess_selected:last-child::before
