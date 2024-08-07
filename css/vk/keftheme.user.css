@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.6.0
+@version		2.6.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -154,7 +154,8 @@ half = rgba(redColor, greenColor, blueColor, .2)
 
 
 	/* EXCLUSIONS */
-	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w, [class^="LeftMenuItem-module__icon"] svg //left menu icons
+	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w
+	[class^="LeftMenuItem-module__icon"] svg //left menu icons
 	[class*="viewUrlBtn"] .vkuiButton__content // url buttons text
 		color: var(--accent) imp
 
@@ -169,7 +170,7 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge, .checkbox.on::before
 		filter: var(--main-filter)
 
-	.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, .im-chat-input div[contenteditable="true"]
+	.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, .im-chat-input div[contenteditable="true"], .im-page ._im_bar_date > span
 		background-color: bg imp
 
 	.im-page-history-w .im-mess.im-mess_selected:last-child::before
