@@ -6,6 +6,8 @@
 // @author			Thrower
 // @match			https://*.vk.com/*
 // @icon			https://www.google.com/s2/favicons?sz=64&domain=vk.com
+// @downloadURL		https://github.com/shrek-gabe-itch/dotfiles/raw/main/userjs/remove%20VK%20phone%20confirmation.user.js
+// @updateURL		https://github.com/shrek-gabe-itch/dotfiles/raw/main/userjs/remove%20VK%20phone%20confirmation.user.js
 // ==/UserScript==
 
 (function() {
