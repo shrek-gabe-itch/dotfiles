@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name			Remove VK phone confirmation popup
+// @name			Remove VK phone confirmation
 // @namespace		Violentmonkey Scripts
-// @version			3.0.0
+// @version			3.0.1
 // @description		Kak je ya vas nenaviju dermoedi
 // @author			Thrower
 // @match			https://*.vk.com/*
