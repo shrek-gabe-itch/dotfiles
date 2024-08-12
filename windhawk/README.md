@@ -315,6 +315,19 @@
 	- Target `Rectangle#BackgroundStroke`
     
 		`Height=2`
+- <b>Fix taskbar items hover height when stroke enabled<b>
+	- Target `Border#BackgroundElement`
+
+		`Margin=0,2,0,0`
+	- Target `Border#BackgroundBorder`
+
+		`Margin=2,6,2,6`
+	- Target `WrapGrid > ContentPresenter > SystemTray.NotifyIconView > Grid#ContainerGrid > Border#BackgroundBorder`
+
+		`Margin=2`
+	- Target `Border#MultiWindowElement`
+
+		`Margin=0,2,0,0`
 - <b>Hide stroke</b>
 	- Target `Rectangle#BackgroundStroke`
     
