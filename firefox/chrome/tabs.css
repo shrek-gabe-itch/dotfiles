@@ -5,8 +5,10 @@
 
 /* Remove gap after pinned tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
-  > #tabbrowser-arrowscrollbox
-  > .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) { margin-inline-start: 0 !important; }
+	> #tabbrowser-arrowscrollbox
+	> .tabbrowser-tab:nth-child(1 of :not([pinned], [hidden])) {
+		margin-inline-start: 0 !important;
+	}
 
 /* Pinned tabs width */
 :root {
@@ -14,6 +16,11 @@
 }
 .tabbrowser-tab[pinned] .tab-content{
 	padding: 0 calc((var(--tab-min-height) - 16px) / 2 + var(--pinned-tabs-width-offset, 0px)) !important;
+}
+
+/* Remove "list all tabs" button */
+#alltabs-button {
+	display: none !important;
 }
 
 /* Remove Playing/Muted/... */

@@ -102,8 +102,11 @@ user_pref("media.wmf.hevc.enabled", 1);													// [0]
 // NVIDIA RTX Video Super Resolution for video overlay [WINDOWS]
 // user_pref("gfx.webrender.super-resolution.nvidia", true);							// [false]
 
-// Disable "list all tabs" title bar button
-user_pref("browser.tabs.tabmanager.enabled", false);									// [true]
+// Disable "list all tabs" title bar button [DEPRECATED]
+// user_pref("browser.tabs.tabmanager.enabled", false);									// [true]
+
+// Disable tabs hover new titles
+user_pref(" browser.tabs.hoverPreview.enabled", false);                                 // [true]
 
 // Disable "Copy without site tracking"
 user_pref("privacy.query_stripping.strip_on_share.enabled", false);                     // [true]
