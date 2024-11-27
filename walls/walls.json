@@ -211,7 +211,8 @@
 	{
 		"name": "Untitled-36",
 		"url": "https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/refs/heads/main/walls/phone/Untitled-36.webp",
-		"thumbnail": "1364x2425"
+		"thumbnail": "https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/refs/heads/main/walls/phone/thumbnails/Untitled-36-thumbnail.webp",
+		"dimensions": "1364x2425"
 	},
 	{
 		"name": "Untitled-37",
