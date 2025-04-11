@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.7.0
+@version		1.7.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -82,7 +82,7 @@ imp = !important
 	
 	if noBorders
 		*
-			--vkui--size_border--regular: #0000 imp								// block borders & menu separators
+			//--vkui--size_border--regular: #0000 imp								// block borders & menu separators
 			--vkui--color_separator_primary: #0000 imp							// block borders & menu separators
 			--vkui--color_image_border_alpha: #0000 imp							// music covers border
 			--vkui--color_separator_secondary: #0000 imp						// header 1px border
@@ -229,8 +229,8 @@ imp = !important
 		.reply_content .page_post_thumb_video, .feed_updates .page_post_thumb_video
 			width: unset imp
 		// fix feed urlbutton empty space
-		*
-			--primary-attachment-ratio: 1.55 imp
+		// *
+		// 	--primary-attachment-ratio: 1.55 imp
 
 	if noStories
 		.stories_feed_wrap
