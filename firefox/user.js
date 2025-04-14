@@ -5,9 +5,11 @@ user_pref("svg.context-properties.content.enabled", true); 								// [false]
 user_pref("recentlyClosedTabsContextMenu.includePopupWindows", false);
 user_pref("recentlyClosedTabsContextMenu.showContainerTabColors.inPopupPanels", true);
 user_pref("userChrome.findbar.right", true);
-user_pref("userChrome.extensions.menu.style1", true);
+user_pref("userChrome.extensions.menu.style2", true);
 user_pref("userChrome.rounded.style1", true);
 
+// Enable tabs groupping
+user_pref("browser.tabs.groups.enabled", true);                                         // [false]
 
 // Scrollbar styles
 // user_pref("widget.non-native-theme.scrollbar.style", 0);								// [0]

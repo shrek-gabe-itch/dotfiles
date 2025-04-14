@@ -30,7 +30,7 @@
        menuitem[data-l10n-id="toolbar-context-menu-bookmarks-toolbar-on-new-tab-2"],   /* Only Show on New Tab   */
 /* #toolbar-context-menu                                                                                          
        menuitem[data-l10n-id="toolbar-context-menu-bookmarks-toolbar-never-show-2"],   /* Never Show             */
-/* #toolbar-context-menu #viewToolbarsMenuSeparator,                     /******* Seperator ********/
+#toolbar-context-menu #viewToolbarsMenuSeparator,                     /******* Seperator ********/
 #toolbar-context-menu #viewCustomizeToolbar,                          /* Customize Toolbar…     */
 
 #leave_this_dummy_here

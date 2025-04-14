@@ -47,7 +47,7 @@
 }
 
 /* Round pages and toolbar */
-@media (-moz-bool-pref: "userChrome.rounded.style1") {
+@media -moz-pref("userChrome.rounded.style1") {
 	/* Rounded corners in pages */
 	.browserStack>browser{
 		border-radius: 10px 10px 0 0 !important;
@@ -63,7 +63,7 @@
 		border-bottom: unset !important;
 	}
 }
-@media (-moz-bool-pref: "userChrome.rounded.style2") {
+@media -moz-pref("userChrome.rounded.style2") {
 	/* Rounded corner in pages */
 	.browserStack>browser{
 		border-radius: 10px !important;

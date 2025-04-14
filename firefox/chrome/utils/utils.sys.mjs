@@ -1,5 +1,5 @@
-import { FileSystem as FS } from "chrome://userchromejs/content/fs.sys.mjs";
-
+import { FileSystem } from "chrome://userchromejs/content/fs.sys.mjs";
+export { FileSystem };
 export const SharedGlobal = {};
 ChromeUtils.defineLazyGetter(SharedGlobal,"widgetCallbacks",() => {return new Map()});
 const lazy = {
@@ -14,13 +14,18 @@ export class Hotkey{
   constructor(hotkeyDetails,commandDetails){
     this.command = commandDetails;
     this.trigger = hotkeyDetails;
-    this.#matchingSelector = `key[modifiers="${hotkeyDetails.modifiers}"][${hotkeyDetails.key?'key="'+hotkeyDetails.key:'keycode="'+hotkeyDetails.keycode}"]`;
+    this.#matchingSelector = null;
   }
   get matchingSelector(){
+    if(!this.#matchingSelector){
+      let trigger = this.trigger;
+      this.#matchingSelector = `key[modifiers="${trigger.modifiers}"][${trigger.key?'key="'+trigger.key:'keycode="'+trigger.keycode}"]`
+    }
     return this.#matchingSelector
   }
-  autoAttach(opt){
+  async autoAttach(opt){
     const suppress = opt?.suppressOriginal || false;
+    await startupFinished();
     for (let window of windowUtils.getAll()){
       if(window.document.getElementById(this.trigger.id)){
         continue
@@ -42,53 +47,55 @@ export class Hotkey{
     }
   }
   suppressOriginalKey(window){
-    let oldKey = window.document.querySelector(this.#matchingSelector);
+    let oldKey = window.document.querySelector(this.matchingSelector);
     if(oldKey){
       oldKey.setAttribute("disabled","true")
     }
   }
   restoreOriginalKey(window){
-    let oldKey = window.document.querySelector(this.#matchingSelector);
+    let oldKey = window.document.querySelector(this.matchingSelector);
     oldKey.removeAttribute("disabled");
   }
   static #createKey(doc,details){
     let keySet = doc.getElementById("ucKeySet");
     if(!keySet){
-      keySet = _ucUtils.createElement(doc,"keyset",{id:"ucKeySet"});
+      keySet = createElement(doc,"keyset",{id:"ucKeySet"});
       doc.body.appendChild(keySet);
     }
     
-    let key = _ucUtils.createElement(doc,"key",details);
+    let key = createElement(doc,"key",details);
     keySet.appendChild(key);
     return
   }
   static #createCommand(doc,details){
     let commandSet = doc.getElementById("ucCommandSet");
     if(!commandSet){
-      commandSet = _ucUtils.createElement(doc,"commandset",{id:"ucCommandSet"});
+      commandSet = createElement(doc,"commandset",{id:"ucCommandSet"});
       doc.body.insertBefore(commandSet,doc.body.firstChild);
     }
     if(doc.getElementById(details.id)){
       console.warn("Fx-autoconfig: command with id '"+details.id+"' already exists");
       return
     }
-    let command = _ucUtils.createElement(doc,"command",{id: details.id,oncommand: "this._oncommand(event);"});
+    let command = createElement(doc,"command",{id: details.id});
     commandSet.insertBefore(command,commandSet.firstChild||null);
     const fun = details.command;
-    command._oncommand = (e) => fun(e.view,e);
+    command.addEventListener("command",ev => fun(ev.view,ev))
     return
   }
   static ERR_KEY = 0;
   static NORMAL_KEY = 1;
   static FUN_KEY = 2;
+  static VK_KEY = 4;
   
   static #getKeyCategory(key){
     return (/^[\w-]$/).test(key)
           ? Hotkey.NORMAL_KEY
-          : (/^F(?:1[0,2]|[1-9])$/)
-            .test(key)
-            ? Hotkey.FUN_KEY
-            : Hotkey.ERR_KEY
+          : (/^VK_[A-Z]+/).test(key)
+            ? Hotkey.VK_KEY
+            : (/^F(?:1[0,1,2]|[1-9])$/).test(key)
+              ? Hotkey.FUN_KEY
+              : Hotkey.ERR_KEY
   }
   
   static define(desc){
@@ -96,19 +103,21 @@ export class Hotkey{
     if(keyCategory === Hotkey.ERR_KEY){
       throw new Error("Provided key '"+desc.key+"' is invalid")
     }
-    if(keyCategory === Hotkey.FUN_KEY){
-      throw new Error("Registering a hotkey with no modifiers is not supported, except for function keys F1-F12")
-    }
     let commandType = typeof desc.command;
     if(!(commandType === "string" || commandType === "function")){
-      throw new TypeError("command must be either a string or function")
+      throw new Error("command must be either a string or function")
     }
-    
+    if(commandType === "function" && !desc.id){
+      throw new Error("command id must be specified when callback is a function")
+    }
     const validMods = ["accel","alt","ctrl","meta","shift"];
-    const mods = desc.modifiers.toLowerCase().split(" ").filter(a => validMods.includes(a));
+    const mods = desc.modifiers?.toLowerCase().split(" ").filter(a => validMods.includes(a));
+    if(keyCategory === Hotkey.NORMAL_KEY && !(mods && mods.length > 0)){
+      throw new Error("Registering a hotkey with no modifiers is not supported, except for function keys F1-F12")
+    }
     let keyDetails = {
       id: desc.id,
-      modifiers: mods.join(",").replace("ctrl","accel"),
+      modifiers: mods?.join(",").replace("ctrl","accel") ?? "",
       command: commandType === "string"
                 ? desc.command
                 : `cmd_${desc.id}`
@@ -119,7 +128,7 @@ export class Hotkey{
     if(keyCategory === Hotkey.NORMAL_KEY){
       keyDetails.key = desc.key.toUpperCase();
     }else{
-      keyDetails.keycode = `VK_${desc.key}`;
+      keyDetails.keycode = keyCategory === Hotkey.FUN_KEY ? `VK_${desc.key}` : desc.key;
     }
     return new Hotkey(
       keyDetails,
@@ -243,7 +252,7 @@ export class Pref{
     }
   }
   static fromName(some){
-    return new this(some,Services.prefs.getPrefType(some))
+    return new Pref(some,Services.prefs.getPrefType(some))
   }
   static getPrefOfType(pref,type){
     if(type === 32)
@@ -275,10 +284,24 @@ export class Pref{
   }
   static setIfUnset(pref,value){
     if(Services.prefs.getPrefType(pref) === 0){
-      this.setPrefOfType(pref,this.getTypeof(value),value);
+      Pref.setPrefOfType(pref,Pref.getTypeof(value),value);
       return true
     }
     return false
+  }
+  static get(prefPath){
+    return Pref.fromName(prefPath)
+  }
+  static set(prefName, value){
+    Pref.fromName(prefName).setTo(value)
+  }
+  static addListener(a,b){
+    let o = (q,w,e) => b(Pref.fromName(e),e);
+    Services.prefs.addObserver(a,o);
+    return {pref:a, observer:o}
+  }
+  static removeListener(a){
+    Services.prefs.removeObserver(a.pref,a.observer)
   }
 }
 
@@ -303,7 +326,7 @@ function reRegisterStyleWithQualifiedURI(aURI,aType){
   }
 }
 
-function updateRegisteredStyleSheet(name) {
+function reloadRegisteredStyleSheet(name) {
   let registeredStyles = loaderModuleLink.styles;
   if(!registeredStyles){
     throw new Error("updateStyleSheet was called in a context without loader module access");
@@ -331,7 +354,7 @@ function updateRegisteredStyleSheet(name) {
     return success
   }
 }
-function updateStyleSheet(name, type) {
+function reloadStyleSheet(name, type) {
   if(type){
     let sss = Cc['@mozilla.org/content/style-sheet-service;1'].getService(Ci.nsIStyleSheetService);
     try{
@@ -353,7 +376,7 @@ function updateStyleSheet(name, type) {
       return false
     }
   }
-  let fsResult = FS.getEntry(name);
+  let fsResult = FileSystem.getEntry(name);
   if(!fsResult.isFile()){
     return false
   }
@@ -431,13 +454,13 @@ export const loaderModuleLink = new (function(){
   return this
 })();
 
-// _ucUtils.getScriptData() returns these types of objects
+// getScriptData() returns these types of objects
 export class ScriptInfo{
   constructor(enabled){
     this.isEnabled = enabled
   }
   asFile(){
-    return FS.getEntry(FS.convertChromeURIToFileURI(this.chromeURI)).entry()
+    return FileSystem.getEntry(FileSystem.convertChromeURIToFileURI(this.chromeURI)).entry()
   }
   static fromScript(aScript, isEnabled){
     let info = new ScriptInfo(isEnabled);
@@ -458,7 +481,11 @@ export class ScriptInfo{
 }
 
 export class windowUtils{
-  constructor(){if(new.target){throw new TypeError("windowUtils is not a constructor")}}
+  constructor(){
+    if(new.target){
+      throw new TypeError("windowUtils is not a constructor")
+    }
+  }
   static onCreated(fun){
     if(!lazy.windowOpenedCallbacks){
       Services.obs.addObserver(windowUtils.#observe, 'domwindowopened', false);
@@ -530,273 +557,262 @@ export class windowUtils{
   }
 }
 
-export class _ucUtils{
-  static get appVariant(){
-    return loaderModuleLink.variant.THUNDERBIRD
-    ? "Thunderbird"
-    : "Firefox"
+export function createElement(doc,tag,props,isHTML = false){
+  let el = isHTML ? doc.createElement(tag) : doc.createXULElement(tag);
+  for(let prop in props){
+    el.setAttribute(prop,props[prop])
   }
-  static get brandName(){
-    return loaderModuleLink.brandName
-  }
-  static createElement(doc,tag,props,isHTML = false){
-    let el = isHTML ? doc.createElement(tag) : doc.createXULElement(tag);
-    for(let prop in props){
-      el.setAttribute(prop,props[prop])
-    }
-    return el
-  }
-  static createWidget(desc){
-    if(!desc || !desc.id ){
-      throw new Error("custom widget description is missing 'id' property");
-    }
-    if(!(desc.type === "toolbarbutton" || desc.type === "toolbaritem")){
-      throw new Error(`custom widget has unsupported type: '${desc.type}'`);
-    }
-    const CUI = lazy.CustomizableUI;
-    
-    if(CUI.getWidget(desc.id)?.hasOwnProperty("source")){
-      // very likely means that the widget with this id already exists
-      // There isn't a very reliable way to 'really' check if it exists or not
-      throw new Error(`Widget with ID: '${desc.id}' already exists`);
-    }
-    // This is pretty ugly but makes onBuild much cleaner.
-    let itemStyle = "";
-    if(desc.image){
-      if(desc.type==="toolbarbutton"){
-        itemStyle += "list-style-image:";
-      }else{
-        itemStyle += "background: transparent center no-repeat ";
-      }
-      itemStyle += /^chrome:\/\/|resource:\/\//.test(desc.image)
-        ? `url(${desc.image});`
-        : `url(chrome://userChrome/content/${desc.image});`;
-      itemStyle += desc.style || "";
-    }
-    const callback = desc.callback;
-    if(typeof callback === "function"){
-      SharedGlobal.widgetCallbacks.set(desc.id,callback);
-    }
-    return CUI.createWidget({
-      id: desc.id,
-      type: 'custom',
-      defaultArea: desc.area || CUI.AREA_NAVBAR,
-      onBuild: function(aDocument) {
-        let toolbaritem = aDocument.createXULElement(desc.type);
-        let props = {
-          id: desc.id,
-          class: `toolbarbutton-1 chromeclass-toolbar-additional ${desc.class?desc.class:""}`,
-          overflows: !!desc.overflows,
-          label: desc.label || desc.id,
-          tooltiptext: desc.tooltip || desc.id,
-          style: itemStyle
-        };
-        for (let p in props){
-          toolbaritem.setAttribute(p, props[p]);
-        }
-        if(typeof callback === "function"){
-          toolbaritem.setAttribute("onclick",`${desc.allEvents?"":"event.button===0 && "}_ucUtils.sharedGlobal.widgetCallbacks.get(this.id)(event,window)`);
-        }
-        for (let attr in desc){
-          if(attr != "callback" && !(attr in props)){
-            toolbaritem.setAttribute(attr,desc[attr])
-          }
-        }
+  return el
+}
 
-        return toolbaritem;
-      }
-    });
+export function createWidget(desc){
+  if(!desc || !desc.id ){
+    throw new Error("custom widget description is missing 'id' property");
   }
-  static fs = FS;
-  static #getScriptInfoForType(aFilter,aScriptList){
-    const filterType = typeof aFilter;
-    if(aFilter && !(filterType === "string" || filterType === "function")){
-      throw "getScriptData() called with invalid filter type: "+filterType
+  if(!(desc.type === "toolbarbutton" || desc.type === "toolbaritem")){
+    throw new Error(`custom widget has unsupported type: '${desc.type}'`);
+  }
+  const CUI = lazy.CustomizableUI;
+  
+  if(CUI.getWidget(desc.id)?.hasOwnProperty("source")){
+    // very likely means that the widget with this id already exists
+    // There isn't a very reliable way to 'really' check if it exists or not
+    throw new Error(`Widget with ID: '${desc.id}' already exists`);
+  }
+  // This is pretty ugly but makes onBuild much cleaner.
+  let itemStyle = "";
+  if(desc.image){
+    if(desc.type==="toolbarbutton"){
+      itemStyle += "list-style-image:";
+    }else{
+      itemStyle += "background: transparent center no-repeat ";
     }
-    if(filterType === "string"){
-      let script = aScriptList.find(s => s.filename === aFilter);
-      return script ? ScriptInfo.fromScript(script,script.isEnabled) : null;
+    itemStyle += /^chrome:\/\/|resource:\/\//.test(desc.image)
+      ? `url(${desc.image});`
+      : `url(chrome://userChrome/content/${desc.image});`;
+    itemStyle += desc.style || "";
+  }
+  const callback = desc.callback;
+  if(typeof callback === "function"){
+    SharedGlobal.widgetCallbacks.set(desc.id,callback);
+  }
+  return CUI.createWidget({
+    id: desc.id,
+    type: 'custom',
+    defaultArea: desc.area || CUI.AREA_NAVBAR,
+    onBuild: function(aDocument) {
+      let toolbaritem = aDocument.createXULElement(desc.type);
+      let props = {
+        id: desc.id,
+        class: `toolbarbutton-1 chromeclass-toolbar-additional ${desc.class?desc.class:""}`,
+        overflows: !!desc.overflows,
+        label: desc.label || desc.id,
+        tooltiptext: desc.tooltip || desc.id,
+        style: itemStyle
+      };
+      for (let p in props){
+        toolbaritem.setAttribute(p, props[p]);
+      }
+      
+      if(typeof callback === "function"){
+        const allEvents = !!desc.allEvents;
+        toolbaritem.addEventListener("click",(ev) => {
+          allEvents || ev.button === 0 && SharedGlobal.widgetCallbacks.get(ev.target.id)(ev,ev.target.ownerGlobal)
+        })
+      }
+      for (let attr in desc){
+        if(attr != "callback" && !(attr in props)){
+          toolbaritem.setAttribute(attr,desc[attr])
+        }
+      }
+      return toolbaritem;
     }
-    const disabledScripts = Services.prefs.getStringPref('userChromeJS.scriptsDisabled',"").split(",");
-    if(filterType === "function"){
-      return aScriptList.filter(aFilter).map(
-        script => ScriptInfo.fromScript(script,!disabledScripts.includes(script.filename))
-      );
+  });
+}
+
+export function escapeXUL(markup) {
+  return markup.replace(/[<>&'"]/g, (char) => {
+    switch (char) {
+      case `<`:
+        return "&lt;";
+      case `>`:
+        return "&gt;";
+      case `&`:
+        return "&amp;";
+      case `'`:
+        return "&apos;";
+      case '"':
+        return "&quot;";
     }
-    return aScriptList.map(
+  });
+}
+
+function getScriptInfoForType(aFilter,aScriptList){
+  const filterType = typeof aFilter;
+  if(aFilter && !(filterType === "string" || filterType === "function")){
+    throw "getScriptData() called with invalid filter type: "+filterType
+  }
+  if(filterType === "string"){
+    let script = aScriptList.find(s => s.filename === aFilter);
+    return script ? ScriptInfo.fromScript(script,script.isEnabled) : null;
+  }
+  const disabledScripts = Services.prefs.getStringPref('userChromeJS.scriptsDisabled',"").split(",");
+  if(filterType === "function"){
+    return aScriptList.filter(aFilter).map(
       script => ScriptInfo.fromScript(script,!disabledScripts.includes(script.filename))
     );
   }
-  static getScriptData(aFilter){
-    return _ucUtils.#getScriptInfoForType(aFilter, loaderModuleLink.scripts)
-  }
-  static getStyleData(aFilter){
-    return _ucUtils.#getScriptInfoForType(aFilter, loaderModuleLink.styles)
-  }
-  static getScriptMenuForDocument(doc){
-    return doc.getElementById("userScriptsMenu") || loaderModuleLink.getScriptMenu(doc)
-  }
-  static loadURI(win,desc){
-    if(loaderModuleLink.variant.THUNDERBIRD){
-      console.warn("_ucUtils.loadURI is not supported on Thunderbird");
-      return false
-    }
-    if(    !win
-        || !desc 
-        || !desc.url 
-        || typeof desc.url !== "string"
-        || !(["tab","tabshifted","window","current"]).includes(desc.where)
-      ){
-      return false
-    }
-    const isJsURI = desc.url.slice(0,11) === "javascript:";
-    try{
-      win.openTrustedLinkIn(
-        desc.url,
-        desc.where,
-        { "allowPopups":isJsURI,
-          "inBackground":false,
-          "allowInheritPrincipal":false,
-          "private":!!desc.private,
-          "userContextId":desc.url.startsWith("http")?desc.userContextId:null});
-    }catch(e){
-      console.error(e);
-      return false
-    }
-    return true
-  }
-  static openScriptDir(){
-    return FS.getScriptDir().showInFileManager()
-  }
-  static openStyleDir(){
-    return FS.getStyleDir().showInFileManager()
-  }
-  static parseStringAsScriptInfo(aName, aString, isStyle = false){
-    return ScriptInfo.fromString(aName, FS.StringContent({content: aString}), isStyle)
-  }
-  static prefs = {
-    get: (prefPath) => Pref.fromName(prefPath),
-    set: (prefName, value) => Pref.fromName(prefName).setTo(value),
-    setIfUnset: (prefName,value) => Pref.setIfUnset(prefName,value),
-    addListener:(a,b) => {
-      let o = (q,w,e)=>(b(Pref.fromName(e),e));
-      Services.prefs.addObserver(a,o);
-      return{pref:a,observer:o}
-    },
-    removeListener:(a)=>( Services.prefs.removeObserver(a.pref,a.observer) )
-  }
-  static hotkeys = Hotkey;
-  static restart(clearCache){
-    clearCache && Services.appinfo.invalidateCachesOnRestart();
-    let cancelQuit = Cc["@mozilla.org/supports-PRBool;1"].createInstance(Ci.nsISupportsPRBool);
-    Services.obs.notifyObservers(
-      cancelQuit,
-      "quit-application-requested",
-      "restart"
-    );
-    if (!cancelQuit.data) {
-      Services.startup.quit(
-        Services.startup.eAttemptQuit | Services.startup.eRestart
-      );
-      return true
-    }
+  return aScriptList.map(
+    script => ScriptInfo.fromScript(script,!disabledScripts.includes(script.filename))
+  );
+}
+
+export function getScriptData(aFilter){
+  return getScriptInfoForType(aFilter, loaderModuleLink.scripts)
+}
+export function getStyleData(aFilter){
+  return getScriptInfoForType(aFilter, loaderModuleLink.styles)
+}
+
+export function loadURI(win,desc){
+  if(loaderModuleLink.variant.THUNDERBIRD){
+    console.warn("loadURI() is not supported on Thunderbird");
     return false
   }
-  static get sharedGlobal(){
-    return SharedGlobal
+  if(    !win
+      || !desc 
+      || !desc.url 
+      || typeof desc.url !== "string"
+      || !(["tab","tabshifted","window","current"]).includes(desc.where)
+    ){
+    return false
   }
-  static async showNotification(description){
-    if(loaderModuleLink.variant.THUNDERBIRD){
-      console.warn('_ucUtils.showNotification is not supported on Thunderbird\nNotification label was: "'+description.label+'"');
-      return
-    }
-    await _ucUtils.startupFinished();
-    let window = description.window;
-    if(!(window && window.isChromeWindow)){
-      window = Services.wm.getMostRecentBrowserWindow();
-    }
-    let aNotificationBox = window.gNotificationBox;
-    if(description.tab){
-      let aBrowser = description.tab.linkedBrowser;
-      if(!aBrowser){ return }
-      aNotificationBox = window.gBrowser.getNotificationBox(aBrowser);
-    }
-    if(!aNotificationBox){ return }
-    let type = description.type || "default";
-    let priority = aNotificationBox.PRIORITY_INFO_HIGH;
-    switch (description.priority){
-      case "system":
-        priority = aNotificationBox.PRIORITY_SYSTEM;
-        break;
-      case "critical":
-        priority = aNotificationBox.PRIORITY_CRITICAL_HIGH;
-        break;
-      case "warning":
-        priority = aNotificationBox.PRIORITY_WARNING_HIGH;
-        break;
-    }
-    aNotificationBox.appendNotification(
-      type,
-      {
-        label: description.label || "ucUtils message",
-        image: "chrome://browser/skin/notification-icons/popup.svg",
-        priority: priority,
-        eventCallback: typeof description.callback === "function" ? description.callback : null
-      },
-      description.buttons
+  const isJsURI = desc.url.slice(0,11) === "javascript:";
+  try{
+    win.openTrustedLinkIn(
+      desc.url,
+      desc.where,
+      { "allowPopups":isJsURI,
+        "inBackground":false,
+        "allowInheritPrincipal":false,
+        "private":!!desc.private,
+        "userContextId":desc.url.startsWith("http")?desc.userContextId:null});
+  }catch(e){
+    console.error(e);
+    return false
+  }
+  return true
+}
+
+export function parseStringAsScriptInfo(aName, aString, isStyle = false){
+  return ScriptInfo.fromString(aName, FileSystem.StringContent({content: aString}), isStyle)
+}
+
+export function restartApplication(clearCache){
+  clearCache && Services.appinfo.invalidateCachesOnRestart();
+  let cancelQuit = Cc["@mozilla.org/supports-PRBool;1"].createInstance(Ci.nsISupportsPRBool);
+  Services.obs.notifyObservers(
+    cancelQuit,
+    "quit-application-requested",
+    "restart"
+  );
+  if (!cancelQuit.data) {
+    Services.startup.quit(
+      Services.startup.eAttemptQuit | Services.startup.eRestart
     );
+    return true
   }
-  static startupFinished(){
-    if(loaderModuleLink.sessionRestored() || lazy.startupPromises === null){
-      return Promise.resolve();
-    }
-    if(lazy.startupPromises.size === 0){
-      const obs_topic = loaderModuleLink.variant.FIREFOX
-          ? "sessionstore-windows-restored"
-          : "browser-delayed-startup-finished";
-      const startupObserver = () => {
-        Services.obs.removeObserver(startupObserver, obs_topic);
-        loaderModuleLink.setSessionRestored();
-        for(let f of lazy.startupPromises){ f() }
-        lazy.startupPromises.clear();
-        lazy.startupPromises = null;
-      }
-      Services.obs.addObserver(startupObserver, obs_topic);
-    }
-    return new Promise(resolve => lazy.startupPromises.add(resolve))
+  return false
+}
+
+export async function showNotification(description){
+  if(loaderModuleLink.variant.THUNDERBIRD){
+    console.warn('showNotification() is not supported on Thunderbird\nNotification label was: "'+description.label+'"');
+    return
   }
-  static toggleScript(el){
-    let isElement = !!el.tagName;
-    if(!isElement && typeof el != "string"){
-      return
-    }
-    const name = isElement ? el.getAttribute("filename") : el;
-    let script = name.endsWith("js")
-      ? _ucUtils.getScriptData(name)
-      : _ucUtils.getStyleData(name);
-    if(!script){
-      return null
-    }
-    const PREF_SCRIPTSDISABLED = 'userChromeJS.scriptsDisabled';
-    const prefValue = Services.prefs.getStringPref(PREF_SCRIPTSDISABLED,"");
-    const isEnabled = prefValue.indexOf(script.filename) === -1;
-    if (isEnabled) {
-      Services.prefs.setCharPref(PREF_SCRIPTSDISABLED, `${script.filename},${prefValue}`);
-    } else {
-      Services.prefs.setCharPref(PREF_SCRIPTSDISABLED, prefValue.replace(new RegExp(`^${script.filename},?|,${script.filename}`), ''));
-    }
-    Services.appinfo.invalidateCachesOnRestart();
-    script.isEnabled = !isEnabled;
-    return script
+  await startupFinished();
+  let window = description.window;
+  if(!(window && window.isChromeWindow)){
+    window = Services.wm.getMostRecentBrowserWindow();
   }
-  static updateStyleSheet(name = "../userChrome.css",type){
-    if(name.endsWith(".uc.css")){
-      return updateRegisteredStyleSheet(name)
+  let aNotificationBox = window.gNotificationBox;
+  if(description.tab){
+    let aBrowser = description.tab.linkedBrowser;
+    if(!aBrowser){ return }
+    aNotificationBox = window.gBrowser.getNotificationBox(aBrowser);
+  }
+  if(!aNotificationBox){ return }
+  let type = description.type || "default";
+  let priority = aNotificationBox.PRIORITY_INFO_HIGH;
+  switch (description.priority){
+    case "system":
+      priority = aNotificationBox.PRIORITY_SYSTEM;
+      break;
+    case "critical":
+      priority = aNotificationBox.PRIORITY_CRITICAL_HIGH;
+      break;
+    case "warning":
+      priority = aNotificationBox.PRIORITY_WARNING_HIGH;
+      break;
+  }
+  aNotificationBox.appendNotification(
+    type,
+    {
+      label: description.label || "fx-autoconfig message",
+      image: "chrome://browser/skin/notification-icons/popup.svg",
+      priority: priority,
+      eventCallback: typeof description.callback === "function" ? description.callback : null
+    },
+    description.buttons
+  );
+}
+
+export function startupFinished(){
+  if(loaderModuleLink.sessionRestored() || lazy.startupPromises === null){
+    return Promise.resolve();
+  }
+  if(lazy.startupPromises.size === 0){
+    const obs_topic = loaderModuleLink.variant.FIREFOX
+        ? "sessionstore-windows-restored"
+        : "browser-delayed-startup-finished";
+    const startupObserver = () => {
+      Services.obs.removeObserver(startupObserver, obs_topic);
+      loaderModuleLink.setSessionRestored();
+      for(let f of lazy.startupPromises){ f() }
+      lazy.startupPromises.clear();
+      lazy.startupPromises = null;
     }
-    return updateStyleSheet(name,type)
+    Services.obs.addObserver(startupObserver, obs_topic);
   }
-  static get version(){
-    return loaderModuleLink.version
+  return new Promise(resolve => lazy.startupPromises.add(resolve))
+}
+
+export function toggleScript(aFilename){
+  if(typeof aFilename != "string"){
+    throw new Error("expected name of the script as string")
   }
-  static windows = windowUtils
+  let script = aFilename.endsWith("js")
+    ? getScriptData(aFilename)
+    : getStyleData(aFilename);
+  if(!script){
+    return null
+  }
+  const PREF_SCRIPTSDISABLED = 'userChromeJS.scriptsDisabled';
+  const prefValue = Services.prefs.getStringPref(PREF_SCRIPTSDISABLED,"");
+  const isEnabled = prefValue.indexOf(script.filename) === -1;
+  if (isEnabled) {
+    Services.prefs.setCharPref(PREF_SCRIPTSDISABLED, `${script.filename},${prefValue}`);
+  } else {
+    Services.prefs.setCharPref(PREF_SCRIPTSDISABLED, prefValue.replace(new RegExp(`^${script.filename},?|,${script.filename}`), ''));
+  }
+  Services.appinfo.invalidateCachesOnRestart();
+  script.isEnabled = !isEnabled;
+  return script
+}
+
+export function updateStyleSheet(name = "../userChrome.css",type){
+  if(name.endsWith(".uc.css")){
+    return reloadRegisteredStyleSheet(name)
+  }
+  return reloadStyleSheet(name,type)
 }

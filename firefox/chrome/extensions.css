@@ -33,7 +33,7 @@
 }
 
 /* Compact extensions menu view */
-@media (-moz-bool-pref: "userChrome.extensions.menu.style1") {
+@media -moz-pref("userChrome.extensions.menu.style1") {
 	#unified-extensions-view {
 		--uei-icon-size: 16px;
 		.unified-extensions-item {
@@ -78,7 +78,7 @@
 	}
 }
 
-@media (-moz-bool-pref: "userChrome.extensions.menu.style2") {
+@media -moz-pref("userChrome.extensions.menu.style2") {
 	#unified-extensions-panel #unified-extensions-view {
 			width: 100% !important;
 	}
