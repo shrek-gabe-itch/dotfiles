@@ -3,7 +3,7 @@
   "TimeFormat": "HH':'mm':'ss",
   "DateFormat": "ddd',' d MMM",
   "WeekdayFormat": "DDDD",
-  "TopLine": "%date% | %time%",
+  "TopLine": "-",
   "BottomLine": "%date% | %time%",
   "MiddleLine": "%weekday%",
   "TooltipLine": "",
@@ -33,5 +33,9 @@
   "DateStyle.FontStyle": "",
   "DateStyle.FontStretch": "",
   "DateStyle.CharacterSpacing": 0,
-  "oldTaskbarOnWin11": 0
+  "oldTaskbarOnWin11": 0,
+  "WeekdayFormatCustom": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+  "MaxWidth": 0,
+  "TimeZones[0]": "Eastern Standard Time",
+  "TimeStyle.Hidden": 1
 }
