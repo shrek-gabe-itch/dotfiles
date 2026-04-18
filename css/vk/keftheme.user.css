@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		2.6.1
+@version		2.7.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
@@ -43,11 +43,15 @@ imp = !important
 bg = backgroundColor
 fg = foregroundColor
 solid = rgb(redColor, greenColor, blueColor)
-half = rgba(redColor, greenColor, blueColor, .2)
+half = rgba(redColor, greenColor, blueColor, .3)
 
 @-moz-document domain("vk.com"), domain("vk.ru")
 	:root
 		--main-filter: hue-rotate(filterColor deg) imp
+	
+	*
+		--vkui_internal--counter_background: half imp
+		--vkui_internal--counter_foreground: solid imp
 
 	html[dir], [dir] #page_wrap
 		scrollbar-color: solid fg imp
@@ -64,11 +68,13 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 			--vkui--color_background: #0000 imp	// space between blocks in profile
 
-	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
-		--text: #a6a6b5 imp
+	:root, [scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
+		// --text: #a6a6b5 imp
+		--text: solid imp
 		--loader_background: #272727 imp
 		--vkui--vkontakte_color_snippet_background: bg
 		--vkui--vkontakte_color_control_background: bg
+		--vkui--color_background_contrast_themed: bg imp
 		--background_light: fg
 		--button_bot_shadow: fg
 		--background_content: fg
@@ -97,6 +103,7 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		--text_primary: solid imp
 		--icon_tertiary: solid imp
 		--steel_gray_200: solid imp
+		--steel_gray_300: solid imp
 		--light_blue_500: solid imp
 		--icon_secondary: solid imp
 		--text_placeholder: solid imp
@@ -109,18 +116,23 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		--vkui--color_track_buffer: solid imp
 		--vkui--color_text_primary: solid imp
 		--vkui--color_stroke_accent: solid imp
+		--vkui--color_text_link_tint: solid imp
 		--button_primary_foreground: solid imp
+		--vkui--color_text_subhead: solid imp
 		--vkui--color_icon_tertiary: solid imp
 		--vkui--color_write_bar_icon: solid imp
-		--vkui--color_icon_secondary: solid imp
+		--vkui--color_icon_medium: solid imp
 		--counter_primary_background: solid imp
 		--vkui--color_background_accent: solid imp
 		--vkui--color_text_accent_themed: solid imp
 		--vkui--color_icon_accent_themed: solid imp
+		--vkui--color_text_contrast: solid imp
+		--vkui--color_icon_secondary: solid imp
 		--vkui--color_text_contrast_themed: solid imp
 		--vkui--vkontakte_color_im_text_name: solid imp
 		--vkui--vkontakte_color_icon_outline_medium: solid imp
 		--vkui--vkontakte_color_icon_outline_secondary: solid imp
+		--vkui--vkontakte_color_placeholder_icon_foreground_secondary: solid imp
 		--gray_850: half imp
 		--dynamic_blue: half imp
 		--steel_gray_120: half imp
@@ -140,10 +152,13 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		--button_commerce_background: half imp
 		--button_secondary_background: half imp
 		--vkui--color_track_background: half imp
+		--vkui--color_background_contrast: half imp
+		--vkui--color_transparent: half imp
 		--vkui--color_transparent--active: half imp
 		--vkui--color_background_secondary: half imp
 		--vkui--color_search_field_background: half imp
 		--vkui--color_background_accent_themed: half imp
+		--vkui--color_field_background: half imp
 		--vkui--vkontakte_background_hover_alpha: half imp
 		--vkui--color_write_bar_input_background: half imp
 		--vkui--color_background_secondary_alpha: half imp
@@ -151,10 +166,10 @@ half = rgba(redColor, greenColor, blueColor, .2)
 		--button_secondary_foreground_highlighted: half imp
 		--vkui--vkontakte_color_background_suggestions: half imp
 		--vkui--color_background_accent_themed--hover: rgba(redColor, greenColor, blueColor, .3) imp
-
+		
 
 	/* EXCLUSIONS */
-	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w
+	body.new_header_design #side_bar .left_label, .audio_row:not(.audio_claimed) .audio_row__title_inner, .media_link__title, .audio_row .audio_row__sound_bars, .ui_tabs_header .ui_tab_sel, .ui_tab_sel, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__label, .vkuiTabsItem--selected.vkuiTabsItem--accent .vkuiTabsItem__before, .vkuiButton--lvl-secondary.vkuiButton--clr-accent, .FlatButton__content, .im-chat-input--attach-label, .emoji_smile_icon_inline_svg, .audio_page_player2 .audio_page_player_icon--pause, .audio_page_player2 .audio_page_player_prev, .audio_page_player2 .audio_page_player_icon--play, .audio_page_player2 .audio_page_player_next, .ui_search_button_search, .FlatButton__after, .vkuiButton--lvl-tertiary.vkuiButton--clr-accent:hover, .audio_w_covers .audio_row .audio_row__cover, .nim-dialog:not(.nim-dialog_deleted):not(.nim-dialog_classic).nim-dialog_selected .nim-dialog--name-w, [role="tab"], .vkuiTabsItem__label, .vkuiSearch__nativeInput::placeholder, .ui_search_field::placeholder, .ui_search_field, div[data-testid="placeholder"]
 	[class^="LeftMenuItem-module__icon"] svg //left menu icons
 	[class*="viewUrlBtn"] .vkuiButton__content // url buttons text
 		color: var(--accent) imp
@@ -164,8 +179,8 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	.groups_edit_event_log_title // groups event log date
 		color: var(--text)
 
-	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent, .ui_search_input_inner, .im-chat-input--txt-wrap, .reply_field_wrap, .ui_search_custom_ctrl, .ui_toggler
-		background-color: var(--background_highlighted)
+	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent, .ui_search_input_inner, .im-chat-input--txt-wrap, .reply_field_wrap, .ui_search_custom_ctrl, .ui_toggler, [role="tab"][aria-selected="true"], [role="tab"][aria-selected="true"], .vkuiTabsItem__modeAccent:hover
+		background-color: var(--background_highlighted) imp
 
 	[scheme=vkcom_dark] .settings_narrow_row input[type=checkbox]:checked + label:before, .ActionButton--all::before, .audio_w_covers .audio_row .audio_row__cover_icon, .audio_w_covers .audio_row.audio_row__playing .audio_row__cover_icon, [dir] .audio_page_player2 .audio_page_player__cover, img[src="/images/icons/im_favorites_100.png"], .audio_pl_snippet2 .audio_pl_snippet__action_btn_listen::before, .olist_item_wrap_on .olist_checkbox, #stl_text, .page_verified, .vkuiSimpleCell__badge, .checkbox.on::before
 		filter: var(--main-filter)
@@ -186,13 +201,19 @@ half = rgba(redColor, greenColor, blueColor, .2)
 	.OwnerContentTabAudiosPlaylistsItem.vkuiTappable, .OwnerContentTabAudiosPlaylistsItem__title.vkuiTappable, .Header-module__tappable--mabke, .vkuiModalDismissButton, .vkuiIconButton, .vkuiLink, .ProfileInfo__fullInfo .vkuiTappable--hasPointer-none
 		background-color: unset imp
 	// shuffle and repeat buttons
-	[class*="playbackButtonsContainer"] [class*="colorIconSecondary"]
+	[data-testid="AudioPlayerBlock_RepeatSwitcher"]  [class*="colorIconSecondary"]
+	[data-testid="AudioPlayerBlock_Action_ToggleShuffled"] [class*="colorIconSecondary"]
+	[data-testid="AudioBroadcastsMenu_Action_ToggleCurrentTargets"] [class*="colorIconSecondary"]
 		color: var(--background_highlighted) imp
 	// img
 	if darkAvatar
 		[alt="User photo"], ._post_field_image .AvatarRich__img, .AvatarRich--sz-24 .AvatarRich__img, .TopNavBtn__profileImg, .vkuiImageBase__img, ._post_field_image
 			filter: saturate(0) invert(.9)
-	// logo
-	.TopHomeLink > svg:nth-child(1) > path:nth-child(1), .TopHomeLink > svg:nth-child(1) > g:nth-child(1) > g:nth-child(1) > path:nth-child(2)
-		fill: var(--accent) 
+	// svg
+	[data-testid="top-logo-link"] > svg:nth-child(1) > rect:nth-child(1)
+	.vkuiIcon--play_24, .vkuiIcon--search_outline_16, .music_outline_56__music_outline_56 > path:nth-child(2)
+		fill: var(--accent)
+
+	.vkuiIcon--error_circle_fill_gray_12 > path:nth-child(1)
+		fill: var(--background_highlighted) imp
 	{}

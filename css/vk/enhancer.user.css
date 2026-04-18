@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.7.1
+@version		1.8.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
@@ -74,9 +74,9 @@ imp = !important
 			border-radius: 0 borderRadius borderRadius 0 imp
 		.ui_search_input_inner 																// searchbox input field
 			border-radius: borderRadius 0 0 borderRadius imp
-		[class^="LeftMenuItem-module__item"]												// left menu hover
+		[class^="vkitLeftMenuItem__item"]												// left menu hover
 			border-radius: calc(var(--photo-primary-border-radius) * .6) imp
-		[class^="LeftMenuItem-module__counter"]												// left menu counter
+		[class^="vkuiInternalCounter"]												// left menu counter
 			border-radius: calc(var(--vkui--size_border_radius_paper--regular) * .42) imp
 
 	
@@ -107,43 +107,18 @@ imp = !important
 			background-color: unset imp
 
 	if floatingPopup
-		div.EcosystemServicesNavigationDropdown_popout__NYAnq
-			margin-top: 8px
-			border-radius: borderRadius
-		[dir] .top_notify_show_all
-			border-radius: 0 0 borderRadius borderRadius
-		[dir] .eltt, [dir] .audio_layer_container, [dir] .tt_w.like_tt, [dir] .tt_w.voting_tt, [dir] .tt_default, [dir] .tt_default_right, [dir] .emoji_bg, [dir] .emoji_tt_wrap, [dir] .ms_items_more, [dir] #top_profile_menu, [dir] #top_ecosystem_navigation_menu
-			border-radius: borderRadius
-		[dir] .tt_w.tt_black
-			border-radius: borderRadius
-		[dir] .like_tt_share
-			margin: 8px -3px -1px
-		[dir] #top_notify_btn.active #top_notify_wrap
-			top: 45px
-		[dir] #audio_layer_tt, [dir] #top_notify_wrap
-			border-radius: borderRadius
-		[dir] div#audio_layer_tt eltt eltt_arrow_size_normal eltt_align_center eltt_bottom eltt_vis
-			top: 8px
-		[dir] #top_audio_layer_place
-			top: 9px
-		[dir] .eltt.eltt_bottom.eltt_arrow_size_normal > .eltt_arrow_back
-			display: none
-		[dir] a.page_post_thumb_unsized, [dir] span.page_post_thumb_unsized
-			border-radius: borderRadius
-		[dir] .ts_cont_wrap
+		// profile and music panels
+		.vkuiPopover__host
+			margin-top: 10px imp
+		[class*="vkitHeaderPopover"]
+			border-radius: var(--vkui--size_border_radius_paper--regular) imp
+		// notifications panel
+		[dir] #top_notify_wrap 
+			border-radius: var(--vkui--size_border_radius_paper--regular) imp
 			margin-top: 10px
-			border-radius: borderRadius
-		[dir] #top_profile_menu
-			right: -12px
-			margin-top: 8px
-			border-radius: borderRadius imp
-			transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear imp
-		[dir] #top_notify_wrap
-			margin-top: 4px
-		[dir] .like_tt_share:before
-			display: none imp
-		[dir] #top_ecosystem_navigation_menu
-			margin-top: 8px
+		.top_notify_show_all
+			border-radius: var(--vkui--size_border_radius_paper--regular)imp
+
 
 	if headerVariant == "1"
 		.top_audio_player
@@ -202,7 +177,7 @@ imp = !important
 		#l_fr
 			display: none imp
 	if noFooter
-		.left_menu_nav_wrap, .LegalRecommendationsLinkLeftMenuAuthorized
+		#ads_wrapper
 			display: none imp
 
 	// FEED
@@ -233,16 +208,17 @@ imp = !important
 		// 	--primary-attachment-ratio: 1.55 imp
 
 	if noStories
-		.stories_feed_wrap
+		[class*="StoryBlock_"]
 			display: none imp
+		[data-testid="feed_wall"]
+			margin-top: -14px
 
 	if noReactionsPosts
 		[dir] .ReactionsMenu
 			display: none 
 		
 	if noFeedComments
-		.replies,
-		.post_replies_header.clear_fix
+		[class*="CommentsContainer__container"]
 			display: none
 
 	if noAds
@@ -268,31 +244,23 @@ imp = !important
 		bottom: 23%
 
 	// fix popup music small volume slider
-	[class^="AudioPlayerVolumeSlider-module"]
+	[data-testid="audioplayervolumeslider-bar"]
 		min-width: 70px imp
 
 	if noStatusMusic
-		[data-testid="audio-player-block-broadcast-enable-button"]
+		[data-testid="AudioBroadcastsMenu_Action_ToggleCurrentTargets"]
 			display: none imp
-		.AudioPlayerUserControlsContainer-module__volumeSlider--O43ve
-			padding-right: 0px imp
 
 	if noLyricsButton
-		[data-testid="audio-player-block-lyrics-button"]
+		[data-testid="AudioPlayerBlock_Action_OpenLyrics"]
 			display: none imp
 	
 	if noMusicDislike
-		[data-testid="audio-player-block-add-dislike-button"]
+		[data-testid="AudioPlayerBlock_Action_ToggleDislike"]
 			display: none imp
 	
-	// fix useles music buttons
-	.AudioPlayerPlaybackBody-module__audioButton--fVxwT
-		margin: -2px
-	.AudioPlayerUserControlsContainer-module__volumeSlider--O43ve
-		padding-right: 20px 
-	
 	if noShareMusic
-		[data-testid="audio-player-block-share-button"]
+		[data-testid="AudioPlayerBlock_Action_Share"]
 			display: none imp
 
 	if widePlaylist
