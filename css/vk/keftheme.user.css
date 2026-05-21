@@ -1,21 +1,22 @@
 /* ==UserStyle==
 @name			VK Keftheme
-@version		3.0.0
+@version		3.0.1
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/keftheme.user.css
 @license		unlicense
 @preprocessor	stylus
 
-@var checkbox	darkAvatar			"Dark avatar (no photo)"		0
-@var text 		backgroundLink		"Background image"				"'https://i.imgur.com/qhDV2A3.jpeg'"
+@var select bgPreset "Background color" {
+	"Default": "rgb(20, 20, 20)",
+	"Image": "image",
+	"Custom Color": "custom",
+	"Mocha": "rgb(17, 17, 27)",
+	"Macchiato": "rgb(24, 25, 38)",
 
-@var color    	accentColor 		"Custom borders color"          rgb(162, 119, 78)
-
-
-@var select	customBackground "Custom background" {
-	"color": "color",
-	"image": "image"
 }
+@var color bgCustom 				"Custom background color" 		rgb(30, 30, 30)
+@var text  backgroundLink 			"Custom background image" 		"'https://i.imgur.com/qhDV2A3.jpeg'"
+
 
 @var select fgPreset "Foreground color" {
 	"Default": "rgb(34, 34, 34)",
@@ -29,19 +30,22 @@
 	"Frappe": "rgb(48, 52, 70)",
 	"Custom Color": "fgCustom"
 }
-@var color fgCustom "Custom Foreground Color" rgb(30, 30, 30)
+@var color fgCustom 				"Custom Foreground Color" 		rgb(30, 30, 30)
 
-@var select bgPreset "Background color" {
-	"Default": "rgb(20, 20, 20)",
-	"Mocha": "rgb(17, 17, 27)",
-	"Macchiato": "rgb(24, 25, 38)",
-	"Custom Color": "bgCustom"
-}
-@var color bgCustom "Custom Background Color" rgb(30, 30, 30)
+@var color    	accentColor 		"Accent color"          		rgb(162, 119, 78)
+
+@var checkbox	darkAvatar			"Dark avatar (no photo)"		0
 ==/UserStyle== */
 
 imp = !important
-bg = bgPreset
+
+if bgPreset == "custom"
+	bg = bgCustom
+else if bgPreset == "image"
+	bg = bgCustom
+else
+	bg = bgPreset
+//bg = bgPreset
 fg = fgPreset
 solid = accentColor
 half = rgba(accentColor, 0.3)
@@ -54,18 +58,17 @@ half = rgba(accentColor, 0.3)
 
 	html[dir], [dir] #page_wrap
 		scrollbar-color: solid fg imp
-
-	if customBackground == "image"
-		 body, html[dir], [dir] #page_wrap
-			background-size: cover imp
+		
+		
+	body, html[dir], [dir] #page_wrap
+		background-color: bg !important
+		if bgPreset == "image"
 			background: url(backgroundLink) no-repeat fixed center 0
-		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
-			--vkui--color_background: #0000 imp	// space between blocks in profile
-	if customBackground == "color"
-		body, html[dir], [dir] #page_wrap
-			background-color: bg
-		[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
-			--vkui--color_background: #0000 imp	// space between blocks in profile
+			background-size: cover imp
+
+			
+	[scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
+		--vkui--color_background: #0000 imp	// space between blocks in profile
 
 	:root, [scheme=vkcom_dark], .vkui--vkBase--dark, .vkui--vkCom--dark, :root
 		// --text: #a6a6b5 imp
@@ -74,7 +77,7 @@ half = rgba(accentColor, 0.3)
 		--vkui--vkontakte_palette_black: bg
 		--vkui--vkontakte_color_snippet_background: bg
 		--vkui--vkontakte_color_control_background: bg
-		--vkui--color_background_contrast_themed: bg imp
+		//--vkui--color_background_contrast_themed: bg imp // hover popups bg
 		--background_light: fg
 		--button_bot_shadow: fg
 		--background_content: fg
@@ -128,9 +131,7 @@ half = rgba(accentColor, 0.3)
 		--vkui--color_background_accent: solid imp
 		--vkui--color_text_accent_themed: solid imp
 		--vkui--color_icon_accent_themed: solid imp
-		//--vkui--color_text_contrast: solid imp
 		--vkui--color_icon_secondary: solid imp
-		//--vkui--color_text_contrast_themed: solid imp
 		--vkui--vkontakte_color_im_text_name: solid imp
 		--vkui--vkontakte_color_icon_outline_medium: solid imp
 		--vkui--vkontakte_color_icon_outline_secondary: solid imp
@@ -176,16 +177,11 @@ half = rgba(accentColor, 0.3)
 	[class*="viewUrlBtn"] .vkuiButton__content // url buttons text
 		color: var(--accent) imp
 
-	//.top_audio_player .top_audio_player_title, .wall_post_text, .wall_reply_text, .OwnerPageName, .page_list_module .people_desc, .settings_label, .settings_labeled_text, .ui_tab_default .ui_tab_plain, .group_info_rows_redesign .group_info_row .line_value, .wall_module .wd_lnk, .ProfileModalInfoRow__label, .ProfileFullStacks__caption, .ProfileFullCommonInfo__caption, .im-mess--text, .im-replied--text, .vkuiTabsItem__before, .nim-dialog .nim-dialog--preview, .im_editable.im-chat-input--text._im_text, .ConvoMessage__text, .ConvoMessage__reply, .pv_desc_cont, .vkuiButton__in
-	//.groups_edit_event_log_item_text // groups event log text
-	//.groups_edit_event_log_title // groups event log date
-	//	color: var(--text)
-
 	.vkuiTabsItem--selected.vkuiTabsItem--accent, .vkuiButton--lvl-secondary, .im-mess.im-mess_selected:not(.im-mess_is_editing), .im-mess.im-mess_selected:not(.im-mess_is_editing):hover, .audio_page_player2 .slider_hint.audio_player_hint, .slider_hint.audio_player_hint, .reply_fakebox, .reply_field.submit_post_field, .FCConvoListItem:hover, .ui_tabs_header .ui_tab_new:hover, .ui_tabs_header .ui_tab_new:hover, .vkuiSimpleCell:hover, .vkuiTappable:hover, .vkuiTabsItem--selected.vkuiTabsItem--mode-accent, .ui_search_input_inner, .im-chat-input--txt-wrap, .reply_field_wrap, .ui_search_custom_ctrl, .ui_toggler, [role="tab"][aria-selected="true"], [role="tab"][aria-selected="true"], .vkuiTabsItem__modeAccent:hover
 		background-color: var(--background_highlighted) imp
 
-	.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, .im-chat-input div[contenteditable="true"], .im-page ._im_bar_date > span
-		background-color: bg imp
+	//.vkuiDropdown, .ui_actions_menu, vkuiPopover, .vkuiPopover__in--withStyling, .im-chat-input div[contenteditable="true"], .im-page ._im_bar_date > span
+	//	background-color: bg imp
 
 	.im-page-history-w .im-mess.im-mess_selected:last-child::before
 		background: var(--background_page)
@@ -217,7 +213,7 @@ half = rgba(accentColor, 0.3)
 		[alt="User photo"], ._post_field_image .AvatarRich__img, .AvatarRich--sz-24 .AvatarRich__img, .TopNavBtn__profileImg, .vkuiImageBase__img, ._post_field_image
 			filter: saturate(0) invert(.9)
 	// svg
-	[data-testid="top-logo-link"] > svg:nth-child(1) > rect:nth-child(1)
+	[data-testid="top-logo-link"] svg:nth-child(1) > rect:nth-child(1), [data-testid="top-logo-link"] svg g g path:nth-child(2), [data-testid="top-logo-link"] svg g g path:nth-child(1)
 	.vkuiIcon--play_24, .vkuiIcon--search_outline_16, .music_outline_56__music_outline_56 > path:nth-child(2)
 		fill: var(--accent)
 
