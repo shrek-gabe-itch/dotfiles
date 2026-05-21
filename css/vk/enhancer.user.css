@@ -1,12 +1,23 @@
 /* ==UserStyle==
 @name			VK Enhancer
-@version		1.8.1
+@version		2.0.0
 @namespace		https://github.com/shrek-gabe-itch/dotfiles
 @updateURL		https://raw.githubusercontent.com/shrek-gabe-itch/dotfiles/main/css/vk/enhancer.user.css
 @license		unlicense
 @preprocessor	stylus
 
 @var range borderRadius			"UI border radius"					[8, 0, 24, 4, 'px']
+@var range borderThickness		"UI border thickness"				[1, 1, 3, 1, 'px']
+@var select bordersColor		"UI borders color" {
+    "none": "none",
+    "default": "default",
+    "keftheme color": "theme",
+    "custom": "custom",
+}
+
+@var color    customBorderColor "Custom borders color"          	#0000
+
+@var checkbox separatedFeed		"Separated feed posts НЕ ЖМАЙ СЮДА"	0
 
 @var select headerVariant		"Headed variants" {
     "1": "4",
@@ -14,14 +25,15 @@
     "3": "3",
 	"4": "1"
 }
-@var checkbox noBorders			"Hide borders & separators"			1
+
+@var checkbox stickyLeftMenu	"Disable left menu scrolling"		1
+@var checkbox modernLeftMenu	"Left menu background"				1
 @var checkbox fluentHeader		"Header fluency" 					1
 @var checkbox floatingPopup		"Floafting popup windows"			1
 
 @var checkbox noProfile			"Hide My Profile"					1
 @var checkbox noNews			"Hide News"							1
 @var checkbox noFriends			"Hide Friends"						1
-@var checkbox noFooter			"Hide left menu footer"				1
 
 @var checkbox widderFeed		"Widder feed (reload to apply)"		1
 @var checkbox noReactionsPosts	"Hide posts reactions"				1
@@ -44,7 +56,6 @@
 @var checkbox noMusicBlock4		"Hide Music block 4"				1
 @var checkbox noMusicBlock5		"Hide Music block 5"				0
 @var checkbox noMusicBlock6		"Hide Music block 6"				1
-@var checkbox noMusicBlock7		"Hide Music block 7"				1
 
 @var checkbox fab				"FAB Chats"							1
 
@@ -53,19 +64,71 @@
 imp = !important
 
 @-moz-document domain("vk.com"), domain("vk.ru")
-	// rounded corners
+
+	if bordersColor == "none"
+		borderColor = #0000
+			
+	if bordersColor == "default"
+		borderColor = #292929
+	
+	if bordersColor == "theme"
+		borderColor = var(--gray_850)
+		
+	if bordersColor == "custom"
+		borderColor = customBorderColor
+
+	*
+		--vkui--color_separator_primary: borderColor imp							// block borders & menu separators
+		--vkui--color_image_border_alpha: unset imp									// music covers border
+		--vkui--color_separator_secondary: borderColor imp							// header 1px border
+		--vkui--vkontakte_color_input_border: borderColor imp						// searchbar borders
+		--vkui--vkontakte_color_snippet_border_alpha: borderColor imp				// popup playlist header separator
+		--vkui--vkontakte_color_landing_snippet_border_alpha: borderColor imp		// custom playlists borders
+		--vkui--color_field_border_alpha: borderColorimp							// selector borders
+		--vkui--vkontakte_color_input_border: borderColor imp					    // input field borders
+		
+		
+		-vkui--size_border--regular: borderThickness imp
+		--vkui--size_border1x--regular: borderThickness imp
+		--border-width: borderThickness imp
+		--separator-height: borderThickness imp
+		--vkui_internal--padding: (borderThickness) imp
+		
+		#page_header_cont															// header single border
+			border-bottom: none imp
+		.redesign_web .audio_page_layout .CatalogBlock--divided
+		.redesign_web .page_block._audio_page_content_block
+		.ui_tab_sel
+		.CollapsibleContainer__widthControllerButton
+			border: borderThickness solid borderColor imp
+		.redesign_web .audio_page_layout .CatalogBlock--divided:first-child
+			border-top: none imp
+		.redesign_web .page_block._audio_page_content_block
+			border-bottom: none imp
+		.RecommendedPlaylist
+			box-shadow: inset 0 0 0 borderThickness borderColor
+		.UnreadCounter																// messages unread counter border
+			--vkui--color_background_content: borderColor imp
+		.ConvoHeader
+			border-bottom: borderThickness solid borderColor imp
+
+			
+			
+		// rounded corners
 	*	
 		--mg-border-radius-wrapper: borderRadius imp										// combined post photos
 		--vkui--size_border_radius_paper--regular: borderRadius imp							// blocks
 		--vkui--size_border_radius--regular: borderRadius imp								// popup menus hover & post link button
-		--primary-attachment-border-radius: borderRadius imp								// link preview
+		
 		--photo-primary-border-radius: borderRadius imp										// photo thumbails
+		[data-testid="primary-attachment"]
+			border-radius: borderRadius imp
 		.feed_row .page_post_thumb_video													// video thumbails
 		.ui_actions_menu_item, #top_settings_link											// legacy menus hover
 		.reply_field_wrap, .im-chat-input--txt-wrap											// input fields
 		[data-stat-container="group_wall"] .page_post_thumb_last_row						// groups feed videos
 		.RecommendedPlaylist__top, .RecomsPlaylist, .RecommendedPlaylist					// music playlists
-			border-radius: var(--photo-primary-border-radius) imp
+			border-radius: borderRadius imp
 		.ui_actions_menu																	// legacy popup menu
 		.SecondaryAttachmentAvatar--style-square											// link icon
 		.OwnerContentTabAudiosItem__cover, .AudioPlayerAudioCover-module__image--mslp2		// music cover
@@ -74,25 +137,62 @@ imp = !important
 			border-radius: 0 borderRadius borderRadius 0 imp
 		.ui_search_input_inner 																// searchbox input field
 			border-radius: borderRadius 0 0 borderRadius imp
-		[class^="vkitLeftMenuItem__item"]												// left menu hover
+		[class^="vkitLeftMenuItem__item"]													// left menu hover
 			border-radius: calc(var(--photo-primary-border-radius) * .6) imp
-		[class^="vkuiInternalCounter"]												// left menu counter
+		[class^="vkuiInternalCounter"]														// left menu counter
 			border-radius: calc(var(--vkui--size_border_radius_paper--regular) * .42) imp
+		.redesign_web .page_block._audio_page_content_block
+			border-radius: borderRadius borderRadius 0 0 imp;
+		
+	if stickyLeftMenu
+		#layout_sidebar
+			position: sticky imp
+			top: 62px imp
+			
+	if modernLeftMenu
+		#layout_sidebar
+			position: relative
+			top: 18px
+			border: borderThickness borderColor solid imp
+		#stl_side
+			display: none imp
+		#layout_sidebar
+			transform: translateX(-16px)
+			background: var(--vkui--color_background_content)
+			border-radius: calc(var(--photo-primary-border-radius) * .8) imp
+			padding-left: 12px imp
+		[data-testid="leftmenu"] [class*="vkuiSeparator"]
+			color: borderColor imp
+			height: borderThickness imp
+			margin: 4px 2px imp
+		[data-testid="leftmenu"] [class*="vkitLeftMenuItem"] .vkuiTappable__hoveredBackground
+			background-color: var(--gray_850) imp
 
-	
-	if noBorders
-		*
-			//--vkui--size_border--regular: #0000 imp								// block borders & menu separators
-			--vkui--color_separator_primary: #0000 imp							// block borders & menu separators
-			--vkui--color_image_border_alpha: #0000 imp							// music covers border
-			--vkui--color_separator_secondary: #0000 imp						// header 1px border
-			--vkui--vkontakte_color_input_border: #0000 imp						// searchbar borders
-			--vkui--vkontakte_color_snippet_border_alpha: #0000 imp				// popup playlist header separator
-			--vkui--vkontakte_color_landing_snippet_border_alpha: #0000 imp		// custom playlists borders
-			--vkui--color_field_border_alpha: #0000 imp							// selector borders
-			--vkui--vkontakte_color_input_border: #0000 imp						// input field borders
-
+	if separatedFeed
+		[data-testid^="feed_"] div[class*="vkitGroup__group-"]
+		[data-testid^="feed_"] [class*="vkitGroup__group-"] > [role="feed"]
+			background: var(--vkui--color_background)
+		[data-testid^="feed_"] [class*="vkitGroup__group-"]:before
+			display:none
+		[data-testid^="feed_"] [class*="vkitGroup__group-"] > [role="feed"] > article:first-child
+			background: var(--vkui--color_background_content)
+			padding: 8px 0
+			border-radius: borderRadius
+			border: borderThickness borderColor solid imp
+			//margin-top: -25px imp
+		[role="feed"] > article:not(:first-child)
+			background: var(--vkui--color_background_content)
+			border-radius: borderRadius
+			padding: 8px 0px 8px 0px
+			margin-top: -25px imp
+			border: borderThickness borderColor solid imp
+			
 	// HEADER
+	[data-testid="TopAudioPlayer"] [class*="vkitTopAudioPlayer_"]
+		max-width: 550px imp
+	[data-testid="TopAudioPlayer_Title"] [class*="vkitTopAudioPlayerInfo_"]
+		max-width: 550px imp
+	
 	if fluentHeader
 		[scheme=vkcom_light], .vkui--vkBase--light, .vkui--vkCom--light, :root
 			--vkui--color_header_background: #fffc imp
@@ -120,51 +220,7 @@ imp = !important
 			border-radius: var(--vkui--size_border_radius_paper--regular)imp
 
 
-	if headerVariant == "1"
-		.top_audio_player
-			max-width: 800px
-		.TopNavBtn__profileArrow
-			display: none
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
-	if headerVariant == "2"
-		.TopNavBtn__profileArrow
-		.HeaderNav__item.HeaderNav__item--gap
-			display: none
-		#audio_layer_tt
-			left: 0px imp
-		.top_audio_player
-			max-width: 800px
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
-	if headerVariant == "3"
-		.TopNavBtn__profileArrow
-		.HeaderNav__item.HeaderNav__item--gap
-		#react_rootEcosystemServicesNavigationEntry
-			display: none
-		#audio_layer_tt
-			left: 0px imp
-		.top_audio_player
-			max-width: 800px
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
-	if headerVariant == "4"
-		.TopNavBtn__profileArrow
-		.HeaderNav__item.HeaderNav__item--gap
-		#react_rootEcosystemServicesNavigationEntry
-			display: none
-		[dir="ltr"] #top_notify_wrap
-			left: -370px
-		#audio_layer_tt
-			left: 0px imp
-		.HeaderNav__btns
-			position: absolute
-			height: inherit
-			right: 68px
-		.top_audio_player
-			max-width: 800px
-		[dir="ltr"] .TopNavBtn__profileLink
-			padding: 0 10px 0 10px
+
 
 	// LEFT MENU 
 	if noProfile
@@ -175,9 +231,6 @@ imp = !important
 			display: none imp
 	if noFriends
 		#l_fr
-			display: none imp
-	if noFooter
-		#ads_wrapper
 			display: none imp
 
 	// FEED
@@ -190,22 +243,28 @@ imp = !important
 			--narrow-column-width: 265px imp
 		div.ScrollStickyWrapper div
 			max-width: 305px imp
-		// fix profile friends block
-		.vkuiHorizontalCell:nth-last-child(-n+2)
-			display: none imp
-		.ProfileGroupHorizontalCells [class*="HorizontalCell-module"]
-			width: 33.3% imp
+		// fix friends & subscribers block
+		.vkuiHorizontalCell__customSize .vkuiHorizontalCell__body,
+		.vkuiHorizontalCell__sized .vkuiHorizontalCell__body 
+			width: 96px imp
+		.vkuiHorizontalCell__sizeS :not([data-testid="group-followers"])
+			--vkui_internal--cell_width: 96px
 		// fix bookbarks width
-		.bookmark_page_item._bookmark_page_item
-			width: 120px imp
+		.bookmark_page_item
+			width: 115px imp
+		.bookmark_page_item > :nth-child(1)
+			display: flex
+			justify-content: center
+		.ui_zoom_outer .ui_zoom_inner
+			left: 0
+			right: 0
+			margin-left: auto
+			margin-right: auto
 		// fix width feed videos
 		.feed_row .page_post_thumb_video
 			width: 590px imp
 		.reply_content .page_post_thumb_video, .feed_updates .page_post_thumb_video
 			width: unset imp
-		// fix feed urlbutton empty space
-		// *
-		// 	--primary-attachment-ratio: 1.55 imp
 
 	if noStories
 		[class*="StoryBlock_"]
@@ -218,23 +277,21 @@ imp = !important
 			display: none 
 		
 	if noFeedComments
-		[class*="CommentsContainer__container"]
+		article [class*="CommentsContainer__container"]
 			display: none
 
 	if noAds
-		#uxpoll_block									// feed block VK research
-		#bookmark_game									// feed block Game for you
-		#achievement_game								// feed block Friends playing
-		.MarketItemsPortlet								// feed block VK Market
-		#feed_mini_apps_recomm							// feed block Recommended mini apps
-		#feed_right_blocks_root							// right feed menu Popular
-		.apps_feedRightAppsBlock						// right feed menu *APP*
-		#friends_right_blocks_root						// right feed menu People you may know
-		.NewMiniAppsRightBlock__root					// rigth feed menu New Mini Apps
-		.CatalogSection--header_section					// music header block Subscription
-		.FeedBlockWrap.FeedBlockWrap__marginM			// feed block People you may know
-		[data-feed-block-type="recommended_groups"]		// feed block Recommended creators
-			display: none
+		#ads_wrapper												// left menu ads
+		[data-testid="feed_apps_right_block"]						// right block games
+		div.CatalogSection:has([data-type="catalog_banners"])		// VK music
+		div[role="feed"] > article:not(:has(div[data-post-id]))
+		//div[role="feed"] > article:has([class*="vkitPostSkeleton__root"])
+		//div[role="feed"] > article:has([class*="vkitPostSkeleton__root"]) *
+		div[role="feed"] > article:has(div[data-promopost-ad-selector])
+		div[role="feed"] > article:has(div[data-promopost-ad-selector]) *
+		div[role="feed"] > article:has([data-testid="post-header-subscription-button"])
+		div[role="feed"] > article:has([class*="vkitAvatarStack"])
+			display: none imp
 			
 	// MUSIC
 	// Audio snippets FIX
@@ -279,35 +336,37 @@ imp = !important
 			padding: 12px 20px
 
 	if noVKMix
-		[class*="AudioCatalogMusicMixBlockComponent"]
+		[data-testid="AudioStreamMix"]
 			display: none
 
 	if noMusicBlock1
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(2)
-			display: none
+		[data-testid="AudioCatalog_Section"]:nth-of-type(3)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(3) + .vkuiGroup__separatorSibling
+			display: none imp
 
 	if noMusicBlock2
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(3)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(4)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(4) + .vkuiGroup__separatorSibling
 			display: none
 
 	if noMusicBlock3
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(4)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(5)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(5) + .vkuiGroup__separatorSibling
 			display: none
 
 	if noMusicBlock4
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(5)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(6)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(6) + .vkuiGroup__separatorSibling
 			display: none
 
 	if noMusicBlock5
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(6)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(7)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(7) + .vkuiGroup__separatorSibling
 			display: none
 			
 	if noMusicBlock6
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(7)
-			display: none
-
-	if noMusicBlock7
-		div.CatalogSection.CatalogSection--divided.CatalogSection__general .CatalogBlock:nth-child(8)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(8)
+		[data-testid="AudioCatalog_Section"]:nth-of-type(8) + .vkuiGroup__separatorSibling
 			display: none
 
 	// MESSAGES
