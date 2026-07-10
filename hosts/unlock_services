@@ -1,6 +1,15 @@
-### dns.malw.link: hosts file
-# Последнее обновление: 30 мая 2026
 
+# TMDB 10.07.26
+13.227.173.110 themoviedb.org
+13.227.173.110 www.themoviedb.org
+13.227.173.110 api.themoviedb.org
+13.227.173.110 image.tmdb.org
+13.227.173.110 tmdb.org
+13.227.173.110 api.tmdb.org
+185.93.2.248 media.themoviedb.org
+
+# dns.malw.link: hosts file 30.05.26
+# etc
 52.223.13.41 tracker.openbittorrent.com
 185.31.40.18 test.dns.malw.link
 130.255.77.28 ntc.party
