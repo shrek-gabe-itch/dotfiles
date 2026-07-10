@@ -1,5 +1,8 @@
+# custom: 10.07.26
+# Trakt France
+104.20.13.80 api.trakt.tv
 
-# TMDB 10.07.26
+# TMDB France
 13.227.173.110 themoviedb.org
 13.227.173.110 www.themoviedb.org
 13.227.173.110 api.themoviedb.org
@@ -8,7 +11,7 @@
 13.227.173.110 api.tmdb.org
 185.93.2.248 media.themoviedb.org
 
-# dns.malw.link: hosts file 30.05.26
+# dns.malw.link: 30.05.26
 # etc
 52.223.13.41 tracker.openbittorrent.com
 185.31.40.18 test.dns.malw.link
