@@ -1,9 +1,10 @@
-!Title: Unlock blocked services
-!Last modified: 10 Jul 2026 23:00 UTC
-
 # custom: 10.07.26
 # Trakt France
 104.20.13.80 api.trakt.tv
+104.20.13.80 trakt.tv
+104.20.13.80 app.trakt.tv
+104.20.13.80 www.trakt.tv
+104.20.13.80 media.trakt.tv
 
 # TMDB France
 13.227.173.110 themoviedb.org
@@ -160,25 +161,25 @@
 45.155.204.190 upsx.weather.com
 
 # Google
-62.133.62.97 api.fitbit.com
-62.133.62.97 fitbit-pa.googleapis.com
-62.133.62.97 fitbitvestibuleshim-pa.googleapis.com
-62.133.62.97 fitbit.google.com
-62.133.62.97 gemini.google.com
-62.133.62.97 aistudio.google.com
-62.133.62.97 generativelanguage.googleapis.com
-62.133.62.97 aitestkitchen.withgoogle.com
-62.133.62.97 aisandbox-pa.googleapis.com
-62.133.62.97 webchannel-alkalimakersuite-pa.clients6.google.com
-62.133.62.97 alkalimakersuite-pa.clients6.google.com
-62.133.62.97 assistant-s3-pa.googleapis.com
-62.133.62.97 proactivebackend-pa.googleapis.com
-62.133.62.97 robinfrontend-pa.googleapis.com
-62.133.62.97 o.pki.goog
-62.133.62.97 labs.google
-62.133.62.97 notebooklm.google.com
-62.133.62.97 jules.google.com
-62.133.62.97 stitch.withgoogle.com
+142.251.153.2 api.fitbit.com
+142.251.153.2 fitbit-pa.googleapis.com
+142.251.153.2 fitbitvestibuleshim-pa.googleapis.com
+142.251.153.2 fitbit.google.com
+142.251.153.2 gemini.google.com
+142.251.153.2 aistudio.google.com
+142.251.153.2 generativelanguage.googleapis.com
+142.251.153.2 aitestkitchen.withgoogle.com
+142.251.153.2 aisandbox-pa.googleapis.com
+142.251.153.2 webchannel-alkalimakersuite-pa.clients6.google.com
+142.251.153.2 alkalimakersuite-pa.clients6.google.com
+142.251.153.2 assistant-s3-pa.googleapis.com
+142.251.153.2 proactivebackend-pa.googleapis.com
+142.251.153.2 robinfrontend-pa.googleapis.com
+142.251.153.2 o.pki.goog
+142.251.153.2 labs.google
+142.251.153.2 notebooklm.google.com
+142.251.153.2 jules.google.com
+142.251.153.2 stitch.withgoogle.com
 
 # Claude
 45.155.204.190 claude.ai
