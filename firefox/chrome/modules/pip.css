@@ -1,0 +1,280 @@
+@-moz-document url("chrome://global/content/pictureinpicture/player.xhtml") {
+	* {
+		--accent-color: AccentColor;
+		--pip-background: rgba(235, 235, 235, 0.8);
+		--pip-backdrop: saturate(3) contrast(2) blur(100px);
+		--pip-border: 2px solid rgba(20, 20, 20, 0.1);
+		--pip-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+ 
+		--natsumi-colors-primary: color-mix(in srgb, var(--accent-color) 50%, black 50%);
+		--natsumi-colors-secondary: color-mix(in srgb, var(--natsumi-colors-primary) 20%, white 80%);
+		--natsumi-sdl2-haze-button-idle-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.3);
+		--natsumi-sdl2-haze-button-idle-color: color-mix(in srgb, white 50%, transparent);
+		--natsumi-sdl2-haze-button-hover-color: rgba(0, 0, 0, 0.1);
+		--natsumi-sdl2-haze-button-active-color: var(--accent-color);
+
+		@media (prefers-color-scheme: dark) {
+			--pip-background: rgba(13, 13, 13, 0.8);
+			--natsumi-colors-primary: color-mix(in srgb, var(--accent-color) 20%, #1d1d1d 80%);
+			--natsumi-colors-secondary: color-mix(in srgb, var(--accent-color) 30%, #1d1d1d 70%);
+			--natsumi-sdl2-haze-button-idle-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2), 0 0 2px rgba(0, 0, 0, 0.3);
+			--natsumi-sdl2-haze-button-idle-color: color-mix(in srgb, rgba(255, 255, 255, 0.25) 40%, transparent);
+			--natsumi-sdl2-haze-button-hover-color: rgba(255, 255, 255, 0.2) !important;
+			/* --natsumi-sdl2-haze-button-active-color: var(--natsumi-sdl2-button-active-color);НЕ УДАЛЯТЬ */ 
+		}
+	}
+
+	@media (-moz-platform: windows) {
+		window, html, :root {
+			border-radius: 8px !important;
+		}
+	}
+
+	.player-holder {
+		border-radius: 8px !important;
+	}
+
+	#controls {
+		opacity: 1 !important;
+
+		#controls-bottom-gradient {
+			opacity: 0 !important;
+			transition: opacity 0.2s ease !important;
+		}
+
+		& > button {
+			opacity: 0 !important;
+			top: 0 !important;
+			border-radius: 50% !important;
+			transition: opacity 0.3s ease, top 0.3s ease, background-color 0.2s ease, box-shadow 0.2s ease !important;
+			backdrop-filter: var(--pip-backdrop) !important;
+			background-color: var(--pip-background) !important;
+			box-shadow: var(--pip-shadow) !important;
+			background-size: 0 !important;
+			border: var(--pip-border) !important;
+			filter: blur(5px);
+			min-width: 40px !important;
+			height: 40px !important;
+			padding: 2px !important;
+
+			&::before {
+				content: "";
+				width: 32px;
+				height: 32px;
+				position: absolute;
+				border-radius: 50%;
+				left: 2px;
+				top: 2px;
+				background-image: inherit;
+				background-size: 16px;
+				background-repeat: no-repeat;
+				background-position: center;
+				box-shadow: var(--natsumi-sdl2-haze-button-idle-shadow);
+				background-color: var(--natsumi-sdl2-haze-button-idle-color);
+				transition: background-color 0.2s ease;
+			}
+
+			&:hover::before {
+				background-color: var(--natsumi-sdl2-haze-button-hover-color);
+			}
+
+			&:active::before {
+				background-color: var(--natsumi-sdl2-haze-button-active-color);
+			}
+		}
+
+		#close, #unpip {
+			-moz-context-properties: fill;
+			fill: light-dark(black, white) !important;
+		}
+
+		#controls-bottom {
+			opacity: 0 !important;
+			padding: 10px 15px !important;
+			margin-bottom: 5px !important;
+			width: calc(100% - 10px) !important;
+			box-sizing: border-box !important;
+			transition: opacity 0.3s ease, bottom 0.3s ease !important;
+			left: calc(50% - 5px) !important;
+			transform: translateX(-50%) !important;
+			margin: 0 !important;
+			left: calc(50%) !important;
+			bottom: -10px !important;
+
+			.start-controls, .center-controls, .end-controls {
+				border-radius: 20px !important;
+				background-color: var(--pip-background) !important;
+				border: var(--pip-border) !important;
+				backdrop-filter: var(--pip-backdrop) !important;
+				gap: 4px !important;
+				box-shadow: var(--pip-shadow) !important;
+				padding: 2px !important;
+			}
+
+			#timestamp {
+				text-align: center !important;
+				width: 100% !important;
+				padding-inline: 12px !important;
+			}
+
+			#playpause::after, #seekBackward::after, #seekForward::after, #audio::after {
+				left: 50% !important;
+				translate: -50% 0 !important;
+			}
+
+			#seekForward::after, #seekBackward::after {
+				top: -54.5px !important;
+			}
+
+			.start-controls {
+				@media (width > 300px) {
+					display: flex !important;
+				}
+
+				@media (width <= 440px) {
+					border-width: 0 !important;
+				}
+
+				#timestamp {
+					font-size: 12px !important;
+					color: light-dark(black, white) !important;
+				}
+			}
+
+			.end-controls {
+				display: flex !important;
+			}
+
+			#scrubber, #audio-scrubber {
+				margin: 0 !important;
+
+				&::-moz-range-progress {
+					background: light-dark(var(--natsumi-colors-primary), var(--accent-color)) !important;
+				}
+
+				&::-moz-range-track {
+					background-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
+				}
+
+				&::-moz-range-thumb {
+					background-color: light-dark(var(--natsumi-colors-primary), var(--accent-color)) !important;
+					width: 12px !important;
+					height: 12px !important;
+					border: none !important;
+				}
+			}
+
+			#scrubber {
+				opacity: 1 !important;
+				width: calc(100% - 4px) !important;
+				height: 6px !important;
+				padding: 0 !important;
+				border: var(--pip-border) !important;
+				background-color: var(--pip-background) !important;
+				backdrop-filter: var(--pip-backdrop) !important;
+				box-shadow: var(--pip-shadow) !important;
+
+				&::-moz-range-track {
+					height: 6px !important;
+					border-radius: 5px !important;
+					background: transparent !important;
+				}
+
+				&::-moz-range-progress {
+					height: 6px !important;
+					border-radius: 3px 0 0 3px !important;
+					width: 100px !important;
+				}
+
+				&::-moz-range-thumb {
+					border: 4px solid var(--pip-background) !important;
+					backdrop-filter: var(--pip-backdrop) !important;
+				}
+			}
+
+			#audio-scrubber {
+				&::-moz-range-thumb {
+				width: 8px !important;
+				height: 8px !important;
+				opacity: 1 !important;
+				}
+			}
+
+			#settings, #closed-caption {
+				display: none !important;
+			}
+
+			button {
+				background-color: var(--natsumi-sdl2-haze-button-idle-color) !important;
+				transition: background-color 0.2s ease, box-shadow 0.2s ease !important;
+				box-shadow: var(--natsumi-sdl2-haze-button-idle-shadow);
+				-moz-context-properties: fill;
+				fill: light-dark(black, white) !important;
+				border-radius: 50% !important;
+				opacity: 1 !important;
+
+				&[disabled] {
+					cursor: default !important;
+					opacity: 0.5 !important;
+
+					&::after {
+						display: none !important;
+					}
+				}
+				&:not([disabled]) {
+					&:hover {
+						background-color: var(--natsumi-sdl2-haze-button-hover-color) !important;
+					}
+
+					&:active, &[aria-expanded="true"] {
+						background-color: var(--natsumi-sdl2-haze-button-active-color) !important;
+					}
+				}
+			}
+
+			.controls-bottom-upper {
+				margin: 0 !important;
+				margin-bottom: 5px !important;
+				width: 100% !important;
+				height: fit-content !important;
+
+				.scrubber-no-drag {
+					margin: 0 !important;
+				}
+
+				&:has(#scrubber[hidden]) {
+					display: none !important;
+					margin: 0 !important;
+				}
+			}
+
+			.controls-bottom-lower {
+				margin: 0 !important;
+			}
+		}
+	}
+
+	body:fullscreen #controls[showing]:hover, body:not(:fullscreen) #controls:hover {
+		#controls-bottom-gradient {
+			opacity: 1 !important;
+		}
+
+		& > button {
+			opacity: 1 !important;
+			top: 10px !important;
+			filter: blur(0) !important;
+		}
+
+		#controls-bottom {
+			opacity: 1 !important;
+			bottom: 0px !important;
+			filter: blur(0);
+		}
+	}
+
+	body:fullscreen {
+		&:has(#controls:not([showing])) {
+			cursor: none !important;
+		}
+	}
+}

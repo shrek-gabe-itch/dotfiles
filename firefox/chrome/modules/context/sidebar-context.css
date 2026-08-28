@@ -1,0 +1,14 @@
+#placesContext_open,							/* Open								*/
+#placesContext_openBookmarkContainer\:tabs,		/* Open All Bookmarks				*/
+#placesContext_openBookmarkLinks\:tabs,			/* Open All Bookmarks				*/
+#placesContext_open\:newtab,					/* Open in a New Tab				*/
+#placesContext_openContainer\:tabs,				/* Open All in Tabs (folder)		*/
+#placesContext_openLinks\:tabs,					/* Open All in Tabs (selected tabs)	*/
+#placesContext_open\:newwindow,					/* Open in a New Window				*/
+#placesContext_open\:newprivatewindow,			/* Open in a New Private Window		*/
+#placesContext_openSeparator,					/* Separator						*/
+#placesContext_sortBy\:name,					/* Sort By Name						*/
+#placesContext_editSeparator,					/* Separator						*/
+#placesContext_createBookmark,					/* Bookmark Page					*/
+#leave_this_dummy_here
+	{display:none !important;}

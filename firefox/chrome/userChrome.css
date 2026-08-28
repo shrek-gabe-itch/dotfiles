@@ -1,12 +1,15 @@
-@import "tabs.css";
-@import "findbar.css";
-@import "context.css";
-@import "bookmarks.css";
-@import "extensions.css";
-@import "urlbar.css";
+@import "modules/tabs.css";
+@import "modules/findbar.css";
+@import "modules/context.css";
+@import "modules/bookmarks.css";
+@import "modules/extensions.css";
+@import "modules/urlbar.css";
+@import "modules/pip.css";
+@import "modules/icons.css";
+
 
 /* MacOS window control buttons */
-.titlebar-buttonbox {
+/* .titlebar-buttonbox {
 	position: relative;
 	margin-right: 0px;
 }
@@ -39,7 +42,7 @@
 }
 .titlebar-min, .titlebar-restore, .titlebar-max, .titlebar-close {
 	background-color: transparent !important;
-}
+} */
 
 /* Hide bottom hovered link  */
 #statuspanel[type=overLink] {
@@ -47,39 +50,51 @@
 }
 
 /* Round pages and toolbar */
-@media -moz-pref("userChrome.rounded.style1") {
-	/* Rounded corners in pages */
-	.browserStack>browser{
-		border-radius: 10px 10px 0 0 !important;
-	}
-	.browserContainer, .browserStack, #browser{
-		background-color: var(--toolbar-bgcolor) !important;
-	}
+@media (-moz-pref("userChrome.rounded.style1")) {
 	/* Rounded corner in toolbar */
-	#nav-bar, #PersonalToolbar {
+	#nav-bar {
 		border-radius: 10px 10px 0 0 !important;
 	}
 	#navigator-toolbox {
 		border-bottom: unset !important;
 	}
 }
-@media -moz-pref("userChrome.rounded.style2") {
-	/* Rounded corner in pages */
-	.browserStack>browser{
-		border-radius: 10px !important;
-	}
-	.browserContainer {
-		padding: 5px !important;
-	}
-	/* Rounded corners in toolbar */
-	#nav-bar, #PersonalToolbar {
-		border-radius: 10px !important;
-		margin-inline: 5px !important;
-	}
-	.browserContainer, .browserStack, #browser {
-		background-color: var(--lwt-accent-color) !important;
-	}
-	#navigator-toolbox {
-		border-bottom: unset !important;
+
+/* Hide the inactive items in Context Menu */
+/* @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");	 */
+@media (-moz-pref("userChrome.hide.inactive.menu")) {
+	#tabContextMenu > menuitem[disabled],
+	contentAreaContextMenu > menuitem[disabled],
+	#open-tab-group-context-menu > menuitem[disabled],
+	#allTabsMenu-allTabsView .panel-subview-body > toolbarbutton[disabled] {
+	visibility: collapse !important;
 	}
 }
+/* UserJS fixes */
+#ucjs-undo-close-tab-button1 image {
+	padding: 6px !important;
+}
+#memoryUsageButton .toolbarbutton-text {
+	color: var(--toolbarbutton-icon-fill) !important;
+}
+
+/* @-moz-document url(moz-extension://73456cd2-4c66-4841-9c2a-37300014207f/index.html) {
+        .is-theme-style-dark body, .is-theme-style-light body, html.is-theme-style-dark, html.is-theme-style-light {
+            background-color: rgba(0, 0, 0, 0.0) !important;
+    }
+} */
+
+/* NOVA redesign remove gaps */
+/* :root {
+  --chrome-window-gap: 0px !important;
+  --chrome-block-radius: 0px !important;
+  --chrome-content-separator-color: transparent !important;
+}
+
+.chrome-block {
+  border: 0px !important;
+}
+
+.browserContainer {
+  border: 0px !important;
+} */

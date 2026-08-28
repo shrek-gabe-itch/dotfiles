@@ -1,0 +1,17 @@
+#toolbar-context-menu #toolbar-context-reloadSelectedTab,
+#toolbar-context-menu #toolbar-context-openANewTab,
+#toolbar-context-menu #toolbar-context-openANewTab + menuseparator,
+#toolbar-context-menu #toolbar-context-selectAllTabs,
+#toolbar-context-menu #toolbar-context-bookmarkSelectedTab,
+#toolbar-context-menu #toolbar-context-undoCloseTab + menuseparator,
+#toolbar-context-menu #toggle_PersonalToolbar,
+[data-l10n-id="origin-controls-options"],									/* Extension Can Read and Change Data	*/
+#toolbar-context-menu .customize-context-reportExtension,					/* Report Extension						*/
+#toolbar-context-menu .customize-context-reportExtension + menuseparator,	/* Seperator							*/
+#toolbar-context-menu .customize-context-moveToPanel,						/* Pin to Overflow Menu					*/
+#toolbar-context-menu #toolbarItemsMenuSeparator,							/* Seperator							*/
+#toolbar-context-menu #toggle_toolbar-menubar,								/* Menu Bar								*/
+#toolbar-context-menu #viewToolbarsMenuSeparator,							/* Seperator							*/
+#toolbar-context-menu #viewCustomizeToolbar,								/* Customize Toolbar...					*/
+#leave_this_dummy_here
+	{display:none !important;}

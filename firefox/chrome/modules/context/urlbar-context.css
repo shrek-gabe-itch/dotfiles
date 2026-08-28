@@ -1,0 +1,8 @@
+#urlbar menuitem[cmd="cmd_undo"],					/* Undo			*/
+#urlbar menuitem[cmd="cmd_redo"],					/* Redo			*/
+menupopup.textbox-contextmenu > menuseparator,		/* Separator	*/
+#urlbar menuitem[cmd="cmd_delete"],					/* Delete		*/
+#urlbar menuitem[cmd="cmd_selectAll"],				/* Select All	*/
+#urlbar .context-menu-add-engine,
+#leave_this_dummy_here
+	{display:none !important;}

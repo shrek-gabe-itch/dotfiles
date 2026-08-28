@@ -1,0 +1,12 @@
+#spell-suggestions-separator,			/* Separator						*/
+#context-undo,							/* Undo								*/
+#context-redo,							/* Redo								*/
+#context-sep-redo,						/* Separator						*/
+#context-delete,						/* Delete							*/
+#context-selectall,						/* Select All						*/
+#context-keywordfield,					/* Add a Keyword for this Search...	*/
+#spell-separator,						/* Separator						*/
+#spell-check-enabled,					/* Check Spelling					*/
+#context-sep-bidi,						/* eparator							*/
+#leave_this_dummy_here
+	{display:none !important;}

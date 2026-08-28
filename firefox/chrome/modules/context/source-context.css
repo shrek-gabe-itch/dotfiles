@@ -1,0 +1,5 @@
+#context-savepage,				/* Save Page As...		*/
+#context-selectall,				/* Select All			*/
+#context-viewsource,			/* View Page Source		*/
+#leave_this_dummy_here
+	{display:none !important;}

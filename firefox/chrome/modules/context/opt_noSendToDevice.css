@@ -1,0 +1,9 @@
+#context-sendpagetodevice,
+#context-sep-sendpagetodevice,
+#context-sendlinktodevice,
+#context-sep-sendlinktodevice,
+#context_sendTabToDevice,
+#context_sendTabToDeviceSeparator,
+#pageAction-panel-sendToDevice,
+#leave_this_dummy_here
+	{display: none !important;}

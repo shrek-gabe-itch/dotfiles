@@ -1,0 +1,5 @@
+#sidebar-switcher-tabs,							/* Synced Tabs			*/
+#sidebar-reverse-position + menuseparator,		/* Separator			*/
+#sidebar-menu-close,							/* Close Sidebar		*/
+#leave_this_dummy_here
+	{display:none !important;}

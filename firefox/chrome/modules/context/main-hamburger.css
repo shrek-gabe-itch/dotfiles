@@ -1,0 +1,22 @@
+#PanelUI-fxa-menu-empty-profiles-button,
+#appMenu-new-tab-button2,												/* New Tab						*/
+#appMenu-print-button2,    												/* Print...						*/
+#appMenu-save-file-button2,												/* Save Page As...				*/
+#appMenu-find-button2,													/* Find In Page...				*/
+#appMenu-zoom-controls,													/* Zoom							*/
+#appMenu-zoom-controls + toolbarseparator,								/* Separator					*/
+#panelMenu_bookmarksMenu, #panelMenu_recentBookmarks,					/* Bookmarks list				*/
+#appMenu_historyMenu, #panelMenu_recentHistory,							/* History list					*/
+#appmenu-moreTools > vbox > #appmenu-edit-pdf-button,					/* Edit PDF...					*/
+#PanelUI-helpItems > #appMenu_menu_openHelp,							/* Get Help						*/
+#PanelUI-helpItems > #appMenu_feedbackPage,								/* Submit Feedback...			*/
+#PanelUI-helpItems > #appMenu_helpSafeMode,								/* Troubleshoot Mode...			*/
+#PanelUI-helpItems > #appMenu_help_reportSiteIssue,						/* Report Site Issue...			*/
+#PanelUI-helpItems > #appMenu_menu_HelpPopup_reportPhishingtoolmenu,	/* Report Deceptive Site...		*/
+#appMenu_helpSwitchDevice,												/* Switching to a new device	*/
+#appMenu-report-broken-site-button,										/* Report broken site			*/
+#appMenu-help-button2 + toolbarseparator,								/* Separator					*/
+#appMenu-referrals-button + toolbarseparator,							/* Separator					*/
+#appMenu-quit-button2,													/* Exit							*/
+#leave_this_dummy_here
+	{display:none !important;}

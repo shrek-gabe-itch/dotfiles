@@ -1,0 +1,6 @@
+#context-sendimage,					/* Email Image...					*/
+#context-visual-search,				/* Search Image with Google Lens	*/
+#context-sep-setbackground,			/* Separator						*/
+#context-setDesktopBackground,		/* Set As Desktop Background...		*/
+#leave_this_dummy_here
+	{display:none !important;}

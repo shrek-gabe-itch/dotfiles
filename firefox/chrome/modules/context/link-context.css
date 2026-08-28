@@ -1,0 +1,10 @@
+#context-openlinkintab,				/* Open Link in New Tab				*/
+#context-openlinkinsplitview,		/* Open Link in Split View			*/
+#context-openlink,					/* Open Link in New Window			*/
+#context-openlinkprivate,			/* Open Link in New Private Window	*/
+#context-sep-open,					/* Separator						*/
+#context-bookmarklink,				/* Bookmark Link					*/
+#context-savelink,					/* Save Link As...					*/
+#context-searchselect,				/* Search [Google] for "[selected]"	*/
+#leave_this_dummy_here
+	{display:none !important;}

@@ -1,0 +1,75 @@
+@import "context/tab-context.css"; 
+@import "context/link-context.css";
+@import "context/image-context.css";
+@import "context/input-context.css";
+@import "context/media-context.css";
+@import "context/select-context.css";
+@import "context/sidebar-header.css";
+@import "context/source-context.css";
+@import "context/urlbar-context.css";
+@import "context/main-hamburger.css";
+@import "context/sidebar-context.css";
+@import "context/toolbar-context.css";
+@import "context/opt_noSendToDevice.css";
+
+/* Context menu colors */
+/* :root, html, body {
+	--bg: var(--toolbar-field-background-color);
+	--hover: var(--toolbarbutton-icon-fill);
+	--border: var(--toolbarbutton-icon-fill);
+}
+
+* :not(.autoscroller) {
+	--toolbarbutton-hover-background: color-mix(in srgb, var(--hover), transparent 80%) !important;
+	--toolbarbutton-active-background: color-mix(in srgb, var(--hover), transparent 70%) !important;
+	--button-text-color-ghost-hover: var(--border) !important;
+	--button-text-color-ghost-active: var(--hover) !important;
+	--button-background-color-ghost-hover: color-mix(in srgb, var(--hover), transparent 80%) !important;
+	--panel-background: light-dark(var(--tab-selected-bgcolor), var(--bg)) !important;
+}
+menu, menuitem {
+    &:where([_moz-menuactive]:not([disabled])){
+        color: var(--hover) !important;
+        background-color: color-mix(in srgb, var(--hover), transparent 80%) !important;
+    }
+}
+.menupopup-arrowscrollbox {
+	border: unset !important;
+}
+:is(menupopup, panel):where(:not([type="arrow"])) {
+  --panel-background-color: var(--toolbar-field-background-color) !important;
+} */
+
+/* :is(menupopup, panel) {
+  &::part(content) {
+	background: light-dark(var(--tab-selected-bgcolor), var(--bg)) !important;
+	}
+} */
+
+
+/* Reorder right-click menu action buttons */
+#context-back {
+	order: 1;
+}
+#context-reload {
+	order: 2 !important;
+}
+#context-stop {
+	order: 2 !important;
+}
+#context-forward {
+	order: 3;
+}
+#context-bookmarkpage {
+	order: 4;
+}
+
+/* Widder empty right-click menu */
+menupopup {
+	min-width: 200px !important;
+}
+
+/* Hide Open All in Tabs button in bookmarks folder */
+#PlacesToolbarItems :is(.bookmarks-actions-menuseparator, .openintabs-menuitem) {
+	display: none !important;
+}

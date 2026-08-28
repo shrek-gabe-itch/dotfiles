@@ -275,18 +275,21 @@ imp = !important
 			display: none
 
 	if noAds
-		#ads_wrapper												// left menu ads
+		#ads_wrapper																		// left menu ads
 		div.page_block.apps_feedRightAppsBlock												// righ menu ads
 		#friends_right_blocks_root
 		[data-testid="feed_apps_right_block"]
-		div.CatalogSection:has([data-type="catalog_banners"])		// VK music
-		div[role="feed"] > article:not(:has(div[data-post-id]))
+		div.CatalogSection:has([data-type="catalog_banners"])								// VK music
+		[data-testid="subscriptionbanner"]															
+		[data-testid="subscriptionbanner"] + [style="--vkit_internal--spacing_gap_size: 16px;"]
+		div[role="feed"] > article:not(:has(div[data-post-id]))								// news feed ads
 		//div[role="feed"] > article:has([class*="vkitPostSkeleton__root"])
 		//div[role="feed"] > article:has([class*="vkitPostSkeleton__root"]) *
 		div[role="feed"] > article:has(div[data-promopost-ad-selector])
 		div[role="feed"] > article:has(div[data-promopost-ad-selector]) *
 		div[role="feed"] > article:has([data-testid="post-header-subscription-button"])
 		div[role="feed"] > article:has([class*="vkitAvatarStack"])
+
 			display: none imp
 			
 	// MUSIC

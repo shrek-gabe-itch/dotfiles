@@ -1,0 +1,4 @@
+content userchromejs ./
+content userscripts ../fx-autoconfig/JS/
+skin userstyles classic/1.0 ../fx-autoconfig/CSS/
+content userchrome ../fx-autoconfig/resources/

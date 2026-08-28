@@ -1,0 +1,186 @@
+@media (-moz-pref("userChrome.floating.findbar.default")) {
+	findbar {
+		position: fixed !important;
+		top: 20px !important;
+		right: 16px !important;
+		height: 40px !important;
+		z-index: 1000 !important;
+		min-width: 55% !important;
+		display: flex !important;
+		padding: 6px 10px !important;
+		/* background: light-dark(rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.8)) !important; */
+		border-radius: 8px !important;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6) !important;
+		border-top: 0px !important
+	}
+	:has(.browserSidebarContainer.deck-selected > .browserContainer > findbar:not([hidden])) #zen-tabbox-wrapper::before {
+		opacity: 1 !important;
+		width: 71.5%;
+	}
+	:has(.browserSidebarContainer.deck-selected > .browserContainer > findbar[hidden]) #zen-tabbox-wrapper::before {
+		opacity: 0 !important;
+		width: 71.5%;
+	}
+	findbar:not[hidden] {
+		visibility: visible !important;
+		animation: findbar-show-animation 0.3s ease-out forwards !important;
+	}
+	findbar[hidden] {
+		opacity: 0 !important;
+		transform: scale(0.95) !important;
+		pointer-events: none !important;
+		visibility: hidden !important;
+		transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s !important;
+	}
+	.findbar-textbox {
+		flex-grow: 1 !important;
+		min-width: 230px !important;
+		background: transparent !important;
+		color: inherit !important;
+		border: none !important;
+		outline: none !important;
+		font-size: 14px !important;
+		padding: 4px 10px !important;
+		box-shadow: none !important;
+	}
+	findbar toolbarbutton {
+		background: light-dark(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.15)) !important;
+		border-radius: 6.5px !important;
+		transition: background 0.2s ease, transform 0.1s ease-out !important;
+	}
+	findbar .findbar-find-previous,
+	findbar .findbar-find-next {
+		align-self: center;
+		width: 20px !important;
+		height: 20px !important;
+		padding: 2px !important;
+		font-size: 10px !important;
+	}
+	.findbar-find-previous {
+		margin-right: 4px !important;
+	}
+	findbar .findbar-close {
+		width: 18px !important;
+		height: 18px !important;
+		padding: 2px !important;
+		font-size: 10px !important;
+		margin-left: auto !important;
+	}
+	findbar toolbarbutton:active {
+		transform: scale(0.92) !important;
+	}
+}
+
+@media (-moz-pref("userChrome.floating.findbar.foxone")) {
+    findbar {
+        position: absolute !important;
+        top: 16px !important;
+        left: 16px !important;
+        right: 16px !important;
+        width: 624px !important;
+        max-width: calc(100vw - 16px) !important;
+        margin-left: auto !important;
+        border: none !important;
+        border-radius: 6px !important;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2) !important;
+        opacity: 1 !important;
+        transform-origin: top !important;
+        transform: scaleY(1) translateY(0px) !important;
+        transition: opacity 100ms ease-out, transform 100ms ease-out, visibility 0s step-end !important;
+    }
+    findbar[hidden] {
+        opacity: 0 !important;
+        transform: scaleY(0.96) translateY(-4px) !important;
+        transition-delay: 0s, 0s, 100ms !important;
+    }
+    .findbar-textbox {
+        width: 368px !important;
+        min-width: 368px !important;
+        border: none !important;
+        border-radius: 8px !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    .findbar-textbox:not([status]),
+    .findbar-textbox:not(:focus, [status]):hover {
+        background-color: transparent !important;
+    }
+    label.found-matches {
+        position: absolute !important;
+        right: calc(100% - 368px) !important;
+        text-align: right !important;
+        margin: 0px !important;
+    }
+    .findbar-label:not(.found-matches) {
+        display: none !important;
+    }
+    .findbar-container > checkbox {
+        display: grid !important;
+        justify-items: center !important;
+        margin-left: 0px !important;
+        overflow: hidden !important;
+    }
+    .findbar-container > checkbox * {
+        display: none !important;
+    }
+    .findbar-highlight,
+    .findbar-case-sensitive,
+    .findbar-match-diacritics,
+    .findbar-entire-word {
+        width: 30px !important;
+        height: 24px !important;
+        margin-right: 4px !important;
+    }
+    .findbar-highlight {
+        order: 0 !important;
+    }
+    .findbar-case-sensitive {
+        order: var(--match-case-position) !important;
+    }
+    .findbar-match-diacritics {
+        order: var(--match-diacritics-position) !important;
+    }
+    .findbar-entire-word {
+        order: var(--whole-words-position) !important;
+    }
+    .findbar-highlight::before {
+        content: "[ab]";
+        font-weight: bold;
+    }
+    .findbar-case-sensitive::before {
+        content: "Aa";
+        font-weight: bold;
+    }
+    .findbar-match-diacritics::before {
+        content: "aá";
+        font-weight: bold;
+    }
+    .findbar-entire-word::before {
+        content: "ab";
+        font-weight: bold;
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .findbar-entire-word::after {
+        content: "";
+        width: 1.3em;
+        height: 0.2em;
+        margin-bottom: -1em;
+        border-left: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .findbar-container > checkbox:not([checked]):hover {
+        background-color: transparent !important;
+        color: #ffda85 !important;
+    }
+    .findbar-container > checkbox[checked] {
+        background-color: transparent !important;
+        color: #fabd2f !important;
+    }
+    .findbar-closebutton {
+        margin-left: 4px !important;
+    }
+}

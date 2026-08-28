@@ -1,0 +1,15 @@
+#tabContextMenu #context_openANewTab,						/* New Tab							*/
+#tabContextMenu #context_openANewTab + menuseparator,		/* Separator						*/
+#tabContextMenu #context_reloadTab,							/* Reload Tab						*/
+#tabContextMenu #context_duplicateTab,						/* Duplicate Tab					*/
+#tabContextMenu #context_duplicateTabs,						/* Duplicate Tabs					*/
+#tabContextMenu #context_bookmarkTab,						/* Bookmark Tab						*/
+#tabContextMenu #context_moveTabOptions,					/* Move Tab							*/
+#tabContextMenu .share-tab-url-item,						/* Share tab URL via 3rd party app	*/
+#tabContextMenu #context_selectAllTabs,						/* Select All Tabs					*/
+#tabContextMenu #context_selectAllTabs + menuseparator,		/* Separator						*/
+#tabContextMenu #context_closeTab,							/* Close Tab						*/
+#tabContextMenu #context_closeTabOptions,					/* Close Multiple Tabs				*/
+#tab-group-main #tabGroupEditor_addNewTabInGroup,			/* New tab in group					*/
+#leave_this_dummy_here
+	{display:none !important;}
